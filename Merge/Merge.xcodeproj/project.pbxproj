@@ -10,7 +10,6 @@
 		9E7137270E3E8051B4DC39B5 /* Pods_Merge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ECA8FD5C0F854002441B979 /* Pods_Merge.framework */; };
 		D06EC30C20F66F4000DFFE5D /* FirstLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06EC30B20F66F4000DFFE5D /* FirstLoginVC.swift */; };
 		D09E60E2206A9DA1008E5E0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09E60E1206A9DA1008E5E0B /* AppDelegate.swift */; };
-		D09E60E4206A9DA1008E5E0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09E60E3206A9DA1008E5E0B /* ViewController.swift */; };
 		D09E60E7206A9DA1008E5E0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D09E60E5206A9DA1008E5E0B /* Main.storyboard */; };
 		D09E60EA206A9DA1008E5E0B /* Merge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D09E60E8206A9DA1008E5E0B /* Merge.xcdatamodeld */; };
 		D09E60EC206A9DA1008E5E0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D09E60EB206A9DA1008E5E0B /* Assets.xcassets */; };
@@ -70,7 +69,6 @@
 		D06EC30B20F66F4000DFFE5D /* FirstLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLoginVC.swift; sourceTree = "<group>"; };
 		D09E60DE206A9DA1008E5E0B /* Merge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Merge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D09E60E1206A9DA1008E5E0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D09E60E3206A9DA1008E5E0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D09E60E6206A9DA1008E5E0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D09E60E9206A9DA1008E5E0B /* Merge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Merge.xcdatamodel; sourceTree = "<group>"; };
 		D09E60EB206A9DA1008E5E0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -211,7 +209,6 @@
 				D0F1C35620F59F1900E3A9BA /* ViewControllers */,
 				D0F1C31C20F59D5F00E3A9BA /* Helpers */,
 				D09E60E1206A9DA1008E5E0B /* AppDelegate.swift */,
-				D09E60E3206A9DA1008E5E0B /* ViewController.swift */,
 				D09E60E5206A9DA1008E5E0B /* Main.storyboard */,
 				D09E60EB206A9DA1008E5E0B /* Assets.xcassets */,
 				D09E60ED206A9DA1008E5E0B /* LaunchScreen.storyboard */,
@@ -540,7 +537,6 @@
 				D0F1C34720F59D5F00E3A9BA /* CLNetworkManager.swift in Sources */,
 				D0F1C33F20F59D5F00E3A9BA /* ArtistInfoManager.swift in Sources */,
 				D0F1C34020F59D5F00E3A9BA /* EventsManager.swift in Sources */,
-				D09E60E4206A9DA1008E5E0B /* ViewController.swift in Sources */,
 				D0F1C34520F59D5F00E3A9BA /* AlwisalApiUrls.swift in Sources */,
 				D0F1C35520F59D6000E3A9BA /* AlwisalUtility.swift in Sources */,
 				D0F1C34820F59D5F00E3A9BA /* CLNetworkModel.swift in Sources */,
