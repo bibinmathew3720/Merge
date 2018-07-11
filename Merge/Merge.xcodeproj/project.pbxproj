@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9E7137270E3E8051B4DC39B5 /* Pods_Merge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ECA8FD5C0F854002441B979 /* Pods_Merge.framework */; };
+		D06EC30C20F66F4000DFFE5D /* FirstLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06EC30B20F66F4000DFFE5D /* FirstLoginVC.swift */; };
 		D09E60E2206A9DA1008E5E0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09E60E1206A9DA1008E5E0B /* AppDelegate.swift */; };
 		D09E60E4206A9DA1008E5E0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09E60E3206A9DA1008E5E0B /* ViewController.swift */; };
 		D09E60E7206A9DA1008E5E0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D09E60E5206A9DA1008E5E0B /* Main.storyboard */; };
@@ -66,6 +67,7 @@
 		111EC436B6736B0FA6E6FABE /* Pods-Merge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Merge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Merge/Pods-Merge.debug.xcconfig"; sourceTree = "<group>"; };
 		2ECA8FD5C0F854002441B979 /* Pods_Merge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Merge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		713FF6B29375A62245A2B1BC /* Pods-Merge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Merge.release.xcconfig"; path = "Pods/Target Support Files/Pods-Merge/Pods-Merge.release.xcconfig"; sourceTree = "<group>"; };
+		D06EC30B20F66F4000DFFE5D /* FirstLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLoginVC.swift; sourceTree = "<group>"; };
 		D09E60DE206A9DA1008E5E0B /* Merge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Merge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D09E60E1206A9DA1008E5E0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D09E60E3206A9DA1008E5E0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +144,45 @@
 				2ECA8FD5C0F854002441B979 /* Pods_Merge.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D06EC30620F66DEB00DFFE5D /* UserManagementModule */ = {
+			isa = PBXGroup;
+			children = (
+				D06EC30D20F66FC800DFFE5D /* LogInVC */,
+				D06EC30E20F66FC900DFFE5D /* RegisterVC */,
+				D06EC30720F66E1200DFFE5D /* FirstLoginVC */,
+			);
+			path = UserManagementModule;
+			sourceTree = "<group>";
+		};
+		D06EC30720F66E1200DFFE5D /* FirstLoginVC */ = {
+			isa = PBXGroup;
+			children = (
+				D06EC30B20F66F4000DFFE5D /* FirstLoginVC.swift */,
+			);
+			path = FirstLoginVC;
+			sourceTree = "<group>";
+		};
+		D06EC30820F66F1A00DFFE5D /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BaseViewController;
+			sourceTree = "<group>";
+		};
+		D06EC30D20F66FC800DFFE5D /* LogInVC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LogInVC;
+			sourceTree = "<group>";
+		};
+		D06EC30E20F66FC900DFFE5D /* RegisterVC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RegisterVC;
 			sourceTree = "<group>";
 		};
 		D09E60D5206A9DA1008E5E0B = {
@@ -282,6 +323,8 @@
 		D0F1C35620F59F1900E3A9BA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D06EC30820F66F1A00DFFE5D /* BaseViewController */,
+				D06EC30620F66DEB00DFFE5D /* UserManagementModule */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -493,6 +536,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0F1C34120F59D5F00E3A9BA /* LandingPageManager.swift in Sources */,
+				D06EC30C20F66F4000DFFE5D /* FirstLoginVC.swift in Sources */,
 				D0F1C34720F59D5F00E3A9BA /* CLNetworkManager.swift in Sources */,
 				D0F1C33F20F59D5F00E3A9BA /* ArtistInfoManager.swift in Sources */,
 				D0F1C34020F59D5F00E3A9BA /* EventsManager.swift in Sources */,
