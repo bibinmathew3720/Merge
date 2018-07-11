@@ -31,7 +31,15 @@ class CLNetworkManager: NSObject {
                     if let error_ = error{
                         DispatchQueue.main.async(execute: {[weak self] () -> () in
                             let errorReceived = error_ as NSError
-                            failiure( (self?.getErrorTypeFromCode(errorCode: errorReceived.code))!)
+                            if(errorReceived.code == -1004){
+                                failiure(.internalServerError)
+                            }
+                            else if (errorReceived.code == -2103){
+                                failiure(.internalServerError)
+                            }
+                            else{
+                                failiure( (self?.getErrorTypeFromCode(errorCode: errorReceived.code))!)
+                            }
                             
                         })
                     }else{
