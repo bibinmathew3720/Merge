@@ -29,13 +29,13 @@ class LogInVC: UIViewController,UITextFieldDelegate {
     }
     
     func settingBorderToView(view:UIView){
-        view.layer.borderColor = UIColor.lightGray.cgColor
+        view.layer.borderColor = Constant.Colors.commonGrayColor.cgColor
         view.layer.borderWidth = 0.5
     }
     
     func settingBordrToRegisterButton(){
         self.registerButton.layer.borderWidth = 0.5
-        self.registerButton.layer.borderColor = UIColor.blue.cgColor
+        view.layer.borderColor = Constant.Colors.commonGreenColor.cgColor
     }
     
     //MARK: Button Actions

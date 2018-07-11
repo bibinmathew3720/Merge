@@ -57,6 +57,9 @@
                                                 <state key="normal" title="REGISTER">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="fg4-42-cHa" kind="show" id="AgP-Pb-k4v"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or login with" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucK-t2-jAh">
                                                 <rect key="frame" x="150" y="336.5" width="74.5" height="17"/>
@@ -283,6 +286,9 @@
                                                         <integer key="value" value="3"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <segue destination="fg4-42-cHa" kind="show" id="7jv-Tc-xoZ"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDi-4Y-Jwp">
                                                 <rect key="frame" x="226" y="439.5" width="128" height="29"/>
@@ -366,13 +372,151 @@
                     <view key="view" contentMode="scaleToFill" id="bZn-WV-cyn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7dh-tn-u3V">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DGt-S7-Gzd">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="602"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="EOf-Kp-Epx">
+                                                <rect key="frame" x="98" y="160" width="178" height="61"/>
+                                            </imageView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dhf-2H-Nro">
+                                                <rect key="frame" x="20" y="281" width="334" height="40"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ENTER YOUR EMAIL" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LAi-C8-seV">
+                                                        <rect key="frame" x="0.0" y="0.0" width="334" height="40"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="13"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="IHz-wJ-G3A" id="MVM-G1-kE3"/>
+                                                        </connections>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="LAi-C8-seV" secondAttribute="trailing" id="3We-xZ-Auw"/>
+                                                    <constraint firstItem="LAi-C8-seV" firstAttribute="top" secondItem="Dhf-2H-Nro" secondAttribute="top" id="9O7-7g-g15"/>
+                                                    <constraint firstItem="LAi-C8-seV" firstAttribute="leading" secondItem="Dhf-2H-Nro" secondAttribute="leading" id="Ksc-E5-UqK"/>
+                                                    <constraint firstAttribute="height" constant="40" id="sXw-hm-f9k"/>
+                                                    <constraint firstAttribute="bottom" secondItem="LAi-C8-seV" secondAttribute="bottom" id="t9E-aZ-fvx"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logInButtonBg" translatesAutoresizingMaskIntoConstraints="NO" id="VHm-FR-OKl">
+                                                <rect key="frame" x="20" y="329" width="334" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="0fY-JF-mRY"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qz5-p2-nUv">
+                                                <rect key="frame" x="20" y="329" width="334" height="40"/>
+                                                <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="14"/>
+                                                <state key="normal" title="RESET PASSWORD">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="logInButtonAction:" destination="E3N-mJ-RHt" eventType="touchUpInside" id="vKd-4w-838"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Sn-5I-pt7">
+                                                <rect key="frame" x="20" y="389" width="100" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="6AV-sU-n6U"/>
+                                                    <constraint firstAttribute="width" constant="100" id="RMx-Xg-FRk"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="12"/>
+                                                <state key="normal" title="BACK TO LOGIN">
+                                                    <color key="titleColor" red="0.22352941179999999" green="0.76862745099999996" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="backToLogInButtonAction:" destination="IHz-wJ-G3A" eventType="touchUpInside" id="bXD-fE-uDR"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="0Sn-5I-pt7" firstAttribute="leading" secondItem="Qz5-p2-nUv" secondAttribute="leading" id="1MP-Vi-JwG"/>
+                                            <constraint firstItem="VHm-FR-OKl" firstAttribute="top" secondItem="Dhf-2H-Nro" secondAttribute="bottom" constant="8" id="7VK-Kj-QZq"/>
+                                            <constraint firstItem="Qz5-p2-nUv" firstAttribute="bottom" secondItem="VHm-FR-OKl" secondAttribute="bottom" id="9fB-Dh-RLX"/>
+                                            <constraint firstItem="Qz5-p2-nUv" firstAttribute="top" secondItem="VHm-FR-OKl" secondAttribute="top" id="DZh-M9-BtN"/>
+                                            <constraint firstItem="Dhf-2H-Nro" firstAttribute="centerY" secondItem="DGt-S7-Gzd" secondAttribute="centerY" id="K99-Q7-Xut"/>
+                                            <constraint firstItem="Qz5-p2-nUv" firstAttribute="leading" secondItem="VHm-FR-OKl" secondAttribute="leading" id="UZr-Nh-OJV"/>
+                                            <constraint firstItem="VHm-FR-OKl" firstAttribute="trailing" secondItem="Dhf-2H-Nro" secondAttribute="trailing" id="Uwb-JY-RGp"/>
+                                            <constraint firstItem="0Sn-5I-pt7" firstAttribute="top" secondItem="Qz5-p2-nUv" secondAttribute="bottom" constant="20" id="YiW-FQ-dgu"/>
+                                            <constraint firstItem="EOf-Kp-Epx" firstAttribute="centerX" secondItem="DGt-S7-Gzd" secondAttribute="centerX" id="agg-rR-ODW"/>
+                                            <constraint firstItem="Dhf-2H-Nro" firstAttribute="top" secondItem="EOf-Kp-Epx" secondAttribute="bottom" constant="60" id="cAu-OD-P7e"/>
+                                            <constraint firstItem="VHm-FR-OKl" firstAttribute="leading" secondItem="Dhf-2H-Nro" secondAttribute="leading" id="djE-Ux-0dw"/>
+                                            <constraint firstItem="Dhf-2H-Nro" firstAttribute="leading" secondItem="DGt-S7-Gzd" secondAttribute="leading" constant="20" id="eqe-FO-Duq"/>
+                                            <constraint firstItem="Qz5-p2-nUv" firstAttribute="trailing" secondItem="VHm-FR-OKl" secondAttribute="trailing" id="fQU-PF-o6D"/>
+                                            <constraint firstAttribute="trailing" secondItem="Dhf-2H-Nro" secondAttribute="trailing" constant="20" id="gTa-2H-C5d"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="DGt-S7-Gzd" secondAttribute="trailing" id="4bN-AD-ODS"/>
+                                    <constraint firstItem="DGt-S7-Gzd" firstAttribute="centerX" secondItem="7dh-tn-u3V" secondAttribute="centerX" id="h4e-nN-UgE"/>
+                                    <constraint firstItem="DGt-S7-Gzd" firstAttribute="top" secondItem="7dh-tn-u3V" secondAttribute="top" id="izT-pI-W4f"/>
+                                    <constraint firstItem="DGt-S7-Gzd" firstAttribute="centerY" secondItem="7dh-tn-u3V" secondAttribute="centerY" id="lI8-n6-E0H"/>
+                                    <constraint firstItem="DGt-S7-Gzd" firstAttribute="leading" secondItem="7dh-tn-u3V" secondAttribute="leading" id="nAz-ej-xIJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="DGt-S7-Gzd" secondAttribute="bottom" id="pYQ-US-V6D"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="8fI-ZL-sF2" appends="YES" id="sls-jU-OVt"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="7dh-tn-u3V" firstAttribute="leading" secondItem="Z9y-T2-CTn" secondAttribute="leading" id="AYF-QC-l3E"/>
+                            <constraint firstItem="Z9y-T2-CTn" firstAttribute="trailing" secondItem="7dh-tn-u3V" secondAttribute="trailing" id="R5b-V8-Lgq"/>
+                            <constraint firstItem="7dh-tn-u3V" firstAttribute="top" secondItem="Z9y-T2-CTn" secondAttribute="top" id="VJv-aC-rbu"/>
+                            <constraint firstItem="Z9y-T2-CTn" firstAttribute="bottom" secondItem="7dh-tn-u3V" secondAttribute="bottom" id="XUe-8Y-bsS"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Z9y-T2-CTn"/>
                     </view>
+                    <connections>
+                        <outlet property="backToLogInButton" destination="0Sn-5I-pt7" id="AZF-o7-D5f"/>
+                        <outlet property="emailTF" destination="LAi-C8-seV" id="Nwg-gn-nJL"/>
+                        <outlet property="emailView" destination="Dhf-2H-Nro" id="bjD-uG-Nj4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="my6-bF-oMN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="8fI-ZL-sF2">
+                    <connections>
+                        <action selector="tapGestureAction:" destination="IHz-wJ-G3A" id="m26-bg-gyp"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1654" y="-253"/>
+            <point key="canvasLocation" x="1653.5999999999999" y="-253.2233883058471"/>
+        </scene>
+        <!--RegisterVC-->
+        <scene sceneID="B2B-wx-Dey">
+            <objects>
+                <viewController id="fg4-42-cHa" customClass="RegisterVC" customModule="Merge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e1A-wt-8Sw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ZjF-bk-WHh"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="usC-ZA-0gU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2602" y="-235"/>
         </scene>
     </scenes>
     <resources>
@@ -382,4 +526,7 @@
         <image name="logo" width="178" height="61"/>
         <image name="registerButtonBg" width="150" height="28"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="AgP-Pb-k4v"/>
+    </inferredMetricsTieBreakers>
 </document>

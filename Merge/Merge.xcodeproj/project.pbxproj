@@ -11,6 +11,7 @@
 		D06EC30C20F66F4000DFFE5D /* FirstLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06EC30B20F66F4000DFFE5D /* FirstLoginVC.swift */; };
 		D06EC31020F6826100DFFE5D /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06EC30F20F6826100DFFE5D /* LogInVC.swift */; };
 		D06EC31320F68B4B00DFFE5D /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06EC31220F68B4B00DFFE5D /* ForgotPasswordVC.swift */; };
+		D06EC31520F690E500DFFE5D /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06EC31420F690E500DFFE5D /* RegisterVC.swift */; };
 		D09E60E2206A9DA1008E5E0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09E60E1206A9DA1008E5E0B /* AppDelegate.swift */; };
 		D09E60E7206A9DA1008E5E0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D09E60E5206A9DA1008E5E0B /* Main.storyboard */; };
 		D09E60EA206A9DA1008E5E0B /* Merge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D09E60E8206A9DA1008E5E0B /* Merge.xcdatamodeld */; };
@@ -71,6 +72,7 @@
 		D06EC30B20F66F4000DFFE5D /* FirstLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLoginVC.swift; sourceTree = "<group>"; };
 		D06EC30F20F6826100DFFE5D /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInVC.swift; sourceTree = "<group>"; };
 		D06EC31220F68B4B00DFFE5D /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
+		D06EC31420F690E500DFFE5D /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		D09E60DE206A9DA1008E5E0B /* Merge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Merge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D09E60E1206A9DA1008E5E0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D09E60E6206A9DA1008E5E0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 		D06EC30E20F66FC900DFFE5D /* RegisterVC */ = {
 			isa = PBXGroup;
 			children = (
+				D06EC31420F690E500DFFE5D /* RegisterVC.swift */,
 			);
 			path = RegisterVC;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				D0F1C33D20F59D5F00E3A9BA /* AlwisalStatusModel.swift in Sources */,
 				D0F1C34320F59D5F00E3A9BA /* PresenterModuleManager.swift in Sources */,
 				D06EC31020F6826100DFFE5D /* LogInVC.swift in Sources */,
+				D06EC31520F690E500DFFE5D /* RegisterVC.swift in Sources */,
 				D0F1C33E20F59D5F00E3A9BA /* ArticlesManager.swift in Sources */,
 				D0F1C34D20F59D5F00E3A9BA /* StringExtensions.swift in Sources */,
 				D0F1C34420F59D5F00E3A9BA /* UserModuleManager.swift in Sources */,

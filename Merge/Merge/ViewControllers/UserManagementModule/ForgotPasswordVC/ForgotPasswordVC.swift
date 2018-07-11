@@ -8,12 +8,30 @@
 
 import UIKit
 
-class ForgotPasswordVC: UIViewController {
-
+class ForgotPasswordVC: UIViewController,UITextFieldDelegate {
+    @IBOutlet weak var emailView: UIView!
+    @IBOutlet weak var emailTF: UITextField!
+    @IBOutlet weak var backToLogInButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.initialisation()
         // Do any additional setup after loading the view.
+    }
+    
+    func initialisation(){
+        settingBorderToView(view: emailView)
+        settingBordrToBackLoginButton()
+    }
+    
+    func settingBorderToView(view:UIView){
+        view.layer.borderColor = Constant.Colors.commonGrayColor.cgColor
+        view.layer.borderWidth = 0.5
+    }
+    
+    func settingBordrToBackLoginButton(){
+        self.backToLogInButton.layer.borderWidth = 0.5
+        view.layer.borderColor = Constant.Colors.commonGreenColor.cgColor
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,7 +39,23 @@ class ForgotPasswordVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    //MARK: Button Actions
+    
+    @IBAction func tapGestureAction(_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+    
+    @IBAction func backToLogInButtonAction(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    //MARK: Text Field Delegates
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     /*
     // MARK: - Navigation
 
