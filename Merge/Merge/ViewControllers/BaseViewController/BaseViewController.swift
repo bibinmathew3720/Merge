@@ -8,10 +8,7 @@
 
 import UIKit
 import MBProgressHUD
-class BaseViewController: UIViewController,NavigationViewDelegate,UITabBarControllerDelegate,PlayListViewDelegate,SongInfoViewDelegate {
-   
-    
-   var customNavigationView = CustomNavigationView()
+class BaseViewController: UIViewController,UITabBarControllerDelegate,PlayListViewDelegate,SongInfoViewDelegate {
     var playListView:PlaylistView!
     var songInfoView:SongInfoView!
     var blurEffectView:UIVisualEffectView?
@@ -49,20 +46,6 @@ class BaseViewController: UIViewController,NavigationViewDelegate,UITabBarContro
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func addingNavigationBarView(title:String, fromTabBar:Bool)->CustomNavigationView{
-        customNavigationView = (Bundle.main.loadNibNamed("CustomNavigationView", owner: self, options: nil)?.first as? CustomNavigationView)!
-        customNavigationView.navigationViewDelegate = self
-        customNavigationView.headingLabel.text = title
-        view.addSubview(customNavigationView)
-        if(fromTabBar){
-            customNavigationView.frame = CGRect(x: 0, y: -20, width: self.view.frame.size.width, height:84)
-        }
-        else{
-            customNavigationView.frame = CGRect(x: 0, y: -20, width: self.view.frame.size.width, height:130)
-        }
-        return customNavigationView
     }
     
     //Navigation View Delegate

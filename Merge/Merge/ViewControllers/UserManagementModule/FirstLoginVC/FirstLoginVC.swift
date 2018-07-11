@@ -8,12 +8,14 @@
 
 import UIKit
 
-class FirstLoginVC: UIViewController
+class FirstLoginVC: BaseViewController
 {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.navigationController?.navigationBar.isHidden = true
-        // Do any additional setup after loading the view, typically from a nib.
+    override func initView() {
+        super.initView()
+        initialisation()
+    }
+    
+    func initialisation(){
     }
 
     @IBAction func fbButtonAction(_ sender: UIButton) {

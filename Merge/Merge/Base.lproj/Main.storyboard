@@ -187,7 +187,7 @@
         <!--Log InVC-->
         <scene sceneID="p7y-Q1-9rE">
             <objects>
-                <viewController id="E3N-mJ-RHt" customClass="LogInVC" customModule="Merge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="logInVC" id="E3N-mJ-RHt" customClass="LogInVC" customModule="Merge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hGS-VA-d0F">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -527,6 +527,6 @@
         <image name="registerButtonBg" width="150" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="AgP-Pb-k4v"/>
+        <segue reference="7jv-Tc-xoZ"/>
     </inferredMetricsTieBreakers>
 </document>

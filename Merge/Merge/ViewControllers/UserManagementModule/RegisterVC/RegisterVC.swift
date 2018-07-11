@@ -8,12 +8,15 @@
 
 import UIKit
 
-class RegisterVC: UIViewController {
+class RegisterVC: BaseViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    override func initView() {
+        super.initView()
+        initialisation()
+    }
+    
+    func initialisation(){
+        
     }
 
     override func didReceiveMemoryWarning() {

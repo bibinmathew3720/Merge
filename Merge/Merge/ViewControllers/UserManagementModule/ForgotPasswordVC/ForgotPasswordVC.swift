@@ -8,15 +8,14 @@
 
 import UIKit
 
-class ForgotPasswordVC: UIViewController,UITextFieldDelegate {
+class ForgotPasswordVC: BaseViewController,UITextFieldDelegate {
     @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var backToLogInButton: UIButton!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.initialisation()
-        // Do any additional setup after loading the view.
+    override func initView() {
+        super.initView()
+        initialisation()
     }
     
     func initialisation(){

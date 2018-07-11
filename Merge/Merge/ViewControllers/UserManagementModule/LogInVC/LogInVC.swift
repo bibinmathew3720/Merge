@@ -8,18 +8,18 @@
 
 import UIKit
 
-class LogInVC: UIViewController,UITextFieldDelegate {
+class LogInVC: BaseViewController,UITextFieldDelegate {
 
     @IBOutlet weak var userNameView: UIView!
     @IBOutlet weak var userNameTF: UITextField!
     @IBOutlet weak var passwordView: UIView!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var registerButton: UIButton!
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    var isFromTabBar:Bool?
+    
+    override func initView() {
+        super.initView()
         initilisation()
-
-        // Do any additional setup after loading the view.
     }
     
     func initilisation(){
