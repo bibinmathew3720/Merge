@@ -20,7 +20,7 @@ class ForgotPasswordVC: BaseViewController,UITextFieldDelegate {
     
     func initialisation(){
         settingBorderToView(view: emailView)
-        settingBordrToBackLoginButton()
+        settingBorderToBackLoginButton()
     }
     
     func settingBorderToView(view:UIView){
@@ -28,9 +28,9 @@ class ForgotPasswordVC: BaseViewController,UITextFieldDelegate {
         view.layer.borderWidth = 0.5
     }
     
-    func settingBordrToBackLoginButton(){
+    func settingBorderToBackLoginButton(){
         self.backToLogInButton.layer.borderWidth = 0.5
-        view.layer.borderColor = Constant.Colors.commonGreenColor.cgColor
+        self.backToLogInButton.layer.borderColor = Constant.Colors.commonGreenColor.cgColor
     }
 
     override func didReceiveMemoryWarning() {
