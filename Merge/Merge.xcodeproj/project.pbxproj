@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9E7137270E3E8051B4DC39B5 /* Pods_Merge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ECA8FD5C0F854002441B979 /* Pods_Merge.framework */; };
 		D06EC30C20F66F4000DFFE5D /* FirstLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06EC30B20F66F4000DFFE5D /* FirstLoginVC.swift */; };
+		D06EC31020F6826100DFFE5D /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06EC30F20F6826100DFFE5D /* LogInVC.swift */; };
+		D06EC31320F68B4B00DFFE5D /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06EC31220F68B4B00DFFE5D /* ForgotPasswordVC.swift */; };
 		D09E60E2206A9DA1008E5E0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09E60E1206A9DA1008E5E0B /* AppDelegate.swift */; };
 		D09E60E7206A9DA1008E5E0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D09E60E5206A9DA1008E5E0B /* Main.storyboard */; };
 		D09E60EA206A9DA1008E5E0B /* Merge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D09E60E8206A9DA1008E5E0B /* Merge.xcdatamodeld */; };
@@ -67,6 +69,8 @@
 		2ECA8FD5C0F854002441B979 /* Pods_Merge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Merge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		713FF6B29375A62245A2B1BC /* Pods-Merge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Merge.release.xcconfig"; path = "Pods/Target Support Files/Pods-Merge/Pods-Merge.release.xcconfig"; sourceTree = "<group>"; };
 		D06EC30B20F66F4000DFFE5D /* FirstLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLoginVC.swift; sourceTree = "<group>"; };
+		D06EC30F20F6826100DFFE5D /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInVC.swift; sourceTree = "<group>"; };
+		D06EC31220F68B4B00DFFE5D /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		D09E60DE206A9DA1008E5E0B /* Merge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Merge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D09E60E1206A9DA1008E5E0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D09E60E6206A9DA1008E5E0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -147,6 +151,7 @@
 		D06EC30620F66DEB00DFFE5D /* UserManagementModule */ = {
 			isa = PBXGroup;
 			children = (
+				D06EC31120F68B3800DFFE5D /* ForgotPasswordVC */,
 				D06EC30D20F66FC800DFFE5D /* LogInVC */,
 				D06EC30E20F66FC900DFFE5D /* RegisterVC */,
 				D06EC30720F66E1200DFFE5D /* FirstLoginVC */,
@@ -172,6 +177,7 @@
 		D06EC30D20F66FC800DFFE5D /* LogInVC */ = {
 			isa = PBXGroup;
 			children = (
+				D06EC30F20F6826100DFFE5D /* LogInVC.swift */,
 			);
 			path = LogInVC;
 			sourceTree = "<group>";
@@ -181,6 +187,14 @@
 			children = (
 			);
 			path = RegisterVC;
+			sourceTree = "<group>";
+		};
+		D06EC31120F68B3800DFFE5D /* ForgotPasswordVC */ = {
+			isa = PBXGroup;
+			children = (
+				D06EC31220F68B4B00DFFE5D /* ForgotPasswordVC.swift */,
+			);
+			path = ForgotPasswordVC;
 			sourceTree = "<group>";
 		};
 		D09E60D5206A9DA1008E5E0B = {
@@ -540,11 +554,13 @@
 				D0F1C34520F59D5F00E3A9BA /* AlwisalApiUrls.swift in Sources */,
 				D0F1C35520F59D6000E3A9BA /* AlwisalUtility.swift in Sources */,
 				D0F1C34820F59D5F00E3A9BA /* CLNetworkModel.swift in Sources */,
+				D06EC31320F68B4B00DFFE5D /* ForgotPasswordVC.swift in Sources */,
 				D0F1C34220F59D5F00E3A9BA /* NewsModuleManager.swift in Sources */,
 				D0F1C36320F59F9F00E3A9BA /* AlwisalForgotPassword.swift in Sources */,
 				D0F1C34620F59D5F00E3A9BA /* CLBaseService.swift in Sources */,
 				D0F1C33D20F59D5F00E3A9BA /* AlwisalStatusModel.swift in Sources */,
 				D0F1C34320F59D5F00E3A9BA /* PresenterModuleManager.swift in Sources */,
+				D06EC31020F6826100DFFE5D /* LogInVC.swift in Sources */,
 				D0F1C33E20F59D5F00E3A9BA /* ArticlesManager.swift in Sources */,
 				D0F1C34D20F59D5F00E3A9BA /* StringExtensions.swift in Sources */,
 				D0F1C34420F59D5F00E3A9BA /* UserModuleManager.swift in Sources */,
