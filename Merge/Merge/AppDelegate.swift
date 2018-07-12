@@ -20,7 +20,70 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().enableAutoToolbar = false
+        initWindow()
+        NotificationCenter.default.addObserver(self, selector: #selector(noticationObserverAction), name: NSNotification.Name(rawValue: Constant.Notifications.RootSettingNotification), object: nil)
         return true
+    }
+    
+    @objc func noticationObserverAction(){
+        initWindow()
+    }
+    
+    func initWindow(){
+        window?.rootViewController = initialisingTabBar()
+    }
+    
+    func initialisingTabBar()->ExSlideMenuController{
+        let tabBarController = UITabBarController.init()
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        let chatVC = storyBoard.instantiateViewController(withIdentifier: "chatVC") as! ChatVC
+        chatVC.tabBarItem = settingTabBarItemFontsAndImages( selectedImageName: "firstTabSelected", unselectedImage: "firstTabSelected", title: "CHAT") //Chat
+        let firstNavVC = UINavigationController.init(rootViewController: chatVC)
+        
+        let secondVC = storyBoard.instantiateViewController(withIdentifier: "ForgotPasswordVC")
+        secondVC.tabBarItem = settingTabBarItemFontsAndImages( selectedImageName: "secondTabSelected", unselectedImage: "secondTabSelected", title: "INFO")//Play List
+        let secondNavVC = UINavigationController.init(rootViewController: secondVC)
+        
+        let landingPageVC = storyBoard.instantiateViewController(withIdentifier: "LandingPageVC")
+        landingPageVC.tabBarItem = settingTabBarItemFontsAndImages( selectedImageName: Constant.ImageNames.tabImages.playIcon, unselectedImage: Constant.ImageNames.tabImages.playIcon, title: "")
+        landingPageVC.tabBarItem.imageInsets = UIEdgeInsets(top: -5, left: 0, bottom: 5, right: 0)
+        let landingNavVC = UINavigationController.init(rootViewController: landingPageVC)
+        
+        let fourthVC = storyBoard.instantiateViewController(withIdentifier: "logInVC")
+        fourthVC.tabBarItem = settingTabBarItemFontsAndImages( selectedImageName: Constant.ImageNames.tabImages.muteIcon, unselectedImage: Constant.ImageNames.tabImages.muteIcon, title: "VOLUME") // The sound
+        let fourthNavVC = UINavigationController.init(rootViewController: fourthVC)
+        
+        let fifthVC = storyBoard.instantiateViewController(withIdentifier: "RegisterVC")
+        fifthVC.tabBarItem = settingTabBarItemFontsAndImages( selectedImageName: "fifthTabSelected", unselectedImage: "fifthTabSelected", title: "SHARE") //Share
+        let fifthNavVC = UINavigationController.init(rootViewController: fifthVC)
+        
+        tabBarController.viewControllers = [firstNavVC,secondNavVC,landingNavVC,fourthNavVC,fifthNavVC];
+        customisingTabBarController(tabBarCnlr: tabBarController)
+        tabBarController.selectedIndex = 2;
+        let menuVC = storyBoard.instantiateViewController(withIdentifier: "menuVC")
+        
+        let contactVC = storyBoard.instantiateViewController(withIdentifier: "ContactVC")
+        let slideMenuController = ExSlideMenuController(mainViewController: tabBarController, leftMenuViewController:contactVC , rightMenuViewController: menuVC)
+        return slideMenuController
+    }
+    
+    func settingTabBarItemFontsAndImages(selectedImageName:String,unselectedImage:String,title:String)->UITabBarItem{
+        let tabBarItem = UITabBarItem.init(title: title, image: UIImage.init(named: unselectedImage)?.withRenderingMode(UIImageRenderingMode.alwaysOriginal), selectedImage: UIImage.init(named: selectedImageName)?.withRenderingMode(UIImageRenderingMode.alwaysOriginal))
+        tabBarItem.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.white], for: .normal)
+        tabBarItem.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.white], for: .selected)
+        tabBarItem.imageInsets = UIEdgeInsets(top: -10, left: 0, bottom: 10, right: 0)
+        return tabBarItem
+    }
+    
+    func customisingTabBarController(tabBarCnlr:UITabBarController){
+        UITabBar.appearance().backgroundImage = UIImage(named: "tabBarBG")
+        let appearance = UITabBarItem.appearance()
+        let attributes = [kCTFontAttributeName:UIFont(name: "Mada-Bold", size: 25)]
+        appearance.setTitleTextAttributes([kCTForegroundColorAttributeName as NSAttributedStringKey: UIColor.white], for:.normal)
+        appearance.setTitleTextAttributes([kCTForegroundColorAttributeName as NSAttributedStringKey: UIColor.white], for:.selected)
+        //appearance.setTitleTextAttributes(attributes as [NSAttributedStringKey : Any], for: .normal)
+        UITabBarItem.appearance().titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -15)
+        UITabBar.appearance().contentMode = .scaleAspectFit
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

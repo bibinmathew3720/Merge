@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9E7137270E3E8051B4DC39B5 /* Pods_Merge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ECA8FD5C0F854002441B979 /* Pods_Merge.framework */; };
+		D050C2CE20F6E67D00BEC2B7 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050C2CD20F6E67D00BEC2B7 /* ChatVC.swift */; };
 		D06EC30C20F66F4000DFFE5D /* FirstLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06EC30B20F66F4000DFFE5D /* FirstLoginVC.swift */; };
 		D06EC31020F6826100DFFE5D /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06EC30F20F6826100DFFE5D /* LogInVC.swift */; };
 		D06EC31320F68B4B00DFFE5D /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06EC31220F68B4B00DFFE5D /* ForgotPasswordVC.swift */; };
@@ -81,6 +82,7 @@
 		111EC436B6736B0FA6E6FABE /* Pods-Merge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Merge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Merge/Pods-Merge.debug.xcconfig"; sourceTree = "<group>"; };
 		2ECA8FD5C0F854002441B979 /* Pods_Merge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Merge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		713FF6B29375A62245A2B1BC /* Pods-Merge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Merge.release.xcconfig"; path = "Pods/Target Support Files/Pods-Merge/Pods-Merge.release.xcconfig"; sourceTree = "<group>"; };
+		D050C2CD20F6E67D00BEC2B7 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		D06EC30B20F66F4000DFFE5D /* FirstLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLoginVC.swift; sourceTree = "<group>"; };
 		D06EC30F20F6826100DFFE5D /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInVC.swift; sourceTree = "<group>"; };
 		D06EC31220F68B4B00DFFE5D /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
@@ -172,6 +174,14 @@
 				2ECA8FD5C0F854002441B979 /* Pods_Merge.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D050C2CC20F6E66200BEC2B7 /* ChatVC */ = {
+			isa = PBXGroup;
+			children = (
+				D050C2CD20F6E67D00BEC2B7 /* ChatVC.swift */,
+			);
+			path = ChatVC;
 			sourceTree = "<group>";
 		};
 		D06EC30620F66DEB00DFFE5D /* UserManagementModule */ = {
@@ -389,6 +399,7 @@
 		D0F1C35620F59F1900E3A9BA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D050C2CC20F6E66200BEC2B7 /* ChatVC */,
 				D06EC30820F66F1A00DFFE5D /* BaseViewController */,
 				D06EC30620F66DEB00DFFE5D /* UserManagementModule */,
 			);
@@ -635,6 +646,7 @@
 				D0F1C36520F59F9F00E3A9BA /* AlwisalRegister.swift in Sources */,
 				D0F1C34920F59D5F00E3A9BA /* CLNetworkUtility.swift in Sources */,
 				D09E60E2206A9DA1008E5E0B /* AppDelegate.swift in Sources */,
+				D050C2CE20F6E67D00BEC2B7 /* ChatVC.swift in Sources */,
 				D06EC32E20F6941800DFFE5D /* SongInfoView.swift in Sources */,
 				D0F1C34A20F59D5F00E3A9BA /* Reachability.m in Sources */,
 				D0F1C34B20F59D5F00E3A9BA /* Constants.swift in Sources */,
