@@ -78,11 +78,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func customisingTabBarController(tabBarCnlr:UITabBarController){
         UITabBar.appearance().backgroundImage = UIImage(named: "tabBarBG")
         let appearance = UITabBarItem.appearance()
-        let attributes = [kCTFontAttributeName:UIFont(name: "Mada-Bold", size: 25)]
+        let attributes = [kCTFontAttributeName:UIFont(name: "Poppins-Regular", size: 20)]
         appearance.setTitleTextAttributes([kCTForegroundColorAttributeName as NSAttributedStringKey: UIColor.white], for:.normal)
         appearance.setTitleTextAttributes([kCTForegroundColorAttributeName as NSAttributedStringKey: UIColor.white], for:.selected)
-        //appearance.setTitleTextAttributes(attributes as [NSAttributedStringKey : Any], for: .normal)
-        UITabBarItem.appearance().titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -15)
+        appearance.setTitleTextAttributes(attributes as [NSAttributedStringKey : Any], for: .normal)
+        UITabBarItem.appearance().titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -8)
         UITabBar.appearance().contentMode = .scaleAspectFit
     }
 
