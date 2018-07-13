@@ -31,6 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func initWindow(){
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        let chatVC = storyBoard.instantiateViewController(withIdentifier: "MenuVC") as! MenuVC
+        //window?.rootViewController = chatVC
         window?.rootViewController = initialisingTabBar()
     }
     
@@ -76,7 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let menuVC = storyBoard.instantiateViewController(withIdentifier: "MenuVC")
         
         let contactVC = storyBoard.instantiateViewController(withIdentifier: "ContactVC")
-        let slideMenuController = ExSlideMenuController(mainViewController: tabBarController, leftMenuViewController:contactVC , rightMenuViewController: menuVC)
+        let slideMenuController = ExSlideMenuController(mainViewController: tabBarController, leftMenuViewController:menuVC , rightMenuViewController: contactVC)
         return slideMenuController
     }
     

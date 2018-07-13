@@ -17,6 +17,7 @@ class ChatVC: BaseViewController {
     
     func initialisation(){
         self.title = "Chat"
+        addingLeftBarButton()
     }
     
 

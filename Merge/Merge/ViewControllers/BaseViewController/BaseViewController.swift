@@ -13,6 +13,9 @@ class BaseViewController: UIViewController,UITabBarControllerDelegate,PlayListVi
     var songInfoView:SongInfoView!
     var blurEffectView:UIVisualEffectView?
     var songHistoryResponseModel:SongHistoryResponseModel?
+    
+    var leftBarButton = UIBarButtonItem()
+    var rightBarButton = UIBarButtonItem()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +26,28 @@ class BaseViewController: UIViewController,UITabBarControllerDelegate,PlayListVi
         }
     }
     func initView(){
+         navigationController?.navigationBar.shadowImage = UIImage()
+        addingLeftBarButton()
+    }
+    
+    //MARK: Adding Navigation Bar Buttons
+    
+    func addingLeftBarButton(){
+        leftBarButton = UIBarButtonItem(image: UIImage(named: "hamburgerIcon"), style: .plain, target: self, action: #selector(BaseViewController.leftNavButtonAction))
+        leftBarButton = UIBarButtonItem(title: "", style: .plain, target: self, action:nil)
+        self.navigationItem.leftBarButtonItem = leftBarButton
+    }
+    
+    @objc func leftNavButtonAction(){
+        
+    }
+    
+    func addRightNavBarIcon(){
+        rightBarButton = UIBarButtonItem(image: UIImage(named: "search"), style: .plain, target: self, action: #selector(BaseViewController.rightNavButtonAction))
+        self.navigationItem.rightBarButtonItems  = [rightBarButton]
+    }
+    
+    @objc func rightNavButtonAction(){
         
     }
     
