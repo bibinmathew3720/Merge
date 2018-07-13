@@ -26,6 +26,7 @@ class LogInVC: BaseViewController,UITextFieldDelegate {
         settingBorderToView(view: userNameView)
         settingBorderToView(view: passwordView)
         settingBordrToRegisterButton()
+        self.navigationController?.navigationBar.isHidden = true;
     }
     
     func settingBorderToView(view:UIView){

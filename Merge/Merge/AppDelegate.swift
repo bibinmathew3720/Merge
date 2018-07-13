@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().enableAutoToolbar = false
         initWindow()
+        setNavigationBarProperties()
         NotificationCenter.default.addObserver(self, selector: #selector(noticationObserverAction), name: NSNotification.Name(rawValue: Constant.Notifications.RootSettingNotification), object: nil)
         return true
     }
@@ -31,6 +32,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func initWindow(){
         window?.rootViewController = initialisingTabBar()
+    }
+    
+    func setNavigationBarProperties(){
+        UINavigationBar.appearance().barTintColor = Constant.Colors.commonGreenColor
+      
+        UINavigationBar.appearance().tintColor = Constant.Colors.commonGreenColor
+        let attrs = [
+            NSAttributedStringKey.foregroundColor: UIColor.white,
+            NSAttributedStringKey.font: UIFont(name: "Poppins-Regular", size: 20)!
+        ]
+        
+        UINavigationBar.appearance().titleTextAttributes = attrs
     }
     
     func initialisingTabBar()->ExSlideMenuController{

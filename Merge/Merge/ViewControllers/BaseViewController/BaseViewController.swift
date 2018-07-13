@@ -23,7 +23,7 @@ class BaseViewController: UIViewController,UITabBarControllerDelegate,PlayListVi
         }
     }
     func initView(){
-        self.navigationController?.navigationBar.isHidden = true;
+        
     }
     
     func setBlackgradientOnBottomOfView(gradientView:UIView){
