@@ -909,10 +909,28 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="B3i-10-4al"/>
                     </view>
+                    <connections>
+                        <segue destination="Nhy-4a-LeG" kind="show" identifier="presenterToDetail" id="t3g-6E-D32"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hfj-Ll-Q4l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1749.5999999999999" y="444.82758620689657"/>
+        </scene>
+        <!--Presenter DetailVC-->
+        <scene sceneID="j7q-BA-EXc">
+            <objects>
+                <viewController id="Nhy-4a-LeG" customClass="PresenterDetailVC" customModule="Merge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pK9-Cl-CRn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="mkK-fW-USd"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hIM-bl-PPZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2527" y="445"/>
         </scene>
         <!--Log InVC-->
         <scene sceneID="p7y-Q1-9rE">

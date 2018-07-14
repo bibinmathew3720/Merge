@@ -48,7 +48,7 @@ class PresentersVC: BaseViewController,UICollectionViewDataSource,UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        performSegue(withIdentifier:Constant.SegueIdentifiers.presenterToPresenterDetailSegue, sender: "")
     }
 
     override func didReceiveMemoryWarning() {

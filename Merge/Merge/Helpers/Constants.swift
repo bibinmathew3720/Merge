@@ -46,6 +46,7 @@ struct Constant{
     
     struct SegueIdentifiers {
         static let presenterToPresenterDetailSegue = "presenterToDetail"
+        
         static let landingToNewsList = "landingToNewsList"
         static let landingToPresenterDetail = "landingToPrsenterDetails"
     }
