@@ -51,7 +51,7 @@ class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        loadPageAtIndex(index: indexPath.row)
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,6 +62,27 @@ class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     @IBAction func logoutButtonAction(_ sender: UIButton) {
     }
     
+    func loadPageAtIndex(index:Int){
+        let tabBarCntlr = self.slideMenuController()?.mainViewController as! UITabBarController
+        let selectedIndex = tabBarCntlr.selectedIndex
+        let navCntlr = tabBarCntlr.viewControllers![selectedIndex] as! UINavigationController
+        self.slideMenuController()?.closeLeft()
+        let viewControllerAtIndex = getViewControllerAtMenuIndex(selIndex: index)
+        navCntlr.pushViewController(viewControllerAtIndex, animated: true)
+    }
+    
+    func getViewControllerAtMenuIndex(selIndex:NSInteger)->UIViewController{
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        if(selIndex == 2){
+            let presenterVC = storyBoard.instantiateViewController(withIdentifier: "PresentersVC") as! PresentersVC
+            return presenterVC
+        }
+        else{
+            let presenterVC = storyBoard.instantiateViewController(withIdentifier: "PresentersVC")
+            return presenterVC
+        }
+        
+    }
     /*
     // MARK: - Navigation
 

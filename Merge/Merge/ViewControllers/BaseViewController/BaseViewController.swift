@@ -56,7 +56,7 @@ class BaseViewController: UIViewController,UITabBarControllerDelegate,PlayListVi
     }
     
     @objc func rightNavButtonAction(){
-        
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     func setBlackgradientOnBottomOfView(gradientView:UIView){
