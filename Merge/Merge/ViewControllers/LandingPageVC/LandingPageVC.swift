@@ -14,6 +14,7 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var songerNameLabel: UILabel!
     @IBOutlet weak var recentCollectionView: UICollectionView!
+    @IBOutlet weak var trendingCollectionView: UICollectionView!
     
     override func initView() {
         super.initView()
@@ -56,14 +57,27 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let recentCell:RecentlyPlayedCell = collectionView.dequeueReusableCell(withReuseIdentifier: "recentCell", for: indexPath) as! RecentlyPlayedCell
-        recentCell.tag = indexPath.row;
-        //recentCell.delegate = self;
-        return recentCell
+        if collectionView == self.recentCollectionView{
+            let recentCell:RecentlyPlayedCell = collectionView.dequeueReusableCell(withReuseIdentifier: "recentCell", for: indexPath) as! RecentlyPlayedCell
+            recentCell.tag = indexPath.row;
+            //recentCell.delegate = self;
+            return recentCell
+        }
+        else{
+            let trendingCell:TrendingCell = collectionView.dequeueReusableCell(withReuseIdentifier: "trendingCell", for: indexPath) as! TrendingCell
+            trendingCell.tag = indexPath.row;
+            //recentCell.delegate = self;
+            return trendingCell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
+        if collectionView == self.recentCollectionView{
             return CGSize(width: collectionView.frame.size.height, height: collectionView.frame.size.height)
+        }
+        else{
+            return CGSize(width: collectionView.frame.size.height, height: collectionView.frame.size.height)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -86,6 +100,10 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
     }
     
     @IBAction func viewAllButtonAction(_ sender: UIButton) {
+    }
+    
+    @IBAction func trendingVIewAllButtonAction(_ sender: UIButton){
+        
     }
     /*
     // MARK: - Navigation
