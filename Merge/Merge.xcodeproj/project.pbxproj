@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9E7137270E3E8051B4DC39B5 /* Pods_Merge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ECA8FD5C0F854002441B979 /* Pods_Merge.framework */; };
+		D01A849020F9C10C004ED6FB /* RecentlyPlayedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01A848F20F9C10C004ED6FB /* RecentlyPlayedCell.swift */; };
 		D050C2CE20F6E67D00BEC2B7 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050C2CD20F6E67D00BEC2B7 /* ChatVC.swift */; };
 		D050C2D120F6EF5F00BEC2B7 /* LandingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050C2D020F6EF5F00BEC2B7 /* LandingPageVC.swift */; };
 		D050C2D420F6EFE700BEC2B7 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050C2D320F6EFE700BEC2B7 /* MenuVC.swift */; };
@@ -86,6 +87,7 @@
 		111EC436B6736B0FA6E6FABE /* Pods-Merge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Merge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Merge/Pods-Merge.debug.xcconfig"; sourceTree = "<group>"; };
 		2ECA8FD5C0F854002441B979 /* Pods_Merge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Merge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		713FF6B29375A62245A2B1BC /* Pods-Merge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Merge.release.xcconfig"; path = "Pods/Target Support Files/Pods-Merge/Pods-Merge.release.xcconfig"; sourceTree = "<group>"; };
+		D01A848F20F9C10C004ED6FB /* RecentlyPlayedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyPlayedCell.swift; sourceTree = "<group>"; };
 		D050C2CD20F6E67D00BEC2B7 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		D050C2D020F6EF5F00BEC2B7 /* LandingPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageVC.swift; sourceTree = "<group>"; };
 		D050C2D320F6EFE700BEC2B7 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
@@ -184,6 +186,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D01A848E20F9C0F1004ED6FB /* RecentlyPlayedCell */ = {
+			isa = PBXGroup;
+			children = (
+				D01A848F20F9C10C004ED6FB /* RecentlyPlayedCell.swift */,
+			);
+			path = RecentlyPlayedCell;
+			sourceTree = "<group>";
+		};
 		D050C2CC20F6E66200BEC2B7 /* ChatVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +205,7 @@
 		D050C2CF20F6EF4B00BEC2B7 /* LandingPageVC */ = {
 			isa = PBXGroup;
 			children = (
+				D01A848E20F9C0F1004ED6FB /* RecentlyPlayedCell */,
 				D050C2D020F6EF5F00BEC2B7 /* LandingPageVC.swift */,
 			);
 			path = LandingPageVC;
@@ -669,6 +680,7 @@
 				D06EC31A20F6931400DFFE5D /* PlayerObject.swift in Sources */,
 				D0F1C34020F59D5F00E3A9BA /* EventsManager.swift in Sources */,
 				D06EC31720F691EE00DFFE5D /* BaseViewController.swift in Sources */,
+				D01A849020F9C10C004ED6FB /* RecentlyPlayedCell.swift in Sources */,
 				D0F1C34520F59D5F00E3A9BA /* AlwisalApiUrls.swift in Sources */,
 				D0F1C35520F59D6000E3A9BA /* AlwisalUtility.swift in Sources */,
 				D0F1C34820F59D5F00E3A9BA /* CLNetworkModel.swift in Sources */,
