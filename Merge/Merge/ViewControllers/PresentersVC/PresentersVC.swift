@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PresentersVC: BaseViewController {
+class PresentersVC: BaseViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
 
     override func initView() {
         super.initView()
@@ -19,6 +19,36 @@ class PresentersVC: BaseViewController {
         self.title = "Presenters"
         addingLeftBarButton()
         addRightNavBarIcon()
+    }
+    
+    //MARK:- Collection View Datasources
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+            let presenterCell:PresenterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "presenterCell", for: indexPath) as! PresenterCell
+            presenterCell.tag = indexPath.row;
+            return presenterCell
+      
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
+            return CGSize(width: (collectionView.frame.size.width - 5)/2, height: 130)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
     }
 
     override func didReceiveMemoryWarning() {
