@@ -59,7 +59,9 @@ class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func logoutButtonAction(_ sender: UIButton) {
+    }
+    
     /*
     // MARK: - Navigation
 
