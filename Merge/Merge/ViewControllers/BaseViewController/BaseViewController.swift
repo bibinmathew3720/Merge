@@ -158,13 +158,13 @@ class BaseViewController: UIViewController,UITabBarControllerDelegate,PlayListVi
             if(data1.isEqual(to: data2 as Data)){
                 if(AlwisalPlayer.defaultPlayer.mute()){
                     fourthTabItem.image = UIImage(named:Constant.ImageNames.tabImages.soundIcon)! .withRenderingMode(UIImageRenderingMode.alwaysOriginal)
-                    fourthTabItem.title =  "الصوت"
+                    fourthTabItem.title =  "VOLUME"
                 }
             }
             else{
                 if(AlwisalPlayer.defaultPlayer.unmute()){
                     fourthTabItem.image = UIImage(named:Constant.ImageNames.tabImages.muteIcon)! .withRenderingMode(UIImageRenderingMode.alwaysOriginal)
-                    fourthTabItem.title = "أخرس"
+                    fourthTabItem.title = "MUTE"
                 }
             }
             

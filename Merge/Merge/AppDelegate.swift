@@ -63,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let landingNavVC = UINavigationController.init(rootViewController: landingPageVC)
         
         let fourthVC = storyBoard.instantiateViewController(withIdentifier: "logInVC")
-        fourthVC.tabBarItem = settingTabBarItemFontsAndImages( selectedImageName: Constant.ImageNames.tabImages.muteIcon, unselectedImage: Constant.ImageNames.tabImages.muteIcon, title: "VOLUME") // The sound
+        fourthVC.tabBarItem = settingTabBarItemFontsAndImages( selectedImageName: Constant.ImageNames.tabImages.muteIcon, unselectedImage: Constant.ImageNames.tabImages.muteIcon, title: "MUTE") // The sound
         let fourthNavVC = UINavigationController.init(rootViewController: fourthVC)
         
         let fifthVC = storyBoard.instantiateViewController(withIdentifier: "RegisterVC")
