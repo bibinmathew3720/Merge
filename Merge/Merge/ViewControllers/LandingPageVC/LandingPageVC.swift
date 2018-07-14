@@ -54,6 +54,8 @@ class LandingPageVC: BaseViewController {
     @IBAction func filterButtonAction(_ sender: UIButton) {
     }
     
+    @IBAction func viewAllButtonAction(_ sender: UIButton) {
+    }
     /*
     // MARK: - Navigation
 
