@@ -31,9 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func initWindow(){
-        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-        let chatVC = storyBoard.instantiateViewController(withIdentifier: "MenuVC") as! MenuVC
-        //window?.rootViewController = chatVC
         window?.rootViewController = initialisingTabBar()
     }
     
@@ -75,7 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         tabBarController.viewControllers = [firstNavVC,secondNavVC,landingNavVC,fourthNavVC,fifthNavVC];
         customisingTabBarController(tabBarCnlr: tabBarController)
-        tabBarController.selectedIndex = 2;
+        tabBarController.selectedIndex = 0;
         let menuVC = storyBoard.instantiateViewController(withIdentifier: "MenuVC")
         
         let contactVC = storyBoard.instantiateViewController(withIdentifier: "ContactVC")

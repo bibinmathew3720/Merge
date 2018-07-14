@@ -14,7 +14,9 @@ class BaseViewController: UIViewController,UITabBarControllerDelegate,PlayListVi
     var blurEffectView:UIVisualEffectView?
     var songHistoryResponseModel:SongHistoryResponseModel?
     
-    var leftBarButton = UIBarButtonItem()
+    var leftButton:UIButton?
+    var rightButton:UIButton?
+    
     var rightBarButton = UIBarButtonItem()
 
     override func viewDidLoad() {
@@ -26,25 +28,31 @@ class BaseViewController: UIViewController,UITabBarControllerDelegate,PlayListVi
         }
     }
     func initView(){
-         navigationController?.navigationBar.shadowImage = UIImage()
-        addingLeftBarButton()
+        
     }
     
     //MARK: Adding Navigation Bar Buttons
     
     func addingLeftBarButton(){
-        leftBarButton = UIBarButtonItem(image: UIImage(named: "hamburgerIcon"), style: .plain, target: self, action: #selector(BaseViewController.leftNavButtonAction))
-        leftBarButton = UIBarButtonItem(title: "", style: .plain, target: self, action:nil)
+        self.leftButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        self.leftButton?.addTarget(self, action: #selector(leftNavButtonAction), for: .touchUpInside)
+        self.leftButton?.setImage(UIImage.init(named: "hamburgerIcon"), for: UIControlState.normal)
+        var leftBarButton = UIBarButtonItem()
+        leftBarButton = UIBarButtonItem.init(customView: self.leftButton!)
         self.navigationItem.leftBarButtonItem = leftBarButton
     }
     
     @objc func leftNavButtonAction(){
-        
+        self.slideMenuController()?.openLeft()
     }
     
     func addRightNavBarIcon(){
-        rightBarButton = UIBarButtonItem(image: UIImage(named: "search"), style: .plain, target: self, action: #selector(BaseViewController.rightNavButtonAction))
-        self.navigationItem.rightBarButtonItems  = [rightBarButton]
+        self.rightButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        self.rightButton?.addTarget(self, action: #selector(rightNavButtonAction), for: .touchUpInside)
+        self.rightButton?.setImage(UIImage.init(named: "infoIcon"), for: UIControlState.normal)
+        var rightBarButton = UIBarButtonItem()
+        rightBarButton = UIBarButtonItem.init(customView: self.rightButton!)
+        self.navigationItem.rightBarButtonItem = rightBarButton
     }
     
     @objc func rightNavButtonAction(){
