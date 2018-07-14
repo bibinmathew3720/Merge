@@ -337,6 +337,15 @@ class BaseViewController: UIViewController,UITabBarControllerDelegate,PlayListVi
         
     }
     
+    //MARK: Adding Shadow View
+    
+    func addShadowToAView(shadowView:UIView){
+        shadowView.layer.shadowColor = UIColor.lightGray.cgColor
+        shadowView.layer.shadowOpacity = 5
+        shadowView.layer.shadowOffset = CGSize.zero
+        shadowView.layer.shadowRadius = 5
+    }
+    
 
     /*
     // MARK: - Navigation

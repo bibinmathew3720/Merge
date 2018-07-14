@@ -72,7 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         tabBarController.viewControllers = [firstNavVC,secondNavVC,landingNavVC,fourthNavVC,fifthNavVC];
         customisingTabBarController(tabBarCnlr: tabBarController)
-        tabBarController.selectedIndex = 0;
+        tabBarController.selectedIndex = 2;
         let menuVC = storyBoard.instantiateViewController(withIdentifier: "MenuVC")
         
         let contactVC = storyBoard.instantiateViewController(withIdentifier: "ContactVC")

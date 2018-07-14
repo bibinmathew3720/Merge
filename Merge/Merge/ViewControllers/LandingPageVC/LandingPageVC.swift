@@ -9,14 +9,33 @@
 import UIKit
 
 class LandingPageVC: BaseViewController {
-
+    @IBOutlet weak var songImageView: UIImageView!
+    @IBOutlet weak var singerImageView: UIImageView!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var songerNameLabel: UILabel!
+    
     override func initView() {
         super.initView()
         initialisation()
+        customisation()
     }
     
     func initialisation(){
-        
+        self.title = "Radio Merge"
+        self.tabBarItem.title = ""
+        addRightNavBarIcon()
+        addingLeftBarButton()
+        addShadowToAView(shadowView:singerImageView)
+    }
+    
+    func customisation(){
+        self.singerImageView.layer.borderWidth = 3
+        self.singerImageView.layer.borderColor = UIColor.white.cgColor
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.setBlackgradientOnBottomOfView(gradientView: self.songImageView)
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,7 +43,17 @@ class LandingPageVC: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    //MARK: Button Actions
+    
+    @IBAction func favoriteBUttonAction(_ sender: UIButton) {
+    }
+    
+    @IBAction func likeButtonAction(_ sender: UIButton) {
+    }
+    
+    @IBAction func filterButtonAction(_ sender: UIButton) {
+    }
+    
     /*
     // MARK: - Navigation
 
