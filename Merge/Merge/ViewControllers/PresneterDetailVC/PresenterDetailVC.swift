@@ -9,7 +9,11 @@
 import UIKit
 
 class PresenterDetailVC: BaseViewController {
-
+    @IBOutlet weak var presenterImageView: UIImageView!
+    @IBOutlet weak var presenterNameLabel: UILabel!
+    @IBOutlet weak var presenterDesigLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var backListButton: UIButton!
     override func initView() {
         super.initView()
         initialisation()
@@ -20,6 +24,12 @@ class PresenterDetailVC: BaseViewController {
         addingLeftBarButton()
         addRightNavBarIcon()
         self.rightButton?.setImage(UIImage.init(named: "backArrow"), for: UIControlState.normal)
+        settingBorderToBackListButton()
+    }
+    
+    func settingBorderToBackListButton(){
+        self.backListButton.layer.borderWidth = 0.5
+        self.backListButton.layer.borderColor = Constant.Colors.commonGreenColor.cgColor
     }
     
     //MARK: Button Actions
@@ -27,8 +37,19 @@ class PresenterDetailVC: BaseViewController {
     override func rightNavButtonAction() {
         self.navigationController?.popViewController(animated: true)
     }
+    @IBAction func fbButtonAction(_ sender: UIButton) {
+    }
     
-
+    @IBAction func twitterButtonAction(_ sender: UIButton) {
+    }
+    
+    @IBAction func backToListButtonAction(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func nextPresenterButtonAction(_ sender: UIButton) {
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
