@@ -17,6 +17,8 @@ class LogInVC: BaseViewController,UITextFieldDelegate {
     @IBOutlet weak var registerButton: UIButton!
     var isFromTabBar:Bool?
     
+    var alwisalLogIn = AlwisalLogIN()
+    
     override func initView() {
         super.initView()
         initilisation()
@@ -42,6 +44,9 @@ class LogInVC: BaseViewController,UITextFieldDelegate {
     //MARK: Button Actions
 
     @IBAction func logInButtonAction(_ sender: UIButton) {
+        if (validate()){
+            callingLogInApi()
+        }
     }
    
     @IBAction func tapGestureAction(_ sender: UITapGestureRecognizer) {
@@ -60,6 +65,61 @@ class LogInVC: BaseViewController,UITextFieldDelegate {
             passwordTF.becomeFirstResponder()
         }
         return true
+    }
+    
+    // MARK: Login Api Call
+    
+    func  callingLogInApi(){
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        UserModuleManager().callingLogInApi(with: getRequestBody(), success: {
+            (model) in
+            MBProgressHUD.hide(for: self.view, animated: true)
+            if let model = model as? AlwisalLogInResponseModel{
+                if model.errorCode == 1{
+                    AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: model.errorMessage, parentController: self)
+                }
+                else{
+                    UserDefaults.standard.set(true, forKey: Constant.VariableNames.isLoogedIn)
+                    UserDefaults.standard.set(model.userToken, forKey: Constant.VariableNames.userToken)
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constant.Notifications.RootSettingNotification), object: nil)
+                }
+                
+            }
+            
+        }) { (ErrorType) in
+            MBProgressHUD.hide(for: self.view, animated: true)
+            if(ErrorType == .noNetwork){
+                AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: Constant.ErrorMessages.noNetworkMessage, parentController: self)
+            }
+            else{
+                AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: Constant.ErrorMessages.serverErrorMessamge, parentController: self)
+            }
+        }
+    }
+   
+    fileprivate func getRequestBody() -> String {
+        alwisalLogIn.userName = userNameTF.text!
+        alwisalLogIn.password = passwordTF.text!
+        return alwisalLogIn.getRequestBody()
+    }
+    
+    // MARK: Validation
+    
+    func validate()->Bool{
+        var valid = true
+        var messageString = ""
+        if(userNameTF.text?.isEmpty)!{
+            valid = false
+            messageString = "Please enter user name"
+        }
+        else if(passwordTF.text?.isEmpty)!{
+            valid = false
+            messageString = "Please enter password"
+        }
+        if valid == false{
+            AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: messageString, parentController: self)
+        }
+        return valid
     }
     
     override func didReceiveMemoryWarning() {

@@ -93,7 +93,7 @@ class RegisterVC: BaseViewController,UITextFieldDelegate {
         var valid = true
         var validationMessage = ""
         if (nameTF.text?.isEmpty)!{
-            validationMessage = "Please enter your name"
+            validationMessage = "Please enter user name"
             valid = false
         }
         else if (emailTF.text?.isEmpty)!{
