@@ -1329,7 +1329,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="logInButtonAction:" destination="E3N-mJ-RHt" eventType="touchUpInside" id="vKd-4w-838"/>
+                                                    <action selector="resetPasswordButtonAction:" destination="IHz-wJ-G3A" eventType="touchUpInside" id="Pyt-Bw-V2G"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Sn-5I-pt7">
