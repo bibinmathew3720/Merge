@@ -18,9 +18,15 @@ class RegisterVC: BaseViewController,UITextFieldDelegate {
     @IBOutlet weak var confirmPwdView: UIView!
     @IBOutlet weak var confirmPwdTF: UITextField!
     @IBOutlet weak var backToLogInButton: UIButton!
+    
+    var isFromTabBar:Bool?
     override func initView() {
         super.initView()
         initialisation()
+        self.navigationController?.navigationBar.isHidden = true
+        if let isTab = isFromTabBar{
+            backToLogInButton.isHidden = true
+        }
     }
     
     func initialisation(){
@@ -48,6 +54,9 @@ class RegisterVC: BaseViewController,UITextFieldDelegate {
     
     @IBAction func backToLogInAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
+    }
+    @IBAction func skipAction(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func tapGestureAction(_ sender: UITapGestureRecognizer) {

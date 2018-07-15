@@ -62,10 +62,10 @@ class AlwisalUtility: NSObject {
     
     class func showAlertWithOkOrCancel(_title : String, viewController:UIViewController, messageString:String, completion:@escaping (_ result:Bool) -> Void) {
         let alertController = UIAlertController(title: _title, message: messageString, preferredStyle: .alert)
-        let yesAction = UIAlertAction(title: Constant.Messages.okString, style: .default) { (action:UIAlertAction) in
+        let yesAction = UIAlertAction(title: Constant.Messages.yesString, style: .default) { (action:UIAlertAction) in
             completion (true)
         }
-        let noAction = UIAlertAction(title: Constant.Messages.cancelString, style: .default)  { (action:UIAlertAction) in
+        let noAction = UIAlertAction(title: Constant.Messages.noString, style: .default)  { (action:UIAlertAction) in
             completion (false)
         }
         alertController.addAction(yesAction)

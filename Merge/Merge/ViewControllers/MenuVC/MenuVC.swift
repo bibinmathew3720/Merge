@@ -19,6 +19,7 @@ struct MenuItems {
 class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var menuTVHeight: NSLayoutConstraint!
     var menuList: [String] = []
+    var isLoggedIn:Bool!
     override func initView() {
         super.initView()
         initialisation()
@@ -26,7 +27,13 @@ class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     
     func initialisation(){
         menuList = [MenuItems.firstItem,MenuItems.secondItem,MenuItems.thirdItem,MenuItems.fourthItem,MenuItems.fifthItem]
-        menuTVHeight.constant = CGFloat(50*menuList.count)
+        isLoggedIn = UserDefaults.standard.bool(forKey: Constant.VariableNames.isLoogedIn)
+        if(isLoggedIn){
+            menuTVHeight.constant = CGFloat(50 * (menuList.count+1))
+        }
+        else{
+            menuTVHeight.constant = CGFloat(50*menuList.count)
+        }
     }
     
     //MARK - Table View Datasources
@@ -35,7 +42,15 @@ class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menuList.count
+        if let loggedIn = isLoggedIn{
+            if(loggedIn){
+                return menuList.count+1
+            }
+            else{
+                return menuList.count
+            }
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -51,7 +66,15 @@ class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        loadPageAtIndex(index: indexPath.row)
+        if(indexPath.row == 0){
+            navigateToLogInPage()
+        }
+        else if (indexPath.row == 1){
+            navigateToRegisterPage()
+        }
+        else{
+            loadPageAtIndex(index: indexPath.row)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,6 +83,11 @@ class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     @IBAction func logoutButtonAction(_ sender: UIButton) {
+        AlwisalUtility.showAlertWithOkOrCancel(_title: Constant.AppName, viewController: self, messageString: Constant.Messages.logoutMessage) { (success) in
+            if success{
+                self.navigateToLogInPage()
+            }
+        }
     }
     
     func loadPageAtIndex(index:Int){
@@ -73,6 +101,7 @@ class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     
     func getViewControllerAtMenuIndex(selIndex:NSInteger)->UIViewController{
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        
         if(selIndex == 2){
             let presenterVC = storyBoard.instantiateViewController(withIdentifier: "PresentersVC") as! PresentersVC
             return presenterVC
@@ -82,6 +111,17 @@ class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
             return presenterVC
         }
         
+    }
+    
+    func navigateToRegisterPage(){
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        let registerVC = storyBoard.instantiateViewController(withIdentifier: "RegisterVC") as! RegisterVC
+        registerVC.isFromTabBar = true
+        let registerNavController = UINavigationController.init(rootViewController: registerVC)
+        self.slideMenuController()?.closeRight()
+        DispatchQueue.main.async { () -> Void in
+            self.present(registerNavController, animated: true)
+        }
     }
     /*
     // MARK: - Navigation

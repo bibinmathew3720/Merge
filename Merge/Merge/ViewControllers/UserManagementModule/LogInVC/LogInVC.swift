@@ -48,6 +48,10 @@ class LogInVC: BaseViewController,UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
+    @IBAction func skipButtonAction(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     //MARK: Text Field Delegates
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

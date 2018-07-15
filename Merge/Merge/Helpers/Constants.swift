@@ -8,7 +8,7 @@
 
 import UIKit
 struct Constant{
-    static let AppName = "الوصال"
+    static let AppName = "Merge"
     struct Notifications{
         static let RootSettingNotification = "com.alwisal.initNotification"
         static let UserProfileNotification = "com.alwisal.userProfileNotification"
@@ -58,10 +58,13 @@ struct Constant{
     }
     
     struct Messages {
-        static let okString = "حسنا"
-        static let cancelString = "إلغاء"
-        static let logInMessage = "الرجاء تسجيل الدخول لاستخدام هذه الميزة"
+        static let yesString = "YES"
+        static let noString = "NO"
+        static let okString = "Ok"
+        static let cancelString = "Cancel"
+        static let logInMessage = "Please sign in to use this feature"
         static let InfoNotAvaliable = "المعلومات غير متوفرة"
+        static let logoutMessage = "Do you want to logout?"
         
     }
     static let sharingUrlString = "http://alwisal.radio.net/"

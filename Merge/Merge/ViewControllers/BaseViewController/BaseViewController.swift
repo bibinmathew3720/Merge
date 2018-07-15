@@ -334,7 +334,6 @@ class BaseViewController: UIViewController,UITabBarControllerDelegate,PlayListVi
         DispatchQueue.main.async { () -> Void in
             self.present(logInNavController, animated: true)
         }
-        
     }
     
     //MARK: Adding Shadow View
