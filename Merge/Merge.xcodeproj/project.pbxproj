@@ -88,6 +88,7 @@
 		D0F5D2D920FB2F5900AE669D /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5D2D620FB2F5400AE669D /* UIImageViewExtensions.swift */; };
 		D0F5D2DA20FB2F5900AE669D /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5D2D720FB2F5400AE669D /* UIViewExtensions.swift */; };
 		D0F5D2DB20FB2F5900AE669D /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5D2D820FB2F5600AE669D /* UIColorExtension.swift */; };
+		D0FB0A0820FBBF27006720C4 /* MenuProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FB0A0720FBBF27006720C4 /* MenuProfileCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -178,6 +179,7 @@
 		D0F5D2D620FB2F5400AE669D /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
 		D0F5D2D720FB2F5400AE669D /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		D0F5D2D820FB2F5600AE669D /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		D0FB0A0720FBBF27006720C4 /* MenuProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuProfileCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +231,7 @@
 		D050C2D220F6EFDA00BEC2B7 /* MenuVC */ = {
 			isa = PBXGroup;
 			children = (
+				D0FB0A0620FBBE0A006720C4 /* MenuProfileCell */,
 				D0C02E7620F8409600323792 /* MenuTVC */,
 				D050C2D320F6EFE700BEC2B7 /* MenuVC.swift */,
 			);
@@ -524,6 +527,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		D0FB0A0620FBBE0A006720C4 /* MenuProfileCell */ = {
+			isa = PBXGroup;
+			children = (
+				D0FB0A0720FBBF27006720C4 /* MenuProfileCell.swift */,
+			);
+			path = MenuProfileCell;
+			sourceTree = "<group>";
+		};
 		D2C5DEE3F029CD8133E001A0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -763,6 +774,7 @@
 				D0F1C34920F59D5F00E3A9BA /* CLNetworkUtility.swift in Sources */,
 				D0CE7A2220FA60B600ED2392 /* PresenterDetailVC.swift in Sources */,
 				D0F5D2DB20FB2F5900AE669D /* UIColorExtension.swift in Sources */,
+				D0FB0A0820FBBF27006720C4 /* MenuProfileCell.swift in Sources */,
 				D0C02E7820F840A900323792 /* MenuTVC.swift in Sources */,
 				D09E60E2206A9DA1008E5E0B /* AppDelegate.swift in Sources */,
 				D050C2CE20F6E67D00BEC2B7 /* ChatVC.swift in Sources */,

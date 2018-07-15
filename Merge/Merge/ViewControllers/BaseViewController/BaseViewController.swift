@@ -327,6 +327,10 @@ class BaseViewController: UIViewController,UITabBarControllerDelegate,PlayListVi
         }
     }
     
+    func processAfterLogout(){
+        UserDefaults.standard.set(false, forKey: Constant.VariableNames.isLoogedIn)
+    }
+    
     //MARK: Adding Shadow View
     
     func addShadowToAView(shadowView:UIView){

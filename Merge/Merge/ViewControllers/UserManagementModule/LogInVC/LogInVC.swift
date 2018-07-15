@@ -55,6 +55,7 @@ class LogInVC: BaseViewController,UITextFieldDelegate {
     
     @IBAction func skipButtonAction(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constant.Notifications.UserProfileNotification), object: nil)
     }
     
     //MARK: Text Field Delegates

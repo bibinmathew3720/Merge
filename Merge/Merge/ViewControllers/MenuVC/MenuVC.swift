@@ -17,17 +17,19 @@ struct MenuItems {
 }
 
 class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
+    @IBOutlet weak var menuTableView: UITableView!
     @IBOutlet weak var menuTVHeight: NSLayoutConstraint!
     var menuList: [String] = []
     var isLoggedIn:Bool!
     override func initView() {
         super.initView()
         initialisation()
+        NotificationCenter.default.addObserver(self, selector: #selector(populateMenuItems), name: NSNotification.Name(rawValue: Constant.Notifications.UserProfileNotification), object: nil)
     }
     
     func initialisation(){
         menuList = [MenuItems.firstItem,MenuItems.secondItem,MenuItems.thirdItem,MenuItems.fourthItem,MenuItems.fifthItem]
-        isLoggedIn = UserDefaults.standard.bool(forKey: Constant.VariableNames.isLoogedIn)
+        populateMenuItems()
         if(isLoggedIn){
             menuTVHeight.constant = CGFloat(50 * (menuList.count+1))
         }
@@ -44,7 +46,7 @@ class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let loggedIn = isLoggedIn{
             if(loggedIn){
-                return menuList.count+1
+                return menuList.count
             }
             else{
                 return menuList.count
@@ -54,8 +56,14 @@ class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if isLoggedIn{
+            if indexPath.row == 0{
+                let profileCell : MenuProfileCell! = tableView.dequeueReusableCell(withIdentifier: "menuProfileCell") as! MenuProfileCell
+                profileCell.setUserDetails()
+                return profileCell
+            }
+        }
         let menuCell : MenuTVC! = tableView.dequeueReusableCell(withIdentifier: "menuTVC") as! MenuTVC
-        menuCell.backgroundColor = UIColor.clear
         menuCell.menuLabel.text = menuList[indexPath.row]
         menuCell.menuImageView.image = UIImage.init(named: menuList[indexPath.row])
         return menuCell
@@ -67,7 +75,12 @@ class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(indexPath.row == 0){
-            navigateToLogInPage()
+            if isLoggedIn{
+                
+            }
+            else{
+                navigateToLogInPage()
+            }
         }
         else if (indexPath.row == 1){
             navigateToRegisterPage()
@@ -85,6 +98,7 @@ class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     @IBAction func logoutButtonAction(_ sender: UIButton) {
         AlwisalUtility.showAlertWithOkOrCancel(_title: Constant.AppName, viewController: self, messageString: Constant.Messages.logoutMessage) { (success) in
             if success{
+                self.processAfterLogout()
                 self.navigateToLogInPage()
             }
         }
@@ -122,6 +136,11 @@ class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
         DispatchQueue.main.async { () -> Void in
             self.present(registerNavController, animated: true)
         }
+    }
+    
+    @objc func populateMenuItems(){
+        isLoggedIn = UserDefaults.standard.bool(forKey: Constant.VariableNames.isLoogedIn)
+        menuTableView.reloadData()
     }
     /*
     // MARK: - Navigation

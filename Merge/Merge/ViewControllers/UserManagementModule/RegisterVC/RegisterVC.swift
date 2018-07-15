@@ -62,6 +62,7 @@ class RegisterVC: BaseViewController,UITextFieldDelegate {
     }
     @IBAction func skipAction(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constant.Notifications.UserProfileNotification), object: nil)
     }
     
     @IBAction func tapGestureAction(_ sender: UITapGestureRecognizer) {
