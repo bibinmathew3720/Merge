@@ -268,15 +268,6 @@ class BaseViewController: UIViewController,UITabBarControllerDelegate,PlayListVi
                     playList.populateSongHistory(songHistory: model)
                 }
                 success(model)
-                
-                //                if model.errorCode == 1{
-                //                    AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: model.errorMessage, parentController: self)
-                //                }
-                //                else{
-                //                    UserDefaults.standard.set(true, forKey: Constant.VariableNames.isLoogedIn)
-                //                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constant.Notifications.RootSettingNotification), object: nil)
-                //                }
-                
             }
         }) { (ErrorType) in
             MBProgressHUD.hide(for: self.view, animated: true)
