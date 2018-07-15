@@ -12,6 +12,12 @@ class TrendingCell: UICollectionViewCell {
     @IBOutlet weak var singerImageView: UIImageView!
     @IBOutlet weak var songNameLabel: UILabel!
     
+    func setCell(to model:NewsModel) -> () {
+        songNameLabel.text = model.title
+       // dateLabel.text = AlwisalUtility().convertDateWithTToString(dateString: model.songDate)
+        singerImageView.sd_setImage(with: URL(string: model.imagePath), placeholderImage: UIImage(named: Constant.ImageNames.placeholderImage))
+    }
+    
     @IBAction func favouriteButtonAction(_ sender: UIButton) {
     }
 }

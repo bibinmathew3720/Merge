@@ -57,21 +57,39 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-      
-            return 10
+        if(collectionView == recentCollectionView){
+            guard let _model = songHistoryResponseModel else {
+                return 0
+            }
+            return _model.historyItems.count
+        }
+        else if(collectionView == self.trendingCollectionView){
+            guard let _model = newsResponseModel else {
+                return 0
+            }
+            return _model.newsItems.count
+        }
+        else{
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.recentCollectionView{
             let recentCell:RecentlyPlayedCell = collectionView.dequeueReusableCell(withReuseIdentifier: "recentCell", for: indexPath) as! RecentlyPlayedCell
             recentCell.tag = indexPath.row;
-            //recentCell.delegate = self;
+            if let _model = songHistoryResponseModel{
+                recentCell.setCell(to: _model.historyItems[indexPath.row])
+            }
             return recentCell
         }
         else{
             let trendingCell:TrendingCell = collectionView.dequeueReusableCell(withReuseIdentifier: "trendingCell", for: indexPath) as! TrendingCell
             trendingCell.tag = indexPath.row;
             //recentCell.delegate = self;
+            if let _model = newsResponseModel{
+                trendingCell.setCell(to: _model.newsItems[indexPath.row])
+            }
             return trendingCell
         }
     }
