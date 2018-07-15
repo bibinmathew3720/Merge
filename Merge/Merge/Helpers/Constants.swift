@@ -28,8 +28,8 @@ struct Constant{
     }
     
     struct ErrorMessages {
-        static let noNetworkMessage = "لا يوجد اتصال إنترنت. يرجى التحقق من إعدادات الاتصال الخاصة بك وحاول مرة أخرى!"
-        static let serverErrorMessamge = "يتعذر الاتصال بالخادم ، يرجى المحاولة بعد قليل."
+        static let noNetworkMessage = "No Internet connection. Please check your connection settings and try again!"
+        static let serverErrorMessamge = "Cannot connect to server, please try again."
     }
     
     struct ImageNames {

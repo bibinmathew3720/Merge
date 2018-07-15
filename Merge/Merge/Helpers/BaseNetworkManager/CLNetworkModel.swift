@@ -27,7 +27,7 @@ class CLNetworkModel: NSObject {
         requestHeader = [String : String]()
         
         _ = requestHeader?.updateValue("application/json", forKey: "Content-Type")
-        _ = requestHeader?.updateValue("a4db1f33f6e092117910e2a4d1d51aa50f93ae97", forKey: "Authentication")
+        _ = requestHeader?.updateValue("53067a56941ff00369b726d450ef3bb9495c7224", forKey: "Authentication")
         print(requestURL!)
         print(requestMethod as? AnyObject)
         if let userToken = UserDefaults.standard.value(forKey: Constant.VariableNames.userToken){
