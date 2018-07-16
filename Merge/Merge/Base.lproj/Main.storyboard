@@ -946,17 +946,27 @@
                                     <outlet property="delegate" destination="qFR-Nf-YDq" id="LWS-Z7-RYI"/>
                                 </connections>
                             </collectionView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No items found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNI-b8-qVB">
+                                <rect key="frame" x="134.5" y="333.5" width="106" height="20"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="pNI-b8-qVB" firstAttribute="centerX" secondItem="B3i-10-4al" secondAttribute="centerX" id="7hZ-wx-0BN"/>
                             <constraint firstItem="B3i-10-4al" firstAttribute="trailing" secondItem="bnh-BU-g7c" secondAttribute="trailing" constant="10" id="Anf-xh-3xf"/>
                             <constraint firstItem="bnh-BU-g7c" firstAttribute="leading" secondItem="B3i-10-4al" secondAttribute="leading" constant="10" id="BT3-VF-3IE"/>
                             <constraint firstItem="B3i-10-4al" firstAttribute="bottom" secondItem="bnh-BU-g7c" secondAttribute="bottom" constant="10" id="De6-WZ-xQG"/>
                             <constraint firstItem="bnh-BU-g7c" firstAttribute="top" secondItem="B3i-10-4al" secondAttribute="top" constant="-54" id="DuT-za-2EL"/>
+                            <constraint firstItem="pNI-b8-qVB" firstAttribute="centerY" secondItem="B3i-10-4al" secondAttribute="centerY" id="Psc-6b-DpI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="B3i-10-4al"/>
                     </view>
                     <connections>
+                        <outlet property="noItemsFoundLabel" destination="pNI-b8-qVB" id="Ftr-Ep-BUv"/>
+                        <outlet property="presenterCollectionView" destination="bnh-BU-g7c" id="Glq-87-ZK0"/>
                         <segue destination="Nhy-4a-LeG" kind="show" identifier="presenterToDetail" id="t3g-6E-D32"/>
                     </connections>
                 </viewController>

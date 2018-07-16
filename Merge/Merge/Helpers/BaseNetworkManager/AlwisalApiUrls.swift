@@ -17,10 +17,10 @@ let FORGOTPASSWORD_URL = "reset_password"
 let REGISTER_URL = "registerUser"
 let GETUSERPROFILEDETAILS  = "get_user_profile"
 let GETNEWS = "news?"
+let GETPRESENTERS = "presenters?"
 
 let SOCIAL_LOGIN_URL = "registerSocialMedia"
 
-let GETPRESENTERS = "posts?categories=28&"
 let GETPRESENTERDETAILS = "posts/"
 let GETSONGHISTORY = "song_history"
 

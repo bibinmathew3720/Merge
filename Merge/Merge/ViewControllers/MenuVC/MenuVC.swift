@@ -12,7 +12,9 @@ struct MenuItems {
     static var secondItem = "REGISTER"
     static var thirdItem = "PRESENTERS"
     static var fourthItem = "NEWS"
-    static var fifthItem = "CONTACT US"
+    static var fifthItem = "ARTICLES"
+    static var sixthItem = "EVENTS"
+    static var seventhItem = "CONTACT US"
     
 }
 
@@ -28,10 +30,10 @@ class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     func initialisation(){
-        menuList = [MenuItems.firstItem,MenuItems.secondItem,MenuItems.thirdItem,MenuItems.fourthItem,MenuItems.fifthItem]
+        menuList = [MenuItems.firstItem,MenuItems.secondItem,MenuItems.thirdItem,MenuItems.fourthItem,MenuItems.fifthItem,MenuItems.sixthItem,MenuItems.seventhItem]
         populateMenuItems()
         if(isLoggedIn){
-            menuTVHeight.constant = CGFloat(50 * (menuList.count+1))
+            menuTVHeight.constant = CGFloat(50 * menuList.count)
         }
         else{
             menuTVHeight.constant = CGFloat(50*menuList.count)
@@ -118,6 +120,22 @@ class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
         
         if(selIndex == 2){
             let presenterVC = storyBoard.instantiateViewController(withIdentifier: "PresentersVC") as! PresentersVC
+             presenterVC.pageType = PageType.PresenterPage
+            return presenterVC
+        }
+        else if(selIndex == 3){
+            let presenterVC = storyBoard.instantiateViewController(withIdentifier: "PresentersVC") as! PresentersVC
+            presenterVC.pageType = PageType.NewsPage
+            return presenterVC
+        }
+        else if(selIndex == 4){
+            let presenterVC = storyBoard.instantiateViewController(withIdentifier: "PresentersVC") as! PresentersVC
+            presenterVC.pageType = PageType.ArticlesPage
+            return presenterVC
+        }
+        else if(selIndex == 5){
+            let presenterVC = storyBoard.instantiateViewController(withIdentifier: "PresentersVC") as! PresentersVC
+            presenterVC.pageType = PageType.EventsPage
             return presenterVC
         }
         else{
