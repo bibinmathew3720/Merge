@@ -19,13 +19,14 @@ let GETUSERPROFILEDETAILS  = "get_user_profile"
 let GETNEWS = "news?"
 let GETPRESENTERS = "presenters?"
 
+let GETEVENTS = "events?"
+
 let SOCIAL_LOGIN_URL = "registerSocialMedia"
 
+let GETARTICLES = "articles?"
 let GETPRESENTERDETAILS = "posts/"
 let GETSONGHISTORY = "song_history"
 
-let GETARTICLES = "posts?categories=31&"
-let GETEVENTS = "posts?categories=5&"
 let ADDTOFAVORITE = "add_favourite"
 let ADDTOLIKE = "add_liked"
 

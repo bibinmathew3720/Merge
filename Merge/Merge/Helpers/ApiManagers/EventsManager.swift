@@ -46,7 +46,7 @@ class EventsManager: CLBaseService {
 class EventsResponseModel:NSObject{
     var eventsItems = [EventsModel]()
     init(events:NSArray) {
-        if let _dict = eventsItems as? [[String:Any?]]{
+        if let _dict = events as? [[String:Any?]]{
             for item in _dict{
                 eventsItems.append(EventsModel.init(dict: item))
             }
