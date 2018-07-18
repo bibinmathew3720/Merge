@@ -30,6 +30,14 @@ class ProfileVC: BaseViewController {
     @IBOutlet weak var favoritesButtonBG: UIImageView!
     @IBOutlet weak var favoritesButton: UIButton!
     
+    @IBOutlet weak var profileView: UIView!
+    @IBOutlet weak var phoneNoTF: UITextField!
+    @IBOutlet weak var emailTF: UITextField!
+    @IBOutlet weak var addressTV: UITextView!
+    @IBOutlet weak var updateButtonImageView: UIImageView!
+    @IBOutlet weak var updateButton: UIButton!
+    
+    
     override func initView() {
         super.initView()
         initialisation()
@@ -59,7 +67,8 @@ class ProfileVC: BaseViewController {
     @IBAction func editButtonAction(_ sender: UIButton) {
     }
     
-    @IBAction func profileButtonAction(_ sender: UIButton) {
+    @IBAction func profileButtonAction(_ sender: UIButton){
+        self.profileView.isHidden = false
         enablingProfilePage()
     }
     
@@ -69,6 +78,9 @@ class ProfileVC: BaseViewController {
     
     @IBAction func favoritesButtonAction(_ sender: UIButton) {
         enablingFavoritesPage()
+    }
+    
+    @IBAction func updateButtonAction(_ sender: UIButton) {
     }
     
     func enablingProfilePage(){
