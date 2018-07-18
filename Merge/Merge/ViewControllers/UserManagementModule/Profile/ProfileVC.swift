@@ -84,6 +84,7 @@ class ProfileVC: BaseViewController,UITextFieldDelegate,UITableViewDataSource,UI
     }
     
     @IBAction func likesButtonAction(_ sender: UIButton) {
+        self.likesHeadingLabel.text = "SONGS YOU LIKED"
         self.profileView.isHidden = true
         self.editButton.isHidden = true
         self.likesView.isHidden = false
@@ -91,6 +92,7 @@ class ProfileVC: BaseViewController,UITextFieldDelegate,UITableViewDataSource,UI
     }
     
     @IBAction func favoritesButtonAction(_ sender: UIButton) {
+        self.likesHeadingLabel.text = "SONGS YOU FAVORITED"
         self.profileView.isHidden = true
         self.editButton.isHidden = true
         self.likesView.isHidden = false
