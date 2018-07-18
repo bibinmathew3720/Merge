@@ -1881,7 +1881,7 @@
                                                     <constraint firstAttribute="bottom" secondItem="u4g-BE-F1d" secondAttribute="bottom" id="yYj-eL-DJg"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4nc-R8-tcI">
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4nc-R8-tcI">
                                                 <rect key="frame" x="120" y="120" width="254" height="310"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USER INFORMATION" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="umJ-a4-Jqd">
@@ -1986,7 +1986,7 @@
                                                     <constraint firstItem="umJ-a4-Jqd" firstAttribute="leading" secondItem="4nc-R8-tcI" secondAttribute="leading" id="xm5-AX-yp8"/>
                                                 </constraints>
                                             </view>
-                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FRa-Zz-2mu">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FRa-Zz-2mu">
                                                 <rect key="frame" x="120" y="120" width="254" height="310"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SONGS YOU LIKED" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RW7-kZ-XeB">
@@ -1995,9 +1995,52 @@
                                                         <color key="textColor" red="0.12549019610000001" green="0.71764705880000002" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Eu1-jo-PZe">
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Eu1-jo-PZe">
                                                         <rect key="frame" x="0.0" y="30" width="247" height="270"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <prototypes>
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="profileLikesCell" id="vHN-zM-CBz" customClass="LikesTVC" customModule="Merge" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="28" width="247" height="44"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vHN-zM-CBz" id="yjn-5F-LuI">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="247" height="44"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nYf-aC-OTm">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                            <color key="backgroundColor" red="0.84705882352941175" green="0.95686274509803915" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="50" id="Og1-ea-5yf"/>
+                                                                                <constraint firstAttribute="width" constant="50" id="paJ-hS-xRJ"/>
+                                                                            </constraints>
+                                                                        </view>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xF2-JS-jiR">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                                            <color key="backgroundColor" red="0.91372549020000005" green="0.70196078429999997" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" constant="80" id="ezo-0i-z8Q"/>
+                                                                                <constraint firstAttribute="height" constant="80" id="ybQ-f6-gjY"/>
+                                                                            </constraints>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                    <integer key="value" value="40"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                            </userDefinedRuntimeAttributes>
+                                                                        </imageView>
+                                                                    </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstItem="nYf-aC-OTm" firstAttribute="top" secondItem="yjn-5F-LuI" secondAttribute="top" id="DEK-gG-Qt5"/>
+                                                                        <constraint firstItem="xF2-JS-jiR" firstAttribute="leading" secondItem="yjn-5F-LuI" secondAttribute="leading" id="EaZ-qj-pWa"/>
+                                                                        <constraint firstItem="nYf-aC-OTm" firstAttribute="leading" secondItem="yjn-5F-LuI" secondAttribute="leading" id="FVv-BB-A1I"/>
+                                                                        <constraint firstItem="xF2-JS-jiR" firstAttribute="top" secondItem="yjn-5F-LuI" secondAttribute="top" id="UrA-Xh-njK"/>
+                                                                    </constraints>
+                                                                </tableViewCellContentView>
+                                                            </tableViewCell>
+                                                        </prototypes>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="Lz1-Tm-hAS" id="o8g-n1-sTv"/>
+                                                            <outlet property="delegate" destination="Lz1-Tm-hAS" id="d4s-iA-uSg"/>
+                                                        </connections>
                                                     </tableView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2067,6 +2110,8 @@
                         <outlet property="likeButtonView" destination="d0f-o8-zOM" id="kJZ-Er-Pr5"/>
                         <outlet property="likesButton" destination="DlV-rH-7Mv" id="EH3-tm-8bC"/>
                         <outlet property="likesButtonBG" destination="1nk-wX-Tiq" id="kwl-cb-g1j"/>
+                        <outlet property="likesHeadingLabel" destination="RW7-kZ-XeB" id="zRc-gd-zJN"/>
+                        <outlet property="likesTableView" destination="Eu1-jo-PZe" id="YGj-A8-75i"/>
                         <outlet property="likesView" destination="FRa-Zz-2mu" id="Taw-GO-7T1"/>
                         <outlet property="nameLabel" destination="Rae-an-0jN" id="bmF-KA-mXv"/>
                         <outlet property="phoneNoTF" destination="ebD-w8-YGR" id="UH7-EM-wCY"/>

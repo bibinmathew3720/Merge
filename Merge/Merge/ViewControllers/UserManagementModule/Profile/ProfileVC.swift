@@ -12,7 +12,7 @@ let PROFILETITLE = "PROFILE"
 let LIKESTITLE = "LIKES"
 let FAVORITESTITLE = "FAVORITES"
 
-class ProfileVC: BaseViewController,UITextFieldDelegate {
+class ProfileVC: BaseViewController,UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate {
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -38,6 +38,8 @@ class ProfileVC: BaseViewController,UITextFieldDelegate {
     @IBOutlet weak var updateButton: UIButton!
     
     @IBOutlet weak var likesView: UIView!
+    @IBOutlet weak var likesHeadingLabel: UILabel!
+    @IBOutlet weak var likesTableView: UITableView!
     
     override func initView() {
         super.initView()
@@ -167,6 +169,24 @@ class ProfileVC: BaseViewController,UITextFieldDelegate {
         return true
     }
     
+    //MARK - Table View Datasources
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let likesCell : LikesTVC! = tableView.dequeueReusableCell(withIdentifier: "profileLikesCell") as! LikesTVC
+        return likesCell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
     /*
     // MARK: - Navigation
 
