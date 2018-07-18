@@ -12,9 +12,8 @@ struct MenuItems {
     static var secondItem = "REGISTER"
     static var thirdItem = "PRESENTERS"
     static var fourthItem = "NEWS"
-    static var fifthItem = "ARTICLES"
-    static var sixthItem = "EVENTS"
-    static var seventhItem = "CONTACT US"
+    static var fifthItem = "EVENTS"
+    static var sixthItem = "CONTACT US"
     
 }
 
@@ -30,7 +29,7 @@ class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     func initialisation(){
-        menuList = [MenuItems.firstItem,MenuItems.secondItem,MenuItems.thirdItem,MenuItems.fourthItem,MenuItems.fifthItem,MenuItems.sixthItem,MenuItems.seventhItem]
+        menuList = [MenuItems.firstItem,MenuItems.secondItem,MenuItems.thirdItem,MenuItems.fourthItem,MenuItems.fifthItem,MenuItems.sixthItem]
         populateMenuItems()
         if(isLoggedIn){
             menuTVHeight.constant = CGFloat(50 * menuList.count)
@@ -129,11 +128,6 @@ class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
             return presenterVC
         }
         else if(selIndex == 4){
-            let presenterVC = storyBoard.instantiateViewController(withIdentifier: "PresentersVC") as! PresentersVC
-            presenterVC.pageType = PageType.ArticlesPage
-            return presenterVC
-        }
-        else if(selIndex == 5){
             let presenterVC = storyBoard.instantiateViewController(withIdentifier: "PresentersVC") as! PresentersVC
             presenterVC.pageType = PageType.EventsPage
             return presenterVC

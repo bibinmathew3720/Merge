@@ -11,7 +11,6 @@ import UIKit
 enum PageType{
     case PresenterPage
     case NewsPage
-    case ArticlesPage
     case EventsPage
 }
 
@@ -22,7 +21,6 @@ class PresentersVC: BaseViewController,UICollectionViewDataSource,UICollectionVi
     @IBOutlet weak var noItemsFoundLabel: UILabel!
     var presentersResponseModel:PresenterResponseModel?
     var newsResponseModel:NewsResponseModel?
-    var articlesResponseModel:ArticlesResponseModel?
     var eventsResponseModel:EventsResponseModel?
     var pageType:PageType?
     
@@ -46,10 +44,6 @@ class PresentersVC: BaseViewController,UICollectionViewDataSource,UICollectionVi
             self.title = "News"
             getLatestNewsApi()
         }
-        else if(pageType == PageType.ArticlesPage){
-            self.title = "Articles"
-            getArticlesApi()
-        }
         else if(pageType == PageType.EventsPage){
             self.title = "Events"
             getEventsApi()
@@ -61,9 +55,6 @@ class PresentersVC: BaseViewController,UICollectionViewDataSource,UICollectionVi
         }
         if let _model = newsResponseModel{
             performSegue(withIdentifier: Constant.SegueIdentifiers.presenterToPresenterDetailSegue, sender: _model.newsItems[tag])
-        }
-        if let _model = articlesResponseModel{
-            performSegue(withIdentifier: Constant.SegueIdentifiers.presenterToPresenterDetailSegue, sender: _model.articleItems[tag])
         }
         if let _model = eventsResponseModel{
             performSegue(withIdentifier: Constant.SegueIdentifiers.presenterToPresenterDetailSegue, sender: _model.eventsItems[tag])
@@ -79,10 +70,6 @@ class PresentersVC: BaseViewController,UICollectionViewDataSource,UICollectionVi
             let selModel = _model.newsItems[tag]
             loadWebUrl(webUrlString: (selModel.twitterLink))
         }
-        if let _model = articlesResponseModel{
-            let selModel = _model.articleItems[tag]
-            loadWebUrl(webUrlString: (selModel.twitterLink))
-        }
         if let _model = eventsResponseModel{
             let selModel = _model.eventsItems[tag]
             loadWebUrl(webUrlString: (selModel.twitterLink))
@@ -96,10 +83,6 @@ class PresentersVC: BaseViewController,UICollectionViewDataSource,UICollectionVi
         }
         if let _model = newsResponseModel{
             let selModel = _model.newsItems[tag]
-            loadWebUrl(webUrlString: (selModel.fbLink))
-        }
-        if let _model = articlesResponseModel{
-            let selModel = _model.articleItems[tag]
             loadWebUrl(webUrlString: (selModel.fbLink))
         }
         if let _model = eventsResponseModel{
@@ -133,15 +116,6 @@ class PresentersVC: BaseViewController,UICollectionViewDataSource,UICollectionVi
             }
             return _model.newsItems.count
         }
-        if(self.pageType == PageType.ArticlesPage){
-            guard let _model = articlesResponseModel else {
-                return 0
-            }
-            if(_model.articleItems.count == 0){
-                self.noItemsFoundLabel.isHidden = false
-            }
-            return _model.articleItems.count
-        }
         if(self.pageType == PageType.EventsPage){
             guard let _model = eventsResponseModel else {
                 return 0
@@ -162,9 +136,6 @@ class PresentersVC: BaseViewController,UICollectionViewDataSource,UICollectionVi
         }
         if let _model = newsResponseModel{
             presenterCell.setNewsCell(model: _model.newsItems[indexPath.row])
-        }
-        if let _model = articlesResponseModel{
-            presenterCell.setArticleCell(model: _model.articleItems[indexPath.row])
         }
         if let _model = eventsResponseModel{
             presenterCell.setEventsCell(model: _model.eventsItems[indexPath.row])
@@ -226,25 +197,6 @@ class PresentersVC: BaseViewController,UICollectionViewDataSource,UICollectionVi
         }
     }
     
-    func getArticlesApi(){
-        MBProgressHUD.showAdded(to: self.view, animated: true)
-        ArticlesManager().callingGetArticlesListApi(with: 1, noOfItem: 10, success: { (model) in
-            MBProgressHUD.hide(for: self.view, animated: true)
-            if let model = model as? ArticlesResponseModel{
-                self.articlesResponseModel = model
-                self.presenterCollectionView.reloadData()
-                
-            }
-        }) { (ErrorType) in
-            MBProgressHUD.hide(for: self.view, animated: true)
-            if(ErrorType == .noNetwork){
-                AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: Constant.ErrorMessages.noNetworkMessage, parentController: self)
-            }
-            else{
-                AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: Constant.ErrorMessages.serverErrorMessamge, parentController: self)
-            }
-        }
-    }
     
     func getEventsApi(){
         MBProgressHUD.showAdded(to: self.view, animated: true)
