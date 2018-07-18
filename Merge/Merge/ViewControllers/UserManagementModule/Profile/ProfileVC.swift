@@ -9,7 +9,10 @@
 import UIKit
 
 class ProfileVC: BaseViewController {
-
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var designationLabel: UILabel!
+    
     override func initView() {
         super.initView()
         initialisation()
@@ -21,7 +24,12 @@ class ProfileVC: BaseViewController {
         addRightNavBarIcon()
     }
     
-
+    //MARK: Button Actions
+    
+    @IBAction func editButtonAction(_ sender: UIButton) {
+    }
+    
+    
     /*
     // MARK: - Navigation
 
