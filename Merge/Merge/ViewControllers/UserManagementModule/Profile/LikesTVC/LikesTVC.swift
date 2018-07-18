@@ -10,6 +10,9 @@ import UIKit
 
 class LikesTVC: UITableViewCell {
 
+    @IBOutlet weak var subHeadinglabel: UILabel!
+    @IBOutlet weak var headingLabel: UILabel!
+    @IBOutlet weak var itemImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,4 +24,6 @@ class LikesTVC: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func closeButtonAction(_ sender: UIButton) {
+    }
 }

@@ -172,11 +172,11 @@ class ProfileVC: BaseViewController,UITextFieldDelegate,UITableViewDataSource,UI
     //MARK - Table View Datasources
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 10
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -186,6 +186,15 @@ class ProfileVC: BaseViewController,UITextFieldDelegate,UITableViewDataSource,UI
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10
     }
     /*
     // MARK: - Navigation
