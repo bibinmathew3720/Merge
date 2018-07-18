@@ -89,6 +89,7 @@
 		D0F5D2DA20FB2F5900AE669D /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5D2D720FB2F5400AE669D /* UIViewExtensions.swift */; };
 		D0F5D2DB20FB2F5900AE669D /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5D2D820FB2F5600AE669D /* UIColorExtension.swift */; };
 		D0FB0A0820FBBF27006720C4 /* MenuProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FB0A0720FBBF27006720C4 /* MenuProfileCell.swift */; };
+		D0FF210920FED02200A06C44 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FF210820FED02200A06C44 /* ProfileVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -180,6 +181,7 @@
 		D0F5D2D720FB2F5400AE669D /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		D0F5D2D820FB2F5600AE669D /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		D0FB0A0720FBBF27006720C4 /* MenuProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuProfileCell.swift; sourceTree = "<group>"; };
+		D0FF210820FED02200A06C44 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +251,7 @@
 		D06EC30620F66DEB00DFFE5D /* UserManagementModule */ = {
 			isa = PBXGroup;
 			children = (
+				D0FF210720FECFFC00A06C44 /* Profile */,
 				D06EC31120F68B3800DFFE5D /* ForgotPasswordVC */,
 				D06EC30D20F66FC800DFFE5D /* LogInVC */,
 				D06EC30E20F66FC900DFFE5D /* RegisterVC */,
@@ -535,6 +538,14 @@
 			path = MenuProfileCell;
 			sourceTree = "<group>";
 		};
+		D0FF210720FECFFC00A06C44 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				D0FF210820FED02200A06C44 /* ProfileVC.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		D2C5DEE3F029CD8133E001A0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -745,6 +756,7 @@
 				D06EC32820F6941700DFFE5D /* PlaylistView.swift in Sources */,
 				D06EC31A20F6931400DFFE5D /* PlayerObject.swift in Sources */,
 				D0F1C34020F59D5F00E3A9BA /* EventsManager.swift in Sources */,
+				D0FF210920FED02200A06C44 /* ProfileVC.swift in Sources */,
 				D06EC31720F691EE00DFFE5D /* BaseViewController.swift in Sources */,
 				D01A849020F9C10C004ED6FB /* RecentlyPlayedCell.swift in Sources */,
 				D0F1C34520F59D5F00E3A9BA /* AlwisalApiUrls.swift in Sources */,

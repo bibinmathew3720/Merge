@@ -77,7 +77,7 @@ class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(indexPath.row == 0){
             if isLoggedIn{
-                
+                loadPageAtIndex(index: indexPath.row)
             }
             else{
                 navigateToLogInPage()
@@ -116,7 +116,10 @@ class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     
     func getViewControllerAtMenuIndex(selIndex:NSInteger)->UIViewController{
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-        
+        if (selIndex == 0){
+            let profileVC = storyBoard.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
+            return profileVC
+        }
         if(selIndex == 2){
             let presenterVC = storyBoard.instantiateViewController(withIdentifier: "PresentersVC") as! PresentersVC
              presenterVC.pageType = PageType.PresenterPage
