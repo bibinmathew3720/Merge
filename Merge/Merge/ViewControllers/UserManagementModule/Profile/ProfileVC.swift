@@ -12,7 +12,7 @@ let PROFILETITLE = "PROFILE"
 let LIKESTITLE = "LIKES"
 let FAVORITESTITLE = "FAVORITES"
 
-class ProfileVC: BaseViewController {
+class ProfileVC: BaseViewController,UITextFieldDelegate {
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -37,6 +37,7 @@ class ProfileVC: BaseViewController {
     @IBOutlet weak var updateButtonImageView: UIImageView!
     @IBOutlet weak var updateButton: UIButton!
     
+    @IBOutlet weak var likesView: UIView!
     
     override func initView() {
         super.initView()
@@ -55,6 +56,7 @@ class ProfileVC: BaseViewController {
        customisingButton(button: profileButton)
        customisingButton(button: likesButton)
        customisingButton(button: favoritesButton)
+        self.updateButton.alpha = 0.5
     }
     
     func customisingButton(button:UIButton){
@@ -64,19 +66,32 @@ class ProfileVC: BaseViewController {
     
     //MARK: Button Actions
     
+    @IBAction func tapGestureAction(_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+    
     @IBAction func editButtonAction(_ sender: UIButton) {
+        enablingProfileFields()
     }
     
     @IBAction func profileButtonAction(_ sender: UIButton){
         self.profileView.isHidden = false
+        self.editButton.isHidden = false
+        self.likesView.isHidden = true
         enablingProfilePage()
     }
     
     @IBAction func likesButtonAction(_ sender: UIButton) {
+        self.profileView.isHidden = true
+        self.editButton.isHidden = true
+        self.likesView.isHidden = false
         enablingLikesPage()
     }
     
     @IBAction func favoritesButtonAction(_ sender: UIButton) {
+        self.profileView.isHidden = true
+        self.editButton.isHidden = true
+        self.likesView.isHidden = false
         enablingFavoritesPage()
     }
     
@@ -120,6 +135,36 @@ class ProfileVC: BaseViewController {
     func settingWhiteButtonWithTitle(title:String,button:UIButton){
         button.layer.borderColor = UIColor.clear.cgColor
         button.setTitleColor(UIColor.white, for: UIControlState.normal)
+    }
+    
+    //MARK: Enabling or Disabling Profile Fields
+    
+    func enablingProfileFields(){
+        self.updateButton.alpha = 1.0
+        self.phoneNoTF.isEnabled = true
+        self.phoneNoTF.becomeFirstResponder()
+        self.emailTF.isEnabled = true
+        self.addressTV.isEditable = true
+    }
+    
+    func disablingProfileFields(){
+        self.updateButton.alpha = 0.5
+        self.view.endEditing(true)
+        self.phoneNoTF.isEnabled = false
+        self.emailTF.isEnabled = false
+        self.addressTV.isEditable = false
+    }
+    
+    //MARK: Text Field Delegates
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == self.phoneNoTF{
+            emailTF.becomeFirstResponder()
+        }
+        else if textField == self.emailTF{
+            addressTV.becomeFirstResponder()
+        }
+        return true
     }
     
     /*
