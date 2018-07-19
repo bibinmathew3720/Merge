@@ -37,15 +37,22 @@ class ProfileVC: BaseViewController,UITextFieldDelegate,UITableViewDataSource,UI
     @IBOutlet weak var updateButtonImageView: UIImageView!
     @IBOutlet weak var updateButton: UIButton!
     
+    @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var likesView: UIView!
     @IBOutlet weak var likesHeadingLabel: UILabel!
     @IBOutlet weak var likesTableView: UITableView!
+    
+    var userResponseModel:AlwisalUserProfileResponseModel?
+    var alwisalUpdateProfile = AlwisalUpdateProfile()
+    var alwisalUserLikes: LikesResponseModel?
+    var alwisalUserFavorites: FavoritesResponseModel?
     
     override func initView() {
         super.initView()
         initialisation()
         customisation()
         enablingProfilePage()
+        callingGetUserProfilesApi()
     }
     
     func initialisation(){
@@ -100,6 +107,9 @@ class ProfileVC: BaseViewController,UITextFieldDelegate,UITableViewDataSource,UI
     }
     
     @IBAction func updateButtonAction(_ sender: UIButton) {
+        if(self.validate()){
+            self.callingUpdateProfileApi()
+        }
     }
     
     func enablingProfilePage(){
@@ -149,6 +159,7 @@ class ProfileVC: BaseViewController,UITextFieldDelegate,UITableViewDataSource,UI
         self.phoneNoTF.becomeFirstResponder()
         self.emailTF.isEnabled = true
         self.addressTV.isEditable = true
+        self.updateButton.isEnabled = true
     }
     
     func disablingProfileFields(){
@@ -157,6 +168,7 @@ class ProfileVC: BaseViewController,UITextFieldDelegate,UITableViewDataSource,UI
         self.phoneNoTF.isEnabled = false
         self.emailTF.isEnabled = false
         self.addressTV.isEditable = false
+         self.updateButton.isEnabled = false
     }
     
     //MARK: Text Field Delegates
@@ -197,6 +209,229 @@ class ProfileVC: BaseViewController,UITextFieldDelegate,UITableViewDataSource,UI
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 10
+    }
+    
+    //MARK: Get User Profiles
+    
+    func callingGetUserProfilesApi(){
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        UserModuleManager().callingGetUserProfilesApi(with: "", success: { (model) in
+            MBProgressHUD.hide(for: self.view, animated: true)
+            if let model = model as? AlwisalUserProfileResponseModel{
+                self.userResponseModel = model
+                self.populateUserDetails()
+                
+            }
+        }) {(ErrorType) in
+            MBProgressHUD.hide(for: self.view, animated: true)
+            if(ErrorType == .noNetwork){
+                AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: Constant.ErrorMessages.noNetworkMessage, parentController: self)
+            }
+            else{
+                AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: Constant.ErrorMessages.serverErrorMessamge, parentController: self)
+            }
+        }
+    }
+    func populateUserDetails(){
+        alwisalUpdateProfile.first_name = (self.userResponseModel?.firstName)!
+        alwisalUpdateProfile.last_name = (self.userResponseModel?.lastName)!
+        alwisalUpdateProfile.email = (self.userResponseModel?.userEmail)!
+        alwisalUpdateProfile.phone_number = (self.userResponseModel?.phoneNo)!
+        alwisalUpdateProfile.age = (self.userResponseModel?.age)!
+        alwisalUpdateProfile.gender = (self.userResponseModel?.gender)!
+        alwisalUpdateProfile.location = (self.userResponseModel?.location)!
+        alwisalUpdateProfile.nationality = (self.userResponseModel?.nationality)!
+        
+        //Populating Fields
+        
+        self.nameLabel.text = (self.userResponseModel?.firstName)!+" "+(self.userResponseModel?.lastName)!
+        self.phoneNoTF.text = (self.userResponseModel?.phoneNo)!
+        self.emailTF.text = (self.userResponseModel?.userEmail)!
+        self.addressTV.text = (self.userResponseModel?.location)!
+        if self.userResponseModel?.location.count == 0{
+            self.textViewHeightConstraint.constant = 20
+        }
+    }
+    
+    //MARK: Update User Profiles
+    
+    func  callingUpdateProfileApi(){
+        alwisalUpdateProfile.email = self.emailTF.text!;
+        alwisalUpdateProfile.phone_number = self.phoneNoTF.text!
+        alwisalUpdateProfile.location = self.addressTV.text!
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+    UserModuleManager().callingUpdateProfileApi(with:getRequestBodyForUpdateProfile() , success: {
+            (model) in
+            MBProgressHUD.hide(for: self.view, animated: true)
+            if let model = model as? AlwisalUpdateProfileResponseModel{
+                if model.errorCode == 1{
+                    AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: model.errorMessage, parentController: self)
+                }
+                else{
+                    self.disablingProfileFields()
+                    AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: model.statusMessage, parentController: self)
+                }
+                
+            }
+            
+        }) { (ErrorType) in
+            MBProgressHUD.hide(for: self.view, animated: true)
+            if(ErrorType == .noNetwork){
+                AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: Constant.ErrorMessages.noNetworkMessage, parentController: self)
+            }
+            else{
+                AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: Constant.ErrorMessages.serverErrorMessamge, parentController: self)
+            }
+        }
+    }
+    
+    fileprivate func getRequestBodyForUpdateProfile() -> String {
+        return alwisalUpdateProfile.getRequestBody()
+    }
+    
+    func validate()->Bool{
+        var valid = true
+        var validationMessage = ""
+        if (emailTF.text?.isEmpty)!{
+            validationMessage = "Please enter your email id"
+            valid = false
+        }
+        else if !(emailTF.text?.isValidEmail())!{
+            validationMessage = "Please enter valid email id"
+            valid = false
+        }
+        if valid == false{
+            AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: validationMessage, parentController: self)
+        }
+        return valid
+    }
+    
+    //MARK - Get User Likes
+    
+    func callingGetUserLikesApi(){
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        UserModuleManager().callingUserLikesApi(with:"" , success: {
+            (model) in
+            MBProgressHUD.hide(for: self.view, animated: true)
+            if let model = model as? LikesResponseModel{
+                if model.errorCode == 1{
+                    AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: model.errorMessage, parentController: self)
+                }
+                else{
+                    self.alwisalUserLikes = model
+                    self.likesTableView.reloadData()
+                }
+                
+            }
+            
+        }) { (ErrorType) in
+            MBProgressHUD.hide(for: self.view, animated: true)
+            if(ErrorType == .noNetwork){
+                AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: Constant.ErrorMessages.noNetworkMessage, parentController: self)
+            }
+            else{
+                AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: Constant.ErrorMessages.serverErrorMessamge, parentController: self)
+            }
+        }
+    }
+    
+    //MARK - Get User Favorites
+    
+    func callingGetUserFavoritesApi(){
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        UserModuleManager().callingUserFavoritesApi(with:"" , success: {
+            (model) in
+            MBProgressHUD.hide(for: self.view, animated: true)
+            if let model = model as? FavoritesResponseModel{
+                if model.errorCode == 1{
+                    AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: model.errorMessage, parentController: self)
+                }
+                else{
+                    self.alwisalUserFavorites = model
+                    self.likesTableView.reloadData()
+                }
+                
+            }
+            
+        }) { (ErrorType) in
+            MBProgressHUD.hide(for: self.view, animated: true)
+            if(ErrorType == .noNetwork){
+                AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: Constant.ErrorMessages.noNetworkMessage, parentController: self)
+            }
+            else{
+                AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: Constant.ErrorMessages.serverErrorMessamge, parentController: self)
+            }
+        }
+    }
+    
+    //MARK : Calling Favorite Api
+    
+    func  callingAddToFavoriteApi(index:NSInteger){
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        UserModuleManager().callingFavoriteApi(with: getFavoriteRequestBody(favoriteModel:(alwisalUserFavorites?.favoriteItems[index])!), success: {
+            (model) in
+            MBProgressHUD.hide(for: self.view, animated: true)
+            if let model = model as? AlwisalAddToFavoriteResponseModel{
+                if model.errorCode == 1{
+                    AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: model.errorMessage, parentController: self)
+                }
+                else{
+                    self.alwisalUserFavorites?.favoriteItems.remove(at: index)
+                    self.likesTableView.reloadData()
+                }
+                
+            }
+            
+        }) { (ErrorType) in
+            MBProgressHUD.hide(for: self.view, animated: true)
+            if(ErrorType == .noNetwork){
+                AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: Constant.ErrorMessages.noNetworkMessage, parentController: self)
+            }
+            else{
+                AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: Constant.ErrorMessages.serverErrorMessamge, parentController: self)
+            }
+        }
+    }
+    
+    func getFavoriteRequestBody(favoriteModel:FavoritesModel)->String{
+        var dict:[String:String] = [String:String]()
+        dict.updateValue(favoriteModel.title, forKey: "title")
+        return AlwisalUtility.getJSONfrom(dictionary: dict)
+    }
+    
+    //MARK : Calling Like Api
+    
+    func  callingLikeApi(index:NSInteger){
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        UserModuleManager().callingLikeApi(with: getLikeRequestBody(likeModel:(alwisalUserLikes?.likeItems[index])!), success: {
+            (model) in
+            MBProgressHUD.hide(for: self.view, animated: true)
+            if let model = model as? AlwisalAddToLikeResponseModel{
+                if model.errorCode == 1{
+                    AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: model.errorMessage, parentController: self)
+                }
+                else{
+                    self.alwisalUserLikes?.likeItems.remove(at: index)
+                    self.likesTableView.reloadData()
+                }
+                
+            }
+            
+        }) { (ErrorType) in
+            MBProgressHUD.hide(for: self.view, animated: true)
+            if(ErrorType == .noNetwork){
+                AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: Constant.ErrorMessages.noNetworkMessage, parentController: self)
+            }
+            else{
+                AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: Constant.ErrorMessages.serverErrorMessamge, parentController: self)
+            }
+        }
+    }
+    
+    func getLikeRequestBody(likeModel:LikesModel)->String{
+        var dict:[String:String] = [String:String]()
+        dict.updateValue(likeModel.title, forKey: "title")
+        return AlwisalUtility.getJSONfrom(dictionary: dict)
     }
     /*
     // MARK: - Navigation

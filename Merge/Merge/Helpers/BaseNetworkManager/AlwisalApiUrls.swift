@@ -18,21 +18,18 @@ let REGISTER_URL = "registerUser"
 let GETUSERPROFILEDETAILS  = "get_user_profile"
 let GETNEWS = "news?"
 let GETPRESENTERS = "presenters?"
-
+let UPDATEPROFILEDETAILS = "update_user_profile"
 let GETEVENTS = "events?"
 
 let SOCIAL_LOGIN_URL = "registerSocialMedia"
-
-let GETARTICLES = "articles?"
 let GETPRESENTERDETAILS = "posts/"
 let GETSONGHISTORY = "song_history"
-
 let ADDTOFAVORITE = "add_favourite"
 let ADDTOLIKE = "add_liked"
-
-let UPDATEPROFILEDETAILS = "update_user_profile"
 let GETUSERLIKES = "get_liked"
 let GETUSERFAVORITES = "get_favourites"
 let GETCHATMESSAGES = "getOldChat"
 let GETARTISTINFO = "method=artist.getInfo&"
 let SEND_CHAT_MESSAGE = "send_user_message"
+
+let GETARTICLES = "articles?"

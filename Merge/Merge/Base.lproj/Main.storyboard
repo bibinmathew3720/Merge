@@ -1726,7 +1726,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oku-iF-jTb">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="480"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cfx-De-d8n">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="cfx-De-d8n">
                                                 <rect key="frame" x="137" y="-54" width="100" height="100"/>
                                                 <color key="backgroundColor" red="0.91372549020000005" green="0.70196078429999997" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -1896,7 +1896,7 @@
                                                         <color key="textColor" red="0.48627450980392156" green="0.48627450980392156" blue="0.48627450980392156" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="9446484637" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ebD-w8-YGR">
+                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ebD-w8-YGR">
                                                         <rect key="frame" x="0.0" y="49" width="252" height="20"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
@@ -1911,7 +1911,7 @@
                                                         <color key="textColor" red="0.48627450979999998" green="0.48627450979999998" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="alazhar@mail.com" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hv2-35-exC">
+                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hv2-35-exC">
                                                         <rect key="frame" x="0.0" y="98" width="252" height="20"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
@@ -1932,14 +1932,13 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="100" id="cZP-eh-1lP"/>
                                                         </constraints>
-                                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
                                                     </textView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logInButtonBg" translatesAutoresizingMaskIntoConstraints="NO" id="8M4-mo-16N">
                                                         <rect key="frame" x="0.0" y="270" width="100" height="30"/>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PbC-1E-pFt">
+                                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PbC-1E-pFt">
                                                         <rect key="frame" x="0.0" y="270" width="100" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="R15-Uz-hMv"/>
@@ -2165,6 +2164,7 @@
                         <outlet property="profileButtonView" destination="aHE-Uc-vFc" id="fWE-S6-izg"/>
                         <outlet property="profileImageView" destination="cfx-De-d8n" id="d2l-f2-4Z9"/>
                         <outlet property="profileView" destination="4nc-R8-tcI" id="0CD-6P-q4g"/>
+                        <outlet property="textViewHeightConstraint" destination="cZP-eh-1lP" id="gyD-Qh-YFa"/>
                         <outlet property="updateButton" destination="PbC-1E-pFt" id="cKU-oB-fUN"/>
                         <outlet property="updateButtonImageView" destination="8M4-mo-16N" id="IQo-Nq-t68"/>
                     </connections>
@@ -2196,6 +2196,7 @@
         <image name="logout" width="22" height="24"/>
         <image name="menuBG" width="250" height="667"/>
         <image name="menuLogo" width="88" height="30"/>
+        <image name="placeholder" width="375" height="250"/>
         <image name="preDetailButtonBG" width="88" height="22"/>
         <image name="presenterFB" width="5" height="8"/>
         <image name="presenterRight" width="9" height="7"/>

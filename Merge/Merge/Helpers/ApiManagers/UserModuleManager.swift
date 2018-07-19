@@ -449,6 +449,7 @@ class UserModuleManager: CLBaseService {
     var phoneNo:String = ""
     var userEmail:String = ""
     var userLogin:String = ""
+    var userName:String = ""
     init(dict:[String:Any?]) {
         
         if let value = dict["errorMsg"] as? String{
@@ -486,7 +487,7 @@ class UserModuleManager: CLBaseService {
                 userEmail = value
             }
             if let value = data["user_login"] as? String{
-                userEmail = value
+                userName = value
             }
         }
     }
