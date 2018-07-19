@@ -12,6 +12,12 @@ let PROFILETITLE = "PROFILE"
 let LIKESTITLE = "LIKES"
 let FAVORITESTITLE = "FAVORITES"
 
+enum SegmentType{
+    case segmentTypeProfileDetails
+    case segmentTypeLikes
+    case segmentTypeFavorites
+}
+
 class ProfileVC: BaseViewController,UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate {
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var profileImageView: UIImageView!
@@ -42,6 +48,7 @@ class ProfileVC: BaseViewController,UITextFieldDelegate,UITableViewDataSource,UI
     @IBOutlet weak var likesHeadingLabel: UILabel!
     @IBOutlet weak var likesTableView: UITableView!
     
+    var segmentType:SegmentType?
     var userResponseModel:AlwisalUserProfileResponseModel?
     var alwisalUpdateProfile = AlwisalUpdateProfile()
     var alwisalUserLikes: LikesResponseModel?
@@ -52,6 +59,7 @@ class ProfileVC: BaseViewController,UITextFieldDelegate,UITableViewDataSource,UI
         initialisation()
         customisation()
         enablingProfilePage()
+        segmentType = SegmentType.segmentTypeProfileDetails
         callingGetUserProfilesApi()
     }
     
@@ -87,6 +95,7 @@ class ProfileVC: BaseViewController,UITextFieldDelegate,UITableViewDataSource,UI
         self.profileView.isHidden = false
         self.editButton.isHidden = false
         self.likesView.isHidden = true
+        segmentType = SegmentType.segmentTypeProfileDetails
         enablingProfilePage()
     }
     
@@ -95,6 +104,8 @@ class ProfileVC: BaseViewController,UITextFieldDelegate,UITableViewDataSource,UI
         self.profileView.isHidden = true
         self.editButton.isHidden = true
         self.likesView.isHidden = false
+        segmentType = SegmentType.segmentTypeLikes
+        callingGetUserLikesApi()
         enablingLikesPage()
     }
     
@@ -103,6 +114,8 @@ class ProfileVC: BaseViewController,UITextFieldDelegate,UITableViewDataSource,UI
         self.profileView.isHidden = true
         self.editButton.isHidden = true
         self.likesView.isHidden = false
+        segmentType = SegmentType.segmentTypeFavorites
+        callingGetUserFavoritesApi()
         enablingFavoritesPage()
     }
     
@@ -186,7 +199,19 @@ class ProfileVC: BaseViewController,UITextFieldDelegate,UITableViewDataSource,UI
     //MARK - Table View Datasources
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 10
+        if(self.segmentType == SegmentType.segmentTypeLikes){
+            guard let _model = alwisalUserLikes else {
+                return 0
+            }
+            return _model.likeItems.count
+        }
+        else if(self.segmentType == SegmentType.segmentTypeFavorites){
+            guard let _model = alwisalUserFavorites else {
+                return 0
+            }
+            return _model.favoriteItems.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -195,6 +220,16 @@ class ProfileVC: BaseViewController,UITextFieldDelegate,UITableViewDataSource,UI
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let likesCell : LikesTVC! = tableView.dequeueReusableCell(withIdentifier: "profileLikesCell") as! LikesTVC
+        if(self.segmentType == SegmentType.segmentTypeLikes){
+            if let _model = alwisalUserLikes{
+                likesCell.setLikeDetails(likeItem: _model.likeItems[indexPath.row])
+            }
+        }
+        if(self.segmentType == SegmentType.segmentTypeFavorites){
+            if let _model = alwisalUserFavorites{
+                likesCell.setFavoriteDetails(favoriteItem: _model.favoriteItems[indexPath.row])
+            }
+        }
         return likesCell
     }
     

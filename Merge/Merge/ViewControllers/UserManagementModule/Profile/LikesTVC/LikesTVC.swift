@@ -23,6 +23,17 @@ class LikesTVC: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func setFavoriteDetails(favoriteItem:FavoritesModel){
+        headingLabel.text = favoriteItem.title
+        subHeadinglabel.text = ""
+        
+    }
+    func setLikeDetails(likeItem:LikesModel){
+        headingLabel.text = likeItem.title
+        subHeadinglabel.text = ""
+        
+    }
 
     @IBAction func closeButtonAction(_ sender: UIButton) {
     }
