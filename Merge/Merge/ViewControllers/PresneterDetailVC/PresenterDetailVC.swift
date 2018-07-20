@@ -15,6 +15,7 @@ class PresenterDetailVC: BaseViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var backListButton: UIButton!
     @IBOutlet weak var nextPresenterButton: UIButton!
+    @IBOutlet weak var nextPresenterImageView: UIImageView!
     
     var presenterResponseModel:PresenterResponseModel?
     var newsResponseModel:NewsResponseModel?
@@ -37,6 +38,10 @@ class PresenterDetailVC: BaseViewController {
             self.nextPresenterButton.setTitle("NEXT PRESENTER", for: UIControlState.normal)
             self.populatePresenterData(presenter: _model)
             self.selectedIndex = self.presenterResponseModel?.presenterItems.index(of: _model)
+            if (self.selectedIndex! + 1) == self.presenterResponseModel?.presenterItems.count{
+                self.nextPresenterButton.isHidden = true
+                self.nextPresenterImageView.isHidden = true
+            }
             //getPresenterDetails()
         }
         if let model = newsModel{
@@ -44,12 +49,20 @@ class PresenterDetailVC: BaseViewController {
             self.nextPresenterButton.setTitle("NEXT NEWS", for: UIControlState.normal)
             self.populateNewsData(news: model)
             self.selectedIndex = self.newsResponseModel?.newsItems.index(of: model)
+            if (self.selectedIndex! + 1) == self.newsResponseModel?.newsItems.count{
+                self.nextPresenterButton.isHidden = true
+                self.nextPresenterImageView.isHidden = true
+            }
         }
         if let model = eventsModel{
             self.title = "Events"
             self.nextPresenterButton.setTitle("NEXT EVENT", for: UIControlState.normal)
             self.populateEventsData(event: model)
             self.selectedIndex = self.eventsResponseModel?.eventsItems.index(of: model)
+            if (self.selectedIndex! + 1) == self.eventsResponseModel?.eventsItems.count{
+                self.nextPresenterButton.isHidden = true
+                self.nextPresenterImageView.isHidden = true
+            }
         }
     }
     
@@ -99,6 +112,40 @@ class PresenterDetailVC: BaseViewController {
     }
     
     @IBAction func nextPresenterButtonAction(_ sender: UIButton) {
+        if let selIndex = self.selectedIndex{
+            self.selectedIndex = selIndex + 1
+            if pageType == PageType.EventsPage{
+                    if let eventModel = self.eventsResponseModel?.eventsItems[self.selectedIndex!]{
+                        self.eventsModel = eventModel
+                        populateDetails()
+                    }
+                if (self.selectedIndex! + 1) == self.eventsResponseModel?.eventsItems.count{
+                    self.nextPresenterButton.isHidden = true
+                    self.nextPresenterImageView.isHidden = true
+                }
+            }
+            else if (pageType == PageType.NewsPage){
+                if let newsModel = self.newsResponseModel?.newsItems[self.selectedIndex!]{
+                    self.newsModel = newsModel
+                    populateDetails()
+                }
+                if (self.selectedIndex! + 1) == self.newsResponseModel?.newsItems.count{
+                    self.nextPresenterButton.isHidden = true
+                    self.nextPresenterImageView.isHidden = true
+                }
+            }
+            else if (pageType == PageType.PresenterPage){
+                if let presenterModel = self.presenterResponseModel?.presenterItems[self.selectedIndex!]{
+                    self.presentersModel = presenterModel
+                    populateDetails()
+                }
+                if (self.selectedIndex! + 1) == self.presenterResponseModel?.presenterItems.count{
+                    self.nextPresenterButton.isHidden = true
+                    self.nextPresenterImageView.isHidden = true
+                }
+            }
+        }
+        
     }
     
     func populatePresenterData(presenter:PresenterModel){

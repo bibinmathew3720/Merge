@@ -1118,6 +1118,7 @@
                         <outlet property="backListButton" destination="JyA-Fa-v6k" id="VWW-a4-ggh"/>
                         <outlet property="descriptionLabel" destination="mR6-4x-71K" id="oM1-CU-r4e"/>
                         <outlet property="nextPresenterButton" destination="T8N-zI-WFA" id="qSH-cK-IQu"/>
+                        <outlet property="nextPresenterImageView" destination="3J5-CW-GiE" id="qfF-y8-qnR"/>
                         <outlet property="presenterDesigLabel" destination="3DI-qi-yD1" id="qwt-gF-l7n"/>
                         <outlet property="presenterImageView" destination="HwT-UL-b2C" id="EpG-ZE-A2U"/>
                         <outlet property="presenterNameLabel" destination="6uQ-1v-zWb" id="K6T-ID-35o"/>
