@@ -14,6 +14,11 @@ class PresenterDetailVC: BaseViewController {
     @IBOutlet weak var presenterDesigLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var backListButton: UIButton!
+    
+    var presentersModel:PresenterModel?
+    var newsModel:NewsModel?
+    var eventsModel:EventsModel?
+    var pageType:PageType?
     override func initView() {
         super.initView()
         initialisation()

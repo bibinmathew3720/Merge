@@ -110,7 +110,11 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        if(collectionView == self.trendingCollectionView){
+            if let _model = newsResponseModel{
+                performSegue(withIdentifier: Constant.SegueIdentifiers.landingToPresenterDetail, sender: _model.newsItems[indexPath.row])
+            }
+        }
     }
     
     //MARK: Button Actions
@@ -133,9 +137,18 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
     
    
     @IBAction func filterButtonAction(_ sender: UIButton) {
+        if let art = self.artistInfoModel{
+            self.loadSongInfoView(artistInfo: art)
+        }
+        else{
+            AlwisalUtility.showDefaultAlertwithCompletionHandler(_title: Constant.AppName, _message:Constant.Messages.InfoNotAvaliable, parentController: self, completion: { (okSuccess) in
+                
+            })
+        }
     }
     
     @IBAction func viewAllButtonAction(_ sender: UIButton) {
+        self.loadPlayListView(at: self.tabBarController!)
     }
     
     @IBAction func trendingVIewAllButtonAction(_ sender: UIButton){
@@ -234,16 +247,6 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
         return AlwisalUtility.getJSONfrom(dictionary: dict)
     }
     
-    @IBAction func moreButtonAction(_ sender: UIButton) {
-        if let art = self.artistInfoModel{
-            self.loadSongInfoView(artistInfo: art)
-        }
-        else{
-            AlwisalUtility.showDefaultAlertwithCompletionHandler(_title: Constant.AppName, _message:Constant.Messages.InfoNotAvaliable, parentController: self, completion: { (okSuccess) in
-                
-            })
-        }
-    }
     
     //MARK : Calling Like Api For Current Song
     
@@ -338,6 +341,20 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
             else{
                 AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: Constant.ErrorMessages.serverErrorMessamge, parentController: self)
             }
+        }
+    }
+    
+    //MARK: Prepare Segue Method
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == Constant.SegueIdentifiers.landingToNewsList){
+            let presentersVC = segue.destination as! PresentersVC
+            presentersVC.pageType = PageType.NewsPage
+        }
+        else if(segue.identifier == Constant.SegueIdentifiers.landingToPresenterDetail){
+            let presentDetail = segue.destination as! PresenterDetailVC
+            presentDetail.newsModel = sender as? NewsModel
+            presentDetail.pageType = PageType.NewsPage
         }
     }
     
