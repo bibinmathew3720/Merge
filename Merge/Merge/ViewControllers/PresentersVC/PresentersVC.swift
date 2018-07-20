@@ -154,7 +154,15 @@ class PresentersVC: BaseViewController,UICollectionViewDataSource,UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier:Constant.SegueIdentifiers.presenterToPresenterDetailSegue, sender: "")
+        if let _model = presentersResponseModel{
+            performSegue(withIdentifier: Constant.SegueIdentifiers.presenterToPresenterDetailSegue, sender: _model.presenterItems[indexPath.row])
+        }
+        if let _model = newsResponseModel{
+            performSegue(withIdentifier: Constant.SegueIdentifiers.presenterToPresenterDetailSegue, sender: _model.newsItems[indexPath.row])
+        }
+        if let _model = eventsResponseModel{
+            performSegue(withIdentifier: Constant.SegueIdentifiers.presenterToPresenterDetailSegue, sender: _model.eventsItems[indexPath.row])
+        }
     }
     
     func  getPresentersApi(){
@@ -213,6 +221,28 @@ class PresentersVC: BaseViewController,UICollectionViewDataSource,UICollectionVi
             }
             else{
                 AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: Constant.ErrorMessages.serverErrorMessamge, parentController: self)
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == Constant.SegueIdentifiers.presenterToPresenterDetailSegue){
+            let presentDetail = segue.destination as! PresenterDetailVC
+            if let _model = presentersResponseModel{
+                presentDetail.presentersModel = sender as? PresenterModel
+                presentDetail.presenterResponseModel = _model
+                presentDetail.pageType = PageType.PresenterPage
+            }
+            if let _model = newsResponseModel{
+                presentDetail.newsModel = sender as? NewsModel
+                presentDetail.newsResponseModel = _model
+                presentDetail.pageType = PageType.NewsPage
+            }
+            if let _model = eventsResponseModel{
+                presentDetail.eventsModel = sender as? EventsModel
+                presentDetail.eventsResponseModel = _model
+                presentDetail.pageType = PageType.EventsPage
+               
             }
         }
     }

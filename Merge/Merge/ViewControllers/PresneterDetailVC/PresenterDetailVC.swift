@@ -15,6 +15,10 @@ class PresenterDetailVC: BaseViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var backListButton: UIButton!
     
+    var presenterResponseModel:PresenterResponseModel?
+    var newsResponseModel:NewsResponseModel?
+    var eventsResponseModel:EventsResponseModel?
+    
     var presentersModel:PresenterModel?
     var newsModel:NewsModel?
     var eventsModel:EventsModel?
@@ -22,10 +26,26 @@ class PresenterDetailVC: BaseViewController {
     override func initView() {
         super.initView()
         initialisation()
+        populateDetails()
+    }
+    
+    func populateDetails(){
+        if let _model = presentersModel{
+            self.title = "Presenters"
+            self.populatePresenterData(presenter: _model)
+            //getPresenterDetails()
+        }
+        if let model = newsModel{
+            self.title = "News"
+            self.populateNewsData(news: model)
+        }
+        if let model = eventsModel{
+            self.title = "Events"
+            self.populateEventsData(event: model)
+        }
     }
     
     func initialisation(){
-        self.title = "Presenters"
         addingLeftBarButton()
         addRightNavBarIcon()
         self.rightButton?.setImage(UIImage.init(named: "backArrow"), for: UIControlState.normal)
@@ -43,9 +63,27 @@ class PresenterDetailVC: BaseViewController {
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func fbButtonAction(_ sender: UIButton) {
+        if let _model = presentersModel{
+            loadWebUrl(webUrlString: (_model.fbLink))
+        }
+        if let model = newsModel{
+            loadWebUrl(webUrlString: (model.fbLink))
+        }
+        if let model = eventsModel{
+            loadWebUrl(webUrlString: (model.fbLink))
+        }
     }
     
     @IBAction func twitterButtonAction(_ sender: UIButton) {
+        if let _model = presentersModel{
+            loadWebUrl(webUrlString: (_model.twitterLink))
+        }
+        if let model = newsModel{
+            loadWebUrl(webUrlString: (model.twitterLink))
+        }
+        if let model = eventsModel{
+            loadWebUrl(webUrlString: (model.twitterLink))
+        }
     }
     
     @IBAction func backToListButtonAction(_ sender: UIButton) {
@@ -55,10 +93,32 @@ class PresenterDetailVC: BaseViewController {
     @IBAction func nextPresenterButtonAction(_ sender: UIButton) {
     }
     
+    func populatePresenterData(presenter:PresenterModel){
+        self.presenterNameLabel.text = presenter.title
+        self.presenterDesigLabel.text = presenter.content
+        self.descriptionLabel.text = presenter.content
+        presenterImageView.sd_setImage(with: URL(string: (presenter.imagePath)), placeholderImage: UIImage(named: Constant.ImageNames.profilePlaceholderImage))
+    }
+    
+    func populateNewsData(news:NewsModel){
+        self.presenterNameLabel.text = news.title
+        self.presenterDesigLabel.text = news.content
+        self.descriptionLabel.text = news.content
+        presenterImageView.sd_setImage(with: URL(string: (news.imagePath)), placeholderImage: UIImage(named: Constant.ImageNames.profilePlaceholderImage))
+    }
+    
+    func populateEventsData(event:EventsModel){
+        self.presenterNameLabel.text = event.title
+        self.presenterDesigLabel.text = event.content
+        self.descriptionLabel.text = event.content
+        presenterImageView.sd_setImage(with: URL(string: (event.imagePath)), placeholderImage: UIImage(named: Constant.ImageNames.profilePlaceholderImage))
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
 
     /*

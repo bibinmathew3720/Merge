@@ -354,6 +354,7 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
         else if(segue.identifier == Constant.SegueIdentifiers.landingToPresenterDetail){
             let presentDetail = segue.destination as! PresenterDetailVC
             presentDetail.newsModel = sender as? NewsModel
+            presentDetail.newsResponseModel = self.newsResponseModel
             presentDetail.pageType = PageType.NewsPage
         }
     }
