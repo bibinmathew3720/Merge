@@ -9,6 +9,7 @@
 import UIKit
 
 class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+    @IBOutlet weak var nowPlayingLabel: UILabel!
     @IBOutlet weak var songImageView: UIImageView!
     @IBOutlet weak var singerImageView: UIImageView!
     @IBOutlet weak var locationLabel: UILabel!
@@ -33,6 +34,7 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
         addingLeftBarButton()
         addShadowToAView(shadowView:singerImageView)
         callingInitialApis()
+        NotificationCenter.default.addObserver(self, selector: #selector(receiveNotifications(aNot:)), name: Notification.Name(Constant.Notifications.PlayerArtistInfo), object: nil)
     }
     
     func customisation(){
@@ -114,11 +116,22 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
     //MARK: Button Actions
     
     @IBAction func favoriteBUttonAction(_ sender: UIButton) {
+        if let currentSong = self.currentSong{
+            if(self.isUserLoggedIn()){
+                self.callingAddToFavoriteApiForCurrentSong(soName: currentSong,buttton:sender )
+            }
+        }
     }
     
     @IBAction func likeButtonAction(_ sender: UIButton) {
+        if let currentSong = self.currentSong{
+            if(self.isUserLoggedIn()){
+                self.callingLikeApiForCurrentSong(soName: currentSong,button:sender )
+            }
+        }
     }
     
+   
     @IBAction func filterButtonAction(_ sender: UIButton) {
     }
     
@@ -133,8 +146,6 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
     
     
     func callingInitialApis(){
-        NotificationCenter.default.addObserver(self, selector: #selector(receiveNotifications(aNot:)), name: Notification.Name(Constant.Notifications.PlayerArtistInfo), object: nil)
-        
         let isLoggedIn = UserDefaults.standard.bool(forKey: Constant.VariableNames.isLoogedIn)
         if(isLoggedIn){
             MBProgressHUD.showAdded(to: self.view, animated: true)
@@ -156,16 +167,15 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
         }
         else{
             MBProgressHUD.showAdded(to: self.view, animated: true)
-            self.getLatestNewsApi()
-//            self.getSongHistory(success: { (model) in
-//                if let model = model as? SongHistoryResponseModel{
-//                    self.songHistoryResponseModel = model
-//                    self.recentCollectionView.reloadData()
-//                    self.getLatestNewsApi()
-//                }
-//            }) { (ErrorType) in
-//
-//            }
+            self.getSongHistory(success: { (model) in
+                if let model = model as? SongHistoryResponseModel{
+                    self.songHistoryResponseModel = model
+                    self.recentCollectionView.reloadData()
+                    self.getLatestNewsApi()
+                }
+            }) { (ErrorType) in
+
+            }
         }
     }
     
@@ -191,6 +201,85 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
         }
     }
     
+    func  callingAddToFavoriteApiForCurrentSong(soName:String,buttton:UIButton) {
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        UserModuleManager().callingFavoriteApi(with: getFavoriteRequestBodyForCurrentSong(songName: soName), success: {
+            (model) in
+            MBProgressHUD.hide(for: self.view, animated: true)
+            if let model = model as? AlwisalAddToFavoriteResponseModel{
+                if model.errorCode == 1{
+                    AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: model.errorMessage, parentController: self)
+                }
+                else{
+                    buttton.isSelected = model.favorite
+                    //self.landingCollectionView.reloadData()
+                }
+                
+            }
+            
+        }) { (ErrorType) in
+            MBProgressHUD.hide(for: self.view, animated: true)
+            if(ErrorType == .noNetwork){
+                AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: Constant.ErrorMessages.noNetworkMessage, parentController: self)
+            }
+            else{
+                AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: Constant.ErrorMessages.serverErrorMessamge, parentController: self)
+            }
+        }
+    }
+    
+    func getFavoriteRequestBodyForCurrentSong(songName:String)->String{
+        var dict:[String:String] = [String:String]()
+        dict.updateValue(songName, forKey: "title")
+        return AlwisalUtility.getJSONfrom(dictionary: dict)
+    }
+    
+    @IBAction func moreButtonAction(_ sender: UIButton) {
+        if let art = self.artistInfoModel{
+            self.loadSongInfoView(artistInfo: art)
+        }
+        else{
+            AlwisalUtility.showDefaultAlertwithCompletionHandler(_title: Constant.AppName, _message:Constant.Messages.InfoNotAvaliable, parentController: self, completion: { (okSuccess) in
+                
+            })
+        }
+    }
+    
+    //MARK : Calling Like Api For Current Song
+    
+    func  callingLikeApiForCurrentSong(soName:String,button:UIButton){
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        UserModuleManager().callingLikeApi(with: getLikeRequestBodyForCurrentSong(songName: soName), success: {
+            (model) in
+            MBProgressHUD.hide(for: self.view, animated: true)
+            if let model = model as? AlwisalAddToLikeResponseModel{
+                if model.errorCode == 1{
+                    AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: model.errorMessage, parentController: self)
+                }
+                else{
+                    button.isSelected = model.liked
+                    //self.landingCollectionView.reloadData()
+                }
+                
+            }
+            
+        }) { (ErrorType) in
+            MBProgressHUD.hide(for: self.view, animated: true)
+            if(ErrorType == .noNetwork){
+                AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: Constant.ErrorMessages.noNetworkMessage, parentController: self)
+            }
+            else{
+                AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: Constant.ErrorMessages.serverErrorMessamge, parentController: self)
+            }
+        }
+    }
+    
+    func getLikeRequestBodyForCurrentSong(songName:String)->String{
+        var dict:[String:String] = [String:String]()
+        dict.updateValue(songName, forKey: "title")
+        return AlwisalUtility.getJSONfrom(dictionary: dict)
+    }
+    
     //MARK:- Webservice Calls
     
     func getArtistInfo(name: String) {
@@ -198,6 +287,7 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
             let artistInfo = model as! ArtistInfoModel
             self.artistInfoModel = artistInfo
             self.songerNameLabel.text = name
+            self.nowPlayingLabel.isHidden = false
             self.locationLabel.text = self.artistInfoModel?.artistName
             DispatchQueue.main.async {
                 self.songImageView.sd_setImage(with: URL(string: artistInfo.artistImage!), placeholderImage: UIImage(named: Constant.ImageNames.placeholderArtistInfoImage))
