@@ -14,6 +14,7 @@ class PresenterDetailVC: BaseViewController {
     @IBOutlet weak var presenterDesigLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var backListButton: UIButton!
+    @IBOutlet weak var nextPresenterButton: UIButton!
     
     var presenterResponseModel:PresenterResponseModel?
     var newsResponseModel:NewsResponseModel?
@@ -23,6 +24,7 @@ class PresenterDetailVC: BaseViewController {
     var newsModel:NewsModel?
     var eventsModel:EventsModel?
     var pageType:PageType?
+    var selectedIndex:Int?
     override func initView() {
         super.initView()
         initialisation()
@@ -32,16 +34,22 @@ class PresenterDetailVC: BaseViewController {
     func populateDetails(){
         if let _model = presentersModel{
             self.title = "Presenters"
+            self.nextPresenterButton.setTitle("NEXT PRESENTER", for: UIControlState.normal)
             self.populatePresenterData(presenter: _model)
+            self.selectedIndex = self.presenterResponseModel?.presenterItems.index(of: _model)
             //getPresenterDetails()
         }
         if let model = newsModel{
             self.title = "News"
+            self.nextPresenterButton.setTitle("NEXT NEWS", for: UIControlState.normal)
             self.populateNewsData(news: model)
+            self.selectedIndex = self.newsResponseModel?.newsItems.index(of: model)
         }
         if let model = eventsModel{
             self.title = "Events"
+            self.nextPresenterButton.setTitle("NEXT EVENT", for: UIControlState.normal)
             self.populateEventsData(event: model)
+            self.selectedIndex = self.eventsResponseModel?.eventsItems.index(of: model)
         }
     }
     
