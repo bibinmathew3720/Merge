@@ -24,11 +24,11 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fi8-gN-1SF">
                     <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteBack" translatesAutoresizingMaskIntoConstraints="NO" id="YG6-BI-WkB">
-                            <rect key="frame" x="343" y="30" width="22" height="22"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backArrow" translatesAutoresizingMaskIntoConstraints="NO" id="YG6-BI-WkB">
+                            <rect key="frame" x="10" y="30" width="21" height="15"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sLX-Wg-iWH">
-                            <rect key="frame" x="275" y="0.0" width="100" height="50"/>
+                            <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="100" id="186-y0-mDs"/>
                                 <constraint firstAttribute="height" constant="50" id="Ow2-Sk-MU1"/>
@@ -40,13 +40,13 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="sLX-Wg-iWH" secondAttribute="trailing" id="6MA-Ud-8da"/>
+                        <constraint firstItem="YG6-BI-WkB" firstAttribute="leading" secondItem="fi8-gN-1SF" secondAttribute="leading" constant="10" id="Lua-03-S6e"/>
                         <constraint firstItem="YG6-BI-WkB" firstAttribute="top" secondItem="fi8-gN-1SF" secondAttribute="top" constant="30" id="Oma-tX-pUm"/>
+                        <constraint firstItem="sLX-Wg-iWH" firstAttribute="leading" secondItem="fi8-gN-1SF" secondAttribute="leading" id="X2i-Ca-R0I"/>
                         <constraint firstItem="sLX-Wg-iWH" firstAttribute="top" secondItem="fi8-gN-1SF" secondAttribute="top" id="jCc-So-Z4r"/>
-                        <constraint firstAttribute="trailing" secondItem="YG6-BI-WkB" secondAttribute="trailing" constant="10" id="wXJ-2V-1sl"/>
                     </constraints>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="manuBackImage" translatesAutoresizingMaskIntoConstraints="NO" id="nfP-NO-wrh">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuBG" translatesAutoresizingMaskIntoConstraints="NO" id="nfP-NO-wrh">
                     <rect key="frame" x="0.0" y="220" width="375" height="447"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PbD-Mk-e7F">
@@ -70,10 +70,10 @@
                             <rect key="frame" x="20" y="100" width="335" height="327"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </tableView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="closeIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Q2V-WG-AX9">
+                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="closeIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Q2V-WG-AX9">
                             <rect key="frame" x="344" y="30" width="11" height="11"/>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BIz-2d-pFV">
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BIz-2d-pFV">
                             <rect key="frame" x="324.5" y="10.5" width="50" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="2K5-2N-uQe"/>
@@ -128,8 +128,8 @@
         </view>
     </objects>
     <resources>
+        <image name="backArrow" width="21" height="15"/>
         <image name="closeIcon" width="11" height="11"/>
-        <image name="manuBackImage" width="210" height="667"/>
-        <image name="whiteBack" width="22" height="22"/>
+        <image name="menuBG" width="250" height="667"/>
     </resources>
 </document>

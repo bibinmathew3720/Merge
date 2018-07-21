@@ -70,7 +70,7 @@ class SongInfoView: UIView,UITableViewDataSource,UITableViewDelegate {
                     if let listCount = _model.listenersCount{
                         songInfoCell.itemNameLabel.text = String(format: "Peak Listeners - %@", listCount)
                     }
-                    songInfoCell.songImageView?.image = UIImage.init(named: "peakListeneres")
+                    songInfoCell.songImageView?.image = UIImage.init(named: "peakListeners")
                 }
                 else if(indexPath.row == 2){
                     songInfoCell.itemNameLabel.text = String(format: "Stream Website")
@@ -85,7 +85,7 @@ class SongInfoView: UIView,UITableViewDataSource,UITableViewDelegate {
                 }
                 else if(indexPath.row == 1){
                     songInfoCell.itemNameLabel.text = String(format: "Peak Listeners - %@", "0")
-                    songInfoCell.songImageView?.image = UIImage.init(named: "peakListeneres")
+                    songInfoCell.songImageView?.image = UIImage.init(named: "peakListeners")
                 }
                 else if(indexPath.row == 2){
                     songInfoCell.itemNameLabel.text = String(format: "Stream Website")
