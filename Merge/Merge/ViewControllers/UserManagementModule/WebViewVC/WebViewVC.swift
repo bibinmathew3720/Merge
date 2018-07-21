@@ -14,6 +14,7 @@ class WebViewVC: BaseViewController,UIWebViewDelegate {
     override func initView() {
         super.initView()
         initialisation()
+        addingLeftBarButton()
     }
     
     func initialisation(){
