@@ -69,5 +69,6 @@ struct Constant{
     static let sharingUrlString = "http://alwisal.radio.net/"
     static let facebookLink = "https://www.facebook.com/"
     static let twitterLink = "http://www.twitter.com/"
+    static let contactUsUrlString = "http://test.wisal.fm/contact?app=1"
 }
 

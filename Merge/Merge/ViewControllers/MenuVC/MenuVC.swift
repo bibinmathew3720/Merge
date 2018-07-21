@@ -135,6 +135,10 @@ class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
             presenterVC.pageType = PageType.EventsPage
             return presenterVC
         }
+        else if(selIndex == 5){
+            let contactUsVC = storyBoard.instantiateViewController(withIdentifier: "WebViewVC") as! WebViewVC
+            return contactUsVC
+        }
         else{
             let presenterVC = storyBoard.instantiateViewController(withIdentifier: "PresentersVC")
             return presenterVC

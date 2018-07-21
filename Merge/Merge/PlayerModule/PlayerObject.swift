@@ -74,8 +74,10 @@ class AlwisalPlayer : NSObject  {
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath != "timedMetadata" { return }
         let data: AVPlayerItem = object as! AVPlayerItem
-        for item in (data.timedMetadata)! {
-            NotificationCenter.default.post(name: Notification.Name(Constant.Notifications.PlayerArtistInfo), object: item.value as? String)
+        if let timedMetaData = data.timedMetadata{
+            for item in timedMetaData {
+                NotificationCenter.default.post(name: Notification.Name(Constant.Notifications.PlayerArtistInfo), object: item.value as? String)
+            }
         }
     }
     func checkingStatus(){
