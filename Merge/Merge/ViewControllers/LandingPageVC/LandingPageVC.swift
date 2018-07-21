@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,RecentlyPlayedCellDelegate {
     @IBOutlet weak var nowPlayingLabel: UILabel!
     @IBOutlet weak var songImageView: UIImageView!
     @IBOutlet weak var singerImageView: UIImageView!
@@ -83,6 +83,7 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
             if let _model = songHistoryResponseModel{
                 recentCell.setCell(to: _model.historyItems[indexPath.row])
             }
+            recentCell.delegate = self;
             return recentCell
         }
         else{
@@ -342,6 +343,92 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
                 AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: Constant.ErrorMessages.serverErrorMessamge, parentController: self)
             }
         }
+    }
+    
+    func likeButtonActionDelegateWithTag(tag: NSInteger) {
+        if(isUserLoggedIn()){
+            if let _model = songHistoryResponseModel{
+                self.callingLikeApi(songHistory: _model.historyItems[tag])
+            }
+        }
+    }
+    
+    func favoriteButtonActionDelegateWithTag(tag: NSInteger) {
+        if(isUserLoggedIn()){
+            if let _model = songHistoryResponseModel{
+                self.callingAddToFavoriteApi(songHistory: _model.historyItems[tag])
+            }
+        }
+        
+    }
+    //MARK : Calling Favorite Api
+    
+    func  callingAddToFavoriteApi(songHistory:SongHistoryModel){
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        UserModuleManager().callingFavoriteApi(with: getFavoriteRequestBody(songHistoryModel: songHistory), success: {
+            (model) in
+            MBProgressHUD.hide(for: self.view, animated: true)
+            if let model = model as? AlwisalAddToFavoriteResponseModel{
+                if model.errorCode == 1{
+                    AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: model.errorMessage, parentController: self)
+                }
+                else{
+                    songHistory.isFavorited = model.favorite
+                    self.recentCollectionView.reloadData()
+                }
+                
+            }
+            
+        }) { (ErrorType) in
+            MBProgressHUD.hide(for: self.view, animated: true)
+            if(ErrorType == .noNetwork){
+                AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: Constant.ErrorMessages.noNetworkMessage, parentController: self)
+            }
+            else{
+                AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: Constant.ErrorMessages.serverErrorMessamge, parentController: self)
+            }
+        }
+    }
+    
+    func getFavoriteRequestBody(songHistoryModel:SongHistoryModel)->String{
+        var dict:[String:String] = [String:String]()
+        dict.updateValue(songHistoryModel.artist+" - "+songHistoryModel.title, forKey: "title")
+        return AlwisalUtility.getJSONfrom(dictionary: dict)
+    }
+    
+    //MARK : Calling Like Api
+    
+    func  callingLikeApi(songHistory:SongHistoryModel){
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        UserModuleManager().callingLikeApi(with: getLikeRequestBody(songHistoryModel: songHistory), success: {
+            (model) in
+            MBProgressHUD.hide(for: self.view, animated: true)
+            if let model = model as? AlwisalAddToLikeResponseModel{
+                if model.errorCode == 1{
+                    AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: model.errorMessage, parentController: self)
+                }
+                else{
+                    songHistory.isLiked = model.liked
+                    self.recentCollectionView.reloadData()
+                }
+                
+            }
+            
+        }) { (ErrorType) in
+            MBProgressHUD.hide(for: self.view, animated: true)
+            if(ErrorType == .noNetwork){
+                AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: Constant.ErrorMessages.noNetworkMessage, parentController: self)
+            }
+            else{
+                AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: Constant.ErrorMessages.serverErrorMessamge, parentController: self)
+            }
+        }
+    }
+    
+    func getLikeRequestBody(songHistoryModel:SongHistoryModel)->String{
+        var dict:[String:String] = [String:String]()
+        dict.updateValue(songHistoryModel.artist+" - "+songHistoryModel.title, forKey: "title")
+        return AlwisalUtility.getJSONfrom(dictionary: dict)
     }
     
     //MARK: Prepare Segue Method

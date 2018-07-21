@@ -11,7 +11,7 @@ import UIKit
 class TrendingCell: UICollectionViewCell {
     @IBOutlet weak var singerImageView: UIImageView!
     @IBOutlet weak var songNameLabel: UILabel!
-    
+    @IBOutlet weak var heartButton: UIButton!
     func setCell(to model:NewsModel) -> () {
         songNameLabel.text = model.title
        // dateLabel.text = AlwisalUtility().convertDateWithTToString(dateString: model.songDate)

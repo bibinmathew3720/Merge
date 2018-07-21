@@ -8,12 +8,19 @@
 
 import UIKit
 
+protocol RecentlyPlayedCellDelegate: class {
+    func likeButtonActionDelegateWithTag(tag:NSInteger)
+    func favoriteButtonActionDelegateWithTag(tag:NSInteger)
+}
+
 class RecentlyPlayedCell: UICollectionViewCell {
     @IBOutlet weak var songNameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var singerImageView: UIImageView!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var likeButton: UIButton!
+    
+    weak var delegate : RecentlyPlayedCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,8 +37,10 @@ class RecentlyPlayedCell: UICollectionViewCell {
     
 
     @IBAction func likeBUttonAction(_ sender: UIButton) {
+        delegate?.likeButtonActionDelegateWithTag(tag: self.tag)
     }
     @IBAction func favoriteButtonAction(_ sender: UIButton) {
+        delegate?.favoriteButtonActionDelegateWithTag(tag: self.tag)
     }
     
 }

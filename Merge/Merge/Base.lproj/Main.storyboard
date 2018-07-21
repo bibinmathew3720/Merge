@@ -359,6 +359,7 @@
                                                                                 <constraint firstAttribute="height" constant="30" id="4Da-SC-RTi"/>
                                                                             </constraints>
                                                                             <state key="normal" image="thumbSmallWhite"/>
+                                                                            <state key="selected" image="thumbSmallColored"/>
                                                                             <connections>
                                                                                 <action selector="likeBUttonAction:" destination="OHH-BX-yJy" eventType="touchUpInside" id="SEj-Ni-Etr"/>
                                                                             </connections>
@@ -370,6 +371,7 @@
                                                                                 <constraint firstAttribute="height" constant="30" id="Izn-bm-P4B"/>
                                                                             </constraints>
                                                                             <state key="normal" image="heartSmallWhite"/>
+                                                                            <state key="selected" image="heartSmallColored"/>
                                                                             <connections>
                                                                                 <action selector="favoriteButtonAction:" destination="OHH-BX-yJy" eventType="touchUpInside" id="9kE-XV-k1D"/>
                                                                             </connections>
@@ -492,13 +494,14 @@
                                                                                 <constraint firstAttribute="height" constant="80" id="Np9-dt-A90"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMs-tX-TIS">
+                                                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMs-tX-TIS">
                                                                             <rect key="frame" x="172" y="0.0" width="30" height="30"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="30" id="3eE-wM-yPK"/>
                                                                                 <constraint firstAttribute="width" constant="30" id="gTA-De-ofp"/>
                                                                             </constraints>
                                                                             <state key="normal" image="heartSmallWhite"/>
+                                                                            <state key="selected" image="heartSmallColored"/>
                                                                             <connections>
                                                                                 <action selector="favouriteButtonAction:" destination="rvf-Et-r4g" eventType="touchUpInside" id="BZR-NT-vgC"/>
                                                                             </connections>
@@ -523,6 +526,7 @@
                                                                     <constraint firstItem="Ylg-64-KVA" firstAttribute="top" secondItem="rvf-Et-r4g" secondAttribute="top" id="xD0-8E-CVm"/>
                                                                 </constraints>
                                                                 <connections>
+                                                                    <outlet property="heartButton" destination="jMs-tX-TIS" id="OEF-rE-Z9Q"/>
                                                                     <outlet property="singerImageView" destination="Ylg-64-KVA" id="SNv-dl-jkW"/>
                                                                     <outlet property="songNameLabel" destination="tgj-4N-qa8" id="Kfv-mx-ZuP"/>
                                                                 </connections>
@@ -2228,6 +2232,7 @@
         <image name="filter" width="45" height="45"/>
         <image name="googlePlusICon" width="16" height="12"/>
         <image name="heartNormalWhite" width="20" height="18"/>
+        <image name="heartSmallColored" width="15" height="14"/>
         <image name="heartSmallWhite" width="10" height="9"/>
         <image name="logInButtonBg" width="150" height="28"/>
         <image name="logo" width="178" height="61"/>
@@ -2241,6 +2246,7 @@
         <image name="presenterTwitter" width="8" height="7"/>
         <image name="registerButtonBg" width="150" height="28"/>
         <image name="thumbNormalWhite" width="19" height="18"/>
+        <image name="thumbSmallColored" width="16" height="16"/>
         <image name="thumbSmallWhite" width="9" height="9"/>
         <image name="twitterBlue" width="11" height="9"/>
     </resources>
