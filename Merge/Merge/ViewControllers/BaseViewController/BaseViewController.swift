@@ -86,8 +86,15 @@ class BaseViewController: UIViewController,UITabBarControllerDelegate,PlayListVi
     func infoButtonActionDelegate() {
         let naControllerAtIndex0 = self.tabBarController?.viewControllers![0] as! UINavigationController
         let selTabBarCntlrNavItem = self.tabBarController?.viewControllers?.first as! UINavigationController
-        if(selTabBarCntlrNavItem.viewControllers.first == naControllerAtIndex0.viewControllers.first){
-            self.tabBarController?.selectedIndex = 2 // Landingpage
+//        if(selTabBarCntlrNavItem.viewControllers.first == naControllerAtIndex0.viewControllers.first){
+//            self.tabBarController?.selectedIndex = 2 // Landingpage
+//        }
+//        else{
+//            self.navigationController?.popToRootViewController(animated: true)
+//        }
+        
+        if self.tabBarController?.selectedIndex == 0{
+            self.tabBarController?.selectedIndex = 2
         }
         else{
             self.navigationController?.popToRootViewController(animated: true)
@@ -111,6 +118,7 @@ class BaseViewController: UIViewController,UITabBarControllerDelegate,PlayListVi
         
         if(selTabBarCntlr.viewControllers.first == naControllerAtIndex0.viewControllers.first){
             if(isUserLoggedIn()){
+                selTabBarCntlr.popToRootViewController(animated: true)
                 return true
             }
             return false
