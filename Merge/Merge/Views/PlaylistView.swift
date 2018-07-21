@@ -12,7 +12,6 @@ protocol PlayListViewDelegate: class{
 }
 
 class PlaylistView: UIView,UITableViewDataSource,UITableViewDelegate,PlayListCellDelegate {
-    @IBOutlet weak var recentlyPlayeedLabel: UILabel!
     @IBOutlet weak var playListTableView: UITableView!
     @IBOutlet weak var backArrowImageView: UIImageView!
     weak var delegate:PlayListViewDelegate?
@@ -22,7 +21,6 @@ class PlaylistView: UIView,UITableViewDataSource,UITableViewDelegate,PlayListCel
         self.playListTableView.dataSource = self
         self.playListTableView.delegate = self
          self.playListTableView.register(UINib.init(nibName: "PlayListCell", bundle: nil), forCellReuseIdentifier: "playListCell")
-        recentlyPlayeedLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 2)
     }
     
     func populateSongHistory(songHistory:SongHistoryResponseModel){
@@ -54,14 +52,14 @@ class PlaylistView: UIView,UITableViewDataSource,UITableViewDelegate,PlayListCel
             playListCell.setHistoryCell(songHistory:(_model.historyItems[indexPath.row]))
         }
         if(indexPath.row == 0){
-            playListCell.verticalLabel.text = "NOW"
+            playListCell.verticalLabel.text = "now"
             
         }
         else if(indexPath.row == 1){
-            playListCell.verticalLabel.text = ""
+            playListCell.verticalLabel.text = "next"
         }
         else{
-            playListCell.verticalLabel.text = ""
+            playListCell.verticalLabel.text = String(format: "%02d", indexPath.row)
         }
         playListCell.delegate = self
         return playListCell
