@@ -18,7 +18,7 @@ enum SegmentType{
     case segmentTypeFavorites
 }
 
-class ProfileVC: BaseViewController,UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate {
+class ProfileVC: BaseViewController,UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate,LikeTVCellDelegate {
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -222,14 +222,16 @@ class ProfileVC: BaseViewController,UITextFieldDelegate,UITableViewDataSource,UI
         let likesCell : LikesTVC! = tableView.dequeueReusableCell(withIdentifier: "profileLikesCell") as! LikesTVC
         if(self.segmentType == SegmentType.segmentTypeLikes){
             if let _model = alwisalUserLikes{
-                likesCell.setLikeDetails(likeItem: _model.likeItems[indexPath.row])
+                likesCell.setLikeDetails(likeItem: _model.likeItems[indexPath.section])
             }
         }
         if(self.segmentType == SegmentType.segmentTypeFavorites){
             if let _model = alwisalUserFavorites{
-                likesCell.setFavoriteDetails(favoriteItem: _model.favoriteItems[indexPath.row])
+                likesCell.setFavoriteDetails(favoriteItem: _model.favoriteItems[indexPath.section])
             }
         }
+        likesCell.delegate = self
+        likesCell.tag = indexPath.section
         return likesCell
     }
     
@@ -400,6 +402,15 @@ class ProfileVC: BaseViewController,UITextFieldDelegate,UITableViewDataSource,UI
     }
     
     //MARK : Calling Favorite Api
+    
+    func closeButtonActionDelegateWithTag(tag:NSInteger){
+        if(segmentType == SegmentType.segmentTypeLikes){
+            self.callingLikeApi( index: tag)
+        }
+        else if(segmentType == SegmentType.segmentTypeFavorites){
+            self.callingAddToFavoriteApi(index: tag)
+        }
+    }
     
     func  callingAddToFavoriteApi(index:NSInteger){
         MBProgressHUD.showAdded(to: self.view, animated: true)

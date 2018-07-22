@@ -8,11 +8,16 @@
 
 import UIKit
 
+protocol LikeTVCellDelegate: class {
+    func closeButtonActionDelegateWithTag(tag:NSInteger)
+}
+
 class LikesTVC: UITableViewCell {
 
     @IBOutlet weak var subHeadinglabel: UILabel!
     @IBOutlet weak var headingLabel: UILabel!
     @IBOutlet weak var itemImageView: UIImageView!
+    weak var delegate : LikeTVCellDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,15 +31,16 @@ class LikesTVC: UITableViewCell {
     
     func setFavoriteDetails(favoriteItem:FavoritesModel){
         headingLabel.text = favoriteItem.title
-        subHeadinglabel.text = ""
+        subHeadinglabel.text = favoriteItem.subTitle
         
     }
     func setLikeDetails(likeItem:LikesModel){
         headingLabel.text = likeItem.title
-        subHeadinglabel.text = ""
+        subHeadinglabel.text = likeItem.subTitle
         
     }
 
     @IBAction func closeButtonAction(_ sender: UIButton) {
+        delegate?.closeButtonActionDelegateWithTag(tag: self.tag)
     }
 }

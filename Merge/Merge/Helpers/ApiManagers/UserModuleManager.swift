@@ -559,6 +559,7 @@ class UserModuleManager: CLBaseService {
  class LikesModel:NSObject{
     var id:Int64 = 0
     var title:String = ""
+    var subTitle:String = ""
  
     init(dict:[String:Any?]) {
         if let value = dict["ID"] as? Int64{
@@ -566,6 +567,9 @@ class UserModuleManager: CLBaseService {
         }
         if let value = dict["post_title"] as? String{
             title = value
+        }
+        if let value = dict["post_name"] as? String{
+            subTitle = value
         }
     }
  }
@@ -592,6 +596,7 @@ class UserModuleManager: CLBaseService {
  class FavoritesModel:NSObject{
     var id:Int64 = 0
     var title:String = ""
+    var subTitle:String = ""
     
     init(dict:[String:Any?]) {
         if let value = dict["ID"] as? Int64{
@@ -599,6 +604,9 @@ class UserModuleManager: CLBaseService {
         }
         if let value = dict["post_title"] as? String{
             title = value
+        }
+        if let value = dict["post_name"] as? String{
+            subTitle = value
         }
     }
  }

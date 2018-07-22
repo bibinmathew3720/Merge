@@ -2010,9 +2010,9 @@
                                                                                 <constraint firstAttribute="width" constant="50" id="paJ-hS-xRJ"/>
                                                                             </constraints>
                                                                         </view>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xF2-JS-jiR">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="xF2-JS-jiR">
                                                                             <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                                                            <color key="backgroundColor" red="0.91372549020000005" green="0.70196078429999997" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="80" id="ezo-0i-z8Q"/>
                                                                                 <constraint firstAttribute="height" constant="80" id="ybQ-f6-gjY"/>
@@ -2040,14 +2040,14 @@
                                                                                 <action selector="closeButtonAction:" destination="vHN-zM-CBz" eventType="touchUpInside" id="M0Y-LP-yEC"/>
                                                                             </connections>
                                                                         </button>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Glimpse of Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MqT-5h-ONx">
-                                                                            <rect key="frame" x="85" y="31.5" width="157" height="18.5"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Glimpse of Color" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MqT-5h-ONx">
+                                                                            <rect key="frame" x="85" y="21" width="157" height="18.5"/>
                                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iR5-ba-fIM">
-                                                                            <rect key="frame" x="85" y="55" width="157" height="17"/>
+                                                                            <rect key="frame" x="85" y="44.5" width="157" height="17"/>
                                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                                             <color key="textColor" red="0.48627450980392156" green="0.48627450980392156" blue="0.48627450980392156" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>
@@ -2055,7 +2055,7 @@
                                                                     </subviews>
                                                                     <constraints>
                                                                         <constraint firstItem="IOx-NA-A0P" firstAttribute="leading" secondItem="yjn-5F-LuI" secondAttribute="leading" id="2Ok-gk-7dn"/>
-                                                                        <constraint firstItem="MqT-5h-ONx" firstAttribute="centerY" secondItem="xF2-JS-jiR" secondAttribute="centerY" id="6yo-vN-dT3"/>
+                                                                        <constraint firstItem="MqT-5h-ONx" firstAttribute="centerY" secondItem="xF2-JS-jiR" secondAttribute="centerY" constant="-10" id="6yo-vN-dT3"/>
                                                                         <constraint firstItem="nYf-aC-OTm" firstAttribute="top" secondItem="yjn-5F-LuI" secondAttribute="top" id="DEK-gG-Qt5"/>
                                                                         <constraint firstItem="xF2-JS-jiR" firstAttribute="leading" secondItem="yjn-5F-LuI" secondAttribute="leading" id="EaZ-qj-pWa"/>
                                                                         <constraint firstItem="nYf-aC-OTm" firstAttribute="leading" secondItem="yjn-5F-LuI" secondAttribute="leading" id="FVv-BB-A1I"/>
