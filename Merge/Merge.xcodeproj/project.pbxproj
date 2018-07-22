@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		9E7137270E3E8051B4DC39B5 /* Pods_Merge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ECA8FD5C0F854002441B979 /* Pods_Merge.framework */; };
 		D01A849020F9C10C004ED6FB /* RecentlyPlayedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01A848F20F9C10C004ED6FB /* RecentlyPlayedCell.swift */; };
+		D04C1FCF2104EA4B00E9E01D /* ChatRightImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04C1FCB2104EA4600E9E01D /* ChatRightImageViewCell.swift */; };
+		D04C1FD02104EA4B00E9E01D /* ChatleftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04C1FCC2104EA4700E9E01D /* ChatleftCell.swift */; };
+		D04C1FD12104EA4B00E9E01D /* ChatLeftImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04C1FCD2104EA4900E9E01D /* ChatLeftImageViewCell.swift */; };
+		D04C1FD22104EA4B00E9E01D /* ChatRightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04C1FCE2104EA4A00E9E01D /* ChatRightCell.swift */; };
 		D050C2CE20F6E67D00BEC2B7 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050C2CD20F6E67D00BEC2B7 /* ChatVC.swift */; };
 		D050C2D120F6EF5F00BEC2B7 /* LandingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050C2D020F6EF5F00BEC2B7 /* LandingPageVC.swift */; };
 		D050C2D420F6EFE700BEC2B7 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050C2D320F6EFE700BEC2B7 /* MenuVC.swift */; };
@@ -99,6 +103,10 @@
 		2ECA8FD5C0F854002441B979 /* Pods_Merge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Merge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		713FF6B29375A62245A2B1BC /* Pods-Merge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Merge.release.xcconfig"; path = "Pods/Target Support Files/Pods-Merge/Pods-Merge.release.xcconfig"; sourceTree = "<group>"; };
 		D01A848F20F9C10C004ED6FB /* RecentlyPlayedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyPlayedCell.swift; sourceTree = "<group>"; };
+		D04C1FCB2104EA4600E9E01D /* ChatRightImageViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRightImageViewCell.swift; sourceTree = "<group>"; };
+		D04C1FCC2104EA4700E9E01D /* ChatleftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatleftCell.swift; sourceTree = "<group>"; };
+		D04C1FCD2104EA4900E9E01D /* ChatLeftImageViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLeftImageViewCell.swift; sourceTree = "<group>"; };
+		D04C1FCE2104EA4A00E9E01D /* ChatRightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRightCell.swift; sourceTree = "<group>"; };
 		D050C2CD20F6E67D00BEC2B7 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		D050C2D020F6EF5F00BEC2B7 /* LandingPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageVC.swift; sourceTree = "<group>"; };
 		D050C2D320F6EFE700BEC2B7 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
@@ -219,6 +227,10 @@
 		D050C2CC20F6E66200BEC2B7 /* ChatVC */ = {
 			isa = PBXGroup;
 			children = (
+				D04C1FCC2104EA4700E9E01D /* ChatleftCell.swift */,
+				D04C1FCD2104EA4900E9E01D /* ChatLeftImageViewCell.swift */,
+				D04C1FCE2104EA4A00E9E01D /* ChatRightCell.swift */,
+				D04C1FCB2104EA4600E9E01D /* ChatRightImageViewCell.swift */,
 				D050C2CD20F6E67D00BEC2B7 /* ChatVC.swift */,
 			);
 			path = ChatVC;
@@ -780,12 +792,16 @@
 				D0FB2B142102E0DB00259D45 /* WebViewVC.swift in Sources */,
 				D0F1C34020F59D5F00E3A9BA /* EventsManager.swift in Sources */,
 				D0FF210920FED02200A06C44 /* ProfileVC.swift in Sources */,
+				D04C1FCF2104EA4B00E9E01D /* ChatRightImageViewCell.swift in Sources */,
 				D06EC31720F691EE00DFFE5D /* BaseViewController.swift in Sources */,
+				D04C1FD12104EA4B00E9E01D /* ChatLeftImageViewCell.swift in Sources */,
 				D01A849020F9C10C004ED6FB /* RecentlyPlayedCell.swift in Sources */,
 				D0F1C34520F59D5F00E3A9BA /* AlwisalApiUrls.swift in Sources */,
+				D04C1FD02104EA4B00E9E01D /* ChatleftCell.swift in Sources */,
 				D0E783B620FA58FF0045CB88 /* PresenterCell.swift in Sources */,
 				D0F1C35520F59D6000E3A9BA /* AlwisalUtility.swift in Sources */,
 				D0F5D2D920FB2F5900AE669D /* UIImageViewExtensions.swift in Sources */,
+				D04C1FD22104EA4B00E9E01D /* ChatRightCell.swift in Sources */,
 				D0F1C34820F59D5F00E3A9BA /* CLNetworkModel.swift in Sources */,
 				D06EC31320F68B4B00DFFE5D /* ForgotPasswordVC.swift in Sources */,
 				D0F1C34220F59D5F00E3A9BA /* NewsModuleManager.swift in Sources */,

@@ -25,10 +25,11 @@ let GETUSERLIKES = "get_liked"
 let ADDTOFAVORITE = "add_favourite"
 let ADDTOLIKE = "add_liked"
 let GETARTISTINFO = "method=artist.getInfo&"
+let GETSONGHISTORY = "song_history"
 
 let SOCIAL_LOGIN_URL = "registerSocialMedia"
 let GETPRESENTERDETAILS = "posts/"
-let GETSONGHISTORY = "song_history"
+
 let GETCHATMESSAGES = "getOldChat"
 let SEND_CHAT_MESSAGE = "send_user_message"
 
