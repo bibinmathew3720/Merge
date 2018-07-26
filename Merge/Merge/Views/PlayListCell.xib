@@ -33,12 +33,12 @@
                             <constraint firstAttribute="width" constant="45" id="lBp-gR-GcL"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="20"/>
-                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" red="0.0" green="0.49803921568627452" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yyu-01-UTH">
                         <rect key="frame" x="47" y="19" width="60" height="60"/>
-                        <color key="backgroundColor" red="0.12549019610000001" green="0.71764705880000002" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.61176470588235299" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qkl-9u-IUE">
                         <rect key="frame" x="45" y="17" width="60" height="60"/>
@@ -56,7 +56,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eic-LE-Zig">
                         <rect key="frame" x="110" y="56.5" width="390" height="17"/>
                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
-                        <color key="textColor" red="0.12549019610000001" green="0.71764705880000002" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.52549019607843139" green="0.94901960784313721" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pG-xt-8WC">
@@ -70,7 +70,7 @@
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3y0-P7-EqJ">
                         <rect key="frame" x="45" y="93" width="495" height="0.5"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.015686274509803921" green="0.64313725490196072" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="0.5" id="3Rl-62-acm"/>
                         </constraints>
