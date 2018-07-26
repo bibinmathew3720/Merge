@@ -20,6 +20,12 @@ struct MenuItems {
 class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var menuTableView: UITableView!
     @IBOutlet weak var menuTVHeight: NSLayoutConstraint!
+    
+    
+    @IBOutlet weak var logoutLabel: UILabel!
+    @IBOutlet weak var logoutIcon: UIImageView!
+    @IBOutlet weak var logoutButtton: UIButton!
+    
     var menuList: [String] = []
     var isLoggedIn:Bool!
     override func initView() {
@@ -31,12 +37,6 @@ class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     func initialisation(){
         menuList = [MenuItems.firstItem,MenuItems.secondItem,MenuItems.thirdItem,MenuItems.fourthItem,MenuItems.fifthItem,MenuItems.sixthItem]
         populateMenuItems()
-        if(isLoggedIn){
-            menuTVHeight.constant = CGFloat(50 * menuList.count)
-        }
-        else{
-            menuTVHeight.constant = CGFloat(50*menuList.count)
-        }
     }
     
     //MARK - Table View Datasources
@@ -159,6 +159,18 @@ class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     
     @objc func populateMenuItems(){
         isLoggedIn = UserDefaults.standard.bool(forKey: Constant.VariableNames.isLoogedIn)
+        if(isLoggedIn){
+            menuTVHeight.constant = CGFloat(50 * menuList.count)
+            self.logoutIcon.isHidden = false
+            self.logoutLabel.isHidden = false
+            self.logoutButtton.isHidden = false
+        }
+        else{
+            menuTVHeight.constant = CGFloat(50*menuList.count)
+            self.logoutIcon.isHidden = true
+            self.logoutLabel.isHidden = true
+            self.logoutButtton.isHidden = true
+        }
         menuTableView.reloadData()
     }
     /*

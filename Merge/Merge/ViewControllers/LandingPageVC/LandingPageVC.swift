@@ -9,6 +9,8 @@
 import UIKit
 
 class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,RecentlyPlayedCellDelegate {
+    @IBOutlet weak var topLikeButton: UIButton!
+    @IBOutlet weak var topFavoriteButton: UIButton!
     @IBOutlet weak var nowPlayingLabel: UILabel!
     @IBOutlet weak var songImageView: UIImageView!
     @IBOutlet weak var singerImageView: UIImageView!
@@ -186,6 +188,9 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
                     self.songHistoryResponseModel = model
                     self.recentCollectionView.reloadData()
                     self.getLatestNewsApi()
+                    if((model.historyItems.count)>0){
+                        self.populateLastPlayedSongDetailsAtTop(lastSong: model.historyItems.first!)
+                    }
                 }
             }) { (ErrorType) in
 
@@ -292,6 +297,8 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
             self.artistInfoModel = artistInfo
             self.songerNameLabel.text = name
             self.nowPlayingLabel.isHidden = false
+            self.topLikeButton.isSelected = false
+            self.topFavoriteButton.isSelected = false
             self.locationLabel.text = self.artistInfoModel?.artistName
             DispatchQueue.main.async {
                 self.songImageView.sd_setImage(with: URL(string: artistInfo.artistImage!), placeholderImage: UIImage(named: Constant.ImageNames.placeholderArtistInfoImage))

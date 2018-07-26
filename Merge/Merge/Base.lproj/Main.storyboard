@@ -221,6 +221,7 @@
                                                             <constraint firstAttribute="width" constant="30" id="uxR-JY-eK2"/>
                                                         </constraints>
                                                         <state key="normal" image="heartNormalWhite"/>
+                                                        <state key="selected" image="heartNormalColored"/>
                                                         <connections>
                                                             <action selector="favoriteBUttonAction:" destination="lMU-4F-iXy" eventType="touchUpInside" id="oNp-jw-bTB"/>
                                                         </connections>
@@ -232,6 +233,7 @@
                                                             <constraint firstAttribute="height" constant="30" id="Ovn-uy-SZ5"/>
                                                         </constraints>
                                                         <state key="normal" image="thumbNormalWhite"/>
+                                                        <state key="selected" image="thumbNormalColored"/>
                                                         <connections>
                                                             <action selector="likeButtonAction:" destination="lMU-4F-iXy" eventType="touchUpInside" id="fu5-ow-e6U"/>
                                                         </connections>
@@ -260,7 +262,7 @@
                                             </view>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P3G-ax-d6V">
                                                 <rect key="frame" x="147" y="160" width="80" height="80"/>
-                                                <color key="backgroundColor" red="0.91372549020000005" green="0.70196078429999997" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="1" green="0.82352941180000006" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="4QI-3J-Dpm"/>
                                                     <constraint firstAttribute="height" constant="80" id="zg2-xE-sk6"/>
@@ -594,6 +596,8 @@
                         <outlet property="singerImageView" destination="P3G-ax-d6V" id="zJL-2X-jHD"/>
                         <outlet property="songImageView" destination="mb0-WM-zxT" id="3mO-5p-cR7"/>
                         <outlet property="songerNameLabel" destination="eBt-KQ-ip6" id="xmc-U9-CjT"/>
+                        <outlet property="topFavoriteButton" destination="6ss-XR-Kev" id="BtZ-6d-VQn"/>
+                        <outlet property="topLikeButton" destination="FFi-Kp-AB8" id="l9J-QU-T78"/>
                         <outlet property="trendingCollectionView" destination="Jp6-rz-bEX" id="du1-D7-IH3"/>
                         <segue destination="Nhy-4a-LeG" kind="show" identifier="landingToPrsenterDetails" id="MiH-Lx-MwG"/>
                     </connections>
@@ -769,6 +773,9 @@
                         <viewLayoutGuide key="safeArea" id="fRC-by-qQ0"/>
                     </view>
                     <connections>
+                        <outlet property="logoutButtton" destination="lLi-RQ-9Nc" id="EZw-x7-Nru"/>
+                        <outlet property="logoutIcon" destination="tem-Gl-U9G" id="nN7-vn-H7V"/>
+                        <outlet property="logoutLabel" destination="tjx-YJ-Pry" id="hre-jr-Ht5"/>
                         <outlet property="menuTVHeight" destination="ACd-Xq-biF" id="SmF-rF-Y0B"/>
                         <outlet property="menuTableView" destination="fHw-lo-LcH" id="tsx-ZC-OA5"/>
                     </connections>
@@ -2307,7 +2314,7 @@
                                 <rect key="frame" x="5" y="50" width="365" height="542"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="chatLeftCell" id="8NR-gd-AAw" customClass="ChatleftCell" customModule="Alwisal" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="chatLeftCell" id="8NR-gd-AAw" customClass="ChatleftCell" customModule="Merge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="365" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8NR-gd-AAw" id="7QK-AS-wJW">
@@ -2356,7 +2363,7 @@
                                             <outlet property="timeLabel" destination="u6u-eB-Ccd" id="tR8-Vn-PXp"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="chatRightCell" id="EQG-0t-70i" customClass="ChatRightCell" customModule="Alwisal" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="chatRightCell" id="EQG-0t-70i" customClass="ChatRightCell" customModule="Merge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="365" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EQG-0t-70i" id="mSQ-3p-WBS">
@@ -2412,7 +2419,7 @@
                                             <outlet property="timeLabel" destination="pSd-Zy-Aac" id="Av7-EJ-yZY"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatRightImageCell" rowHeight="141" id="pMP-AB-Tya" customClass="ChatRightImageViewCell" customModule="Alwisal" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatRightImageCell" rowHeight="141" id="pMP-AB-Tya" customClass="ChatRightImageViewCell" customModule="Merge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="116" width="365" height="141"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pMP-AB-Tya" id="2bN-Xj-Cq1">
@@ -2469,7 +2476,7 @@
                                             <outlet property="timeLabel" destination="dQz-pA-rAx" id="5yN-X9-B0n"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatLeftImageCell" rowHeight="117" id="Vgc-3Y-RLq" customClass="ChatLeftImageViewCell" customModule="Alwisal" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatLeftImageCell" rowHeight="117" id="Vgc-3Y-RLq" customClass="ChatLeftImageViewCell" customModule="Merge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="257" width="365" height="117"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vgc-3Y-RLq" id="iNX-pk-KGw">
@@ -2568,8 +2575,9 @@
         <image name="fbIcon" width="8" height="13"/>
         <image name="filter" width="45" height="45"/>
         <image name="googlePlusICon" width="16" height="12"/>
+        <image name="heartNormalColored" width="20" height="18"/>
         <image name="heartNormalWhite" width="20" height="18"/>
-        <image name="heartSmallColored" width="15" height="14"/>
+        <image name="heartSmallColored" width="10" height="9"/>
         <image name="heartSmallWhite" width="10" height="9"/>
         <image name="logInButtonBg" width="150" height="28"/>
         <image name="loginButton" width="16" height="16"/>
@@ -2584,8 +2592,9 @@
         <image name="presenterTwitter" width="8" height="7"/>
         <image name="registerButtonBg" width="150" height="28"/>
         <image name="sendIcon" width="16" height="16"/>
+        <image name="thumbNormalColored" width="19" height="18"/>
         <image name="thumbNormalWhite" width="19" height="18"/>
-        <image name="thumbSmallColored" width="16" height="16"/>
+        <image name="thumbSmallColored" width="10" height="9"/>
         <image name="thumbSmallWhite" width="9" height="9"/>
         <image name="twitterBlue" width="11" height="9"/>
     </resources>
