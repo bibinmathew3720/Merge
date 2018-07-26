@@ -66,9 +66,11 @@ struct Constant{
         static let logoutMessage = "Do you want to logout?"
         
     }
+    static let audioStreamingUrlString = "http://uk7.internet-radio.com:8040"
+    static let facebookLink = "https://www.facebook.com/radiomerge"
+    static let twitterLink = "https://twitter.com/radiomerge"
+    static let contactUsUrlString = "http://test.radiomerge.fm/contact-us?app=1"
+    
     static let sharingUrlString = "http://alwisal.radio.net/"
-    static let facebookLink = "https://www.facebook.com/"
-    static let twitterLink = "http://www.twitter.com/"
-    static let contactUsUrlString = "http://test.wisal.fm/contact?app=1"
 }
 

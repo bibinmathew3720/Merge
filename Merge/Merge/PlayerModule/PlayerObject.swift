@@ -9,7 +9,6 @@
 import UIKit
 import AVFoundation
 import AVKit
-let url = "http://uk7.internet-radio.com:8067"
 
 class AlwisalPlayer : NSObject  {
     var player: AVPlayer?
@@ -18,7 +17,7 @@ class AlwisalPlayer : NSObject  {
     func initiateAVPlayer(){
         //Player.play()
         //audioMetaData()
-        playerItem = AVPlayerItem(url: NSURL(string: url)! as URL)
+        playerItem = AVPlayerItem(url: NSURL(string: Constant.audioStreamingUrlString)! as URL)
         player = AVPlayer(playerItem: playerItem)
     }
     func play() {
@@ -48,7 +47,7 @@ class AlwisalPlayer : NSObject  {
         }
     }
     func audioMetaData(){
-        let asset = AVAsset(url: URL(string: url)!)
+        let asset = AVAsset(url: URL(string: Constant.audioStreamingUrlString)!)
         let formatsKey = "availableMetadataFormats"
         asset.loadValuesAsynchronously(forKeys: [formatsKey]) {
             var error: NSError? = nil
@@ -81,7 +80,7 @@ class AlwisalPlayer : NSObject  {
         }
     }
     func checkingStatus(){
-        let asset = AVAsset(url: URL.init(string: url)!)
+        let asset = AVAsset(url: URL.init(string: Constant.audioStreamingUrlString)!)
         let playableKey = "playable"
         
         // Load the "playable" property
