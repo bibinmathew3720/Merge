@@ -25,6 +25,8 @@ class ChatVC: BaseViewController,UITableViewDataSource,UITableViewDelegate,UIIma
     func initialisation(){
         self.title = "Chat"
         addingLeftBarButton()
+        addRightNavBarIcon()
+        self.rightButton?.setImage(UIImage.init(named: "backArrow"), for: UIControlState.normal)
         chatTableView.estimatedRowHeight = 80.0
         chatTableView.rowHeight = UITableViewAutomaticDimension
         MBProgressHUD.showAdded(to: self.view, animated: true)
@@ -40,6 +42,10 @@ class ChatVC: BaseViewController,UITableViewDataSource,UITableViewDelegate,UIIma
     
     @objc func timerAction(){
         self.getChatMessagesApi()
+    }
+    
+    override func rightNavButtonAction() {
+        self.tabBarController?.selectedIndex = 2
     }
     
     @IBAction func chatButtonAction(_ sender: UIButton) {

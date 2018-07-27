@@ -22,13 +22,17 @@ class BaseViewController: UIViewController,UITabBarControllerDelegate,PlayListVi
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
-        self.tabBarController?.delegate = self
         if AlwisalPlayer.defaultPlayer.player == nil {
             AlwisalPlayer.defaultPlayer.initiateAVPlayer()
         }
     }
     func initView(){
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.tabBarController?.delegate = self
     }
     
     //MARK: Adding Navigation Bar Buttons
@@ -57,6 +61,7 @@ class BaseViewController: UIViewController,UITabBarControllerDelegate,PlayListVi
     
     @objc func rightNavButtonAction(){
         self.navigationController?.popToRootViewController(animated: true)
+        self.tabBarController?.selectedIndex = 2
     }
     
     func setBlackgradientOnBottomOfView(gradientView:UIView){
