@@ -75,5 +75,9 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app requires to access your photo library to show image on profile and send via chat</string>
+	<key>NSCameraUsageDescription</key>
+	<string>This app requires to access your camera to show image on profile and send via chat</string>
 </dict>
 </plist>
