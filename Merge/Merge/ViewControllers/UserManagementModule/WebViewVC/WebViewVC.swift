@@ -15,6 +15,7 @@ class WebViewVC: BaseViewController,UIWebViewDelegate {
         super.initView()
         initialisation()
         addingLeftBarButton()
+        addRightNavBarIcon()
     }
     
     func initialisation(){
