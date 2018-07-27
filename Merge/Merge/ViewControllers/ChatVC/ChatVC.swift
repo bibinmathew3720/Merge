@@ -188,14 +188,14 @@ class ChatVC: BaseViewController,UITableViewDataSource,UITableViewDelegate,UIIma
     }
     
     func addingActionSheetForPhotos(){
-        let photoActionSheet = UIAlertController.init(title: "إختر خيارا", message: "", preferredStyle: .actionSheet)
-        let cameraAction = UIAlertAction.init(title: "الة تصوير", style: .destructive) { (alert:UIAlertAction) in
+        let photoActionSheet = UIAlertController.init(title: "Choose an option", message: "", preferredStyle: .actionSheet)
+        let cameraAction = UIAlertAction.init(title: "Camera", style: .destructive) { (alert:UIAlertAction) in
             self.addingImagePickerController(sourceType: .camera)
         }
-        let galleryAction = UIAlertAction.init(title: "اختر من المعرض", style: .default) { (alert:UIAlertAction) in
+        let galleryAction = UIAlertAction.init(title: "Choose from Gallery", style: .default) { (alert:UIAlertAction) in
             self.addingImagePickerController(sourceType: .photoLibrary)
         }
-        let cancelAction = UIAlertAction.init(title: "إلغاء", style: .cancel) { (alert:UIAlertAction) in
+        let cancelAction = UIAlertAction.init(title: "Cancel", style: .cancel) { (alert:UIAlertAction) in
             
         }
         photoActionSheet.addAction(cameraAction)
