@@ -34,6 +34,9 @@ class ChatVC: BaseViewController,UITableViewDataSource,UITableViewDelegate,UIIma
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        if let currentTimer = timer {
+            currentTimer.invalidate()
+        }
         timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: (#selector(self.timerAction)), userInfo: nil, repeats: true)
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -249,11 +252,11 @@ class ChatVC: BaseViewController,UITableViewDataSource,UITableViewDelegate,UIIma
             return
         }
         let headers = ["Usertoken" : userToken,
-                       "Authentication" : "a4db1f33f6e092117910e2a4d1d51aa50f93ae97"]
+                       "Authentication" : Constant.AuthenticationToken]
         let imageData = UIImageJPEGRepresentation(image, 0.25)
         CLNetworkManager.upload(file: imageData!,
                                 type: .JPEG, ext: ext,
-                                url: "http://test.wisal.fm/wp-json/wp/v2/send_user_message",
+                                url: "http://test.radiomerge.fm/wp-json/wp/v2/send_user_message",
                                 parameters: "File_doc",
                                 headers: (headers as! [String : String]))
         {

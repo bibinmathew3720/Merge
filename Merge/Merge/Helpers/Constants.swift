@@ -66,6 +66,8 @@ struct Constant{
         static let logoutMessage = "Do you want to logout?"
         
     }
+    static let AuthenticationToken = "53067a56941ff00369b726d450ef3bb9495c7224"
+    
     static let audioStreamingUrlString = "http://uk7.internet-radio.com:8040"
     static let facebookLink = "https://www.facebook.com/radiomerge"
     static let twitterLink = "https://twitter.com/radiomerge"
