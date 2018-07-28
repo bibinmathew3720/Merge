@@ -27,7 +27,7 @@ class ChatVC: BaseViewController,UITableViewDataSource,UITableViewDelegate,UIIma
         addingLeftBarButton()
         addRightNavBarIcon()
         self.rightButton?.setImage(UIImage.init(named: "backArrow"), for: UIControlState.normal)
-        chatTableView.estimatedRowHeight = 80.0
+        chatTableView.estimatedRowHeight = 50.0
         chatTableView.rowHeight = UITableViewAutomaticDimension
         MBProgressHUD.showAdded(to: self.view, animated: true)
         self.getChatMessagesApi()
@@ -188,8 +188,11 @@ class ChatVC: BaseViewController,UITableViewDataSource,UITableViewDelegate,UIIma
     func populateChatData(){
         self.chatTableView.reloadData()
         if let _model = chatResponseModel{
-            let indexPath = IndexPath.init(row: (_model.chatItems.count-1), section: 0)
-            self.chatTableView.scrollToRow(at: indexPath, at: .none, animated: false)
+            if _model.chatItems.count > 0
+            {
+                let indexPath = IndexPath.init(row: (_model.chatItems.count-1), section: 0)
+                self.chatTableView.scrollToRow(at: indexPath, at: .none, animated: false)
+            }
         }
     }
     
