@@ -940,7 +940,7 @@
                                 </connections>
                             </collectionView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No items found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNI-b8-qVB">
-                                <rect key="frame" x="134.5" y="334" width="106" height="20"/>
+                                <rect key="frame" x="134.5" y="334.5" width="106" height="20"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -2351,23 +2351,28 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P91-Cw-hnt">
                                                     <rect key="frame" x="0.0" y="0.0" width="47.5" height="24"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6BS-sA-ald">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6BS-sA-ald">
                                                             <rect key="frame" x="5" y="5" width="37.5" height="14"/>
                                                             <fontDescription key="fontDescription" name="Mada-Regular" family="Mada" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="0.40132649739999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="6BS-sA-ald" firstAttribute="top" secondItem="P91-Cw-hnt" secondAttribute="top" constant="5" id="Fyx-8T-1fv"/>
                                                         <constraint firstItem="6BS-sA-ald" firstAttribute="leading" secondItem="P91-Cw-hnt" secondAttribute="leading" constant="5" id="Xzc-rn-mgw"/>
                                                         <constraint firstAttribute="bottom" secondItem="6BS-sA-ald" secondAttribute="bottom" constant="5" id="YSy-Tt-Yfg"/>
                                                         <constraint firstAttribute="trailing" secondItem="6BS-sA-ald" secondAttribute="trailing" constant="5" id="n7C-uq-Nds"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6u-eB-Ccd">
-                                                    <rect key="frame" x="0.0" y="24" width="28" height="20"/>
+                                                    <rect key="frame" x="5" y="24" width="28" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="XNF-0x-qLd"/>
                                                     </constraints>
@@ -2377,12 +2382,12 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="u6u-eB-Ccd" firstAttribute="leading" secondItem="P91-Cw-hnt" secondAttribute="leading" id="5e7-SN-UV3"/>
                                                 <constraint firstItem="u6u-eB-Ccd" firstAttribute="top" secondItem="P91-Cw-hnt" secondAttribute="bottom" id="Ar6-sg-FSM"/>
                                                 <constraint firstAttribute="bottom" secondItem="u6u-eB-Ccd" secondAttribute="bottom" id="CkT-tc-a9m"/>
                                                 <constraint firstItem="P91-Cw-hnt" firstAttribute="leading" secondItem="7QK-AS-wJW" secondAttribute="leading" id="NJq-ZN-FkX"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="P91-Cw-hnt" secondAttribute="trailing" constant="5" id="T63-qF-hxx"/>
                                                 <constraint firstItem="P91-Cw-hnt" firstAttribute="top" secondItem="7QK-AS-wJW" secondAttribute="top" id="gmh-a8-DPr"/>
+                                                <constraint firstItem="u6u-eB-Ccd" firstAttribute="leading" secondItem="6BS-sA-ald" secondAttribute="leading" id="gqq-av-8tk"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -2421,7 +2426,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSd-Zy-Aac">
-                                                    <rect key="frame" x="338.5" y="54" width="26.5" height="20"/>
+                                                    <rect key="frame" x="333.5" y="54" width="26.5" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="1WQ-xn-Bpf"/>
                                                     </constraints>
@@ -2433,10 +2438,10 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="1WH-Vy-JGj" secondAttribute="trailing" id="MfF-N0-x90"/>
                                                 <constraint firstAttribute="bottom" secondItem="pSd-Zy-Aac" secondAttribute="bottom" id="Mh4-Ep-24Y"/>
+                                                <constraint firstItem="pSd-Zy-Aac" firstAttribute="trailing" secondItem="HTK-1e-Tg0" secondAttribute="trailing" id="OcX-xF-aFq"/>
                                                 <constraint firstItem="pSd-Zy-Aac" firstAttribute="top" secondItem="1WH-Vy-JGj" secondAttribute="bottom" id="TF0-cj-cZp"/>
                                                 <constraint firstItem="1WH-Vy-JGj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mSQ-3p-WBS" secondAttribute="leading" constant="5" id="gvs-Kg-OVM"/>
                                                 <constraint firstItem="1WH-Vy-JGj" firstAttribute="top" secondItem="mSQ-3p-WBS" secondAttribute="top" constant="11" id="h8R-xl-XYr"/>
-                                                <constraint firstItem="pSd-Zy-Aac" firstAttribute="trailing" secondItem="1WH-Vy-JGj" secondAttribute="trailing" id="y5a-cl-Hjo"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
