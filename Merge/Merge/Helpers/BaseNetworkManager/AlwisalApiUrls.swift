@@ -28,8 +28,8 @@ let GETARTISTINFO = "method=artist.getInfo&"
 let GETSONGHISTORY = "song_history"
 let GETCHATMESSAGES = "getOldChat"
 let SEND_CHAT_MESSAGE = "send_user_message"
-
 let SOCIAL_LOGIN_URL = "registerSocialMedia"
+
 let GETPRESENTERDETAILS = "posts/"
 
 
