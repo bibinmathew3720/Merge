@@ -331,9 +331,8 @@ class BaseViewController: UIViewController,UITabBarControllerDelegate,PlayListVi
     
     func navigateToLogInPage(){
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-        let loginVC = storyBoard.instantiateViewController(withIdentifier: "logInVC") as! LogInVC
-        loginVC.isFromTabBar = true
-        let logInNavController = UINavigationController.init(rootViewController: loginVC)
+        let firstLoginVC = storyBoard.instantiateViewController(withIdentifier: "FirstLoginVC")
+        let logInNavController = UINavigationController.init(rootViewController: firstLoginVC)
         self.slideMenuController()?.closeRight()
         DispatchQueue.main.async { () -> Void in
             self.present(logInNavController, animated: true)

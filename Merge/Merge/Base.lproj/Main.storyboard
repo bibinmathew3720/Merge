@@ -30,7 +30,7 @@
         <!--First LoginVC-->
         <scene sceneID="UmB-fm-ncB">
             <objects>
-                <viewController id="XgK-v1-SrG" customClass="FirstLoginVC" customModule="Merge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstLoginVC" id="XgK-v1-SrG" customClass="FirstLoginVC" customModule="Merge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ye2-1L-8al">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -118,6 +118,21 @@
                                                     <action selector="googlePlusButtonAction:" destination="XgK-v1-SrG" eventType="touchUpInside" id="jDQ-ei-BxT"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sdX-Qw-omw">
+                                                <rect key="frame" x="157" y="429.5" width="60" height="29"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="N87-3a-NEw"/>
+                                                    <constraint firstAttribute="height" constant="29" id="b12-wV-KZQ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="12"/>
+                                                <state key="normal" title="Skip">
+                                                    <color key="titleColor" red="0.22352941179999999" green="0.76862745099999996" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="skipAction:" destination="XgK-v1-SrG" eventType="touchUpInside" id="Sqg-Qo-p0x"/>
+                                                    <action selector="skipButtonAction:" destination="E3N-mJ-RHt" eventType="touchUpInside" id="Szh-nA-sQ7"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -125,6 +140,7 @@
                                             <constraint firstItem="OR8-eV-RQw" firstAttribute="bottom" secondItem="h2c-Wv-nTQ" secondAttribute="bottom" id="1FQ-WC-u6Z"/>
                                             <constraint firstItem="wGS-rj-9pb" firstAttribute="centerX" secondItem="h9L-eo-x9l" secondAttribute="centerX" id="5QX-p1-cm1"/>
                                             <constraint firstItem="OR8-eV-RQw" firstAttribute="top" secondItem="h2c-Wv-nTQ" secondAttribute="top" id="7Iq-dk-3Yn"/>
+                                            <constraint firstItem="sdX-Qw-omw" firstAttribute="top" secondItem="2Fq-OK-MgC" secondAttribute="bottom" constant="30" id="Axk-Y0-gQb"/>
                                             <constraint firstItem="cUm-2m-tFd" firstAttribute="top" secondItem="ucK-t2-jAh" secondAttribute="bottom" constant="20" id="CmH-KY-1NQ"/>
                                             <constraint firstItem="ucK-t2-jAh" firstAttribute="centerX" secondItem="h9L-eo-x9l" secondAttribute="centerX" id="EPv-mh-8wH"/>
                                             <constraint firstItem="2Fq-OK-MgC" firstAttribute="height" secondItem="cUm-2m-tFd" secondAttribute="height" id="EqR-40-Jka"/>
@@ -143,6 +159,7 @@
                                             <constraint firstItem="YYb-B0-OAO" firstAttribute="bottom" secondItem="PIO-KJ-MpZ" secondAttribute="bottom" id="bpF-KN-zCc"/>
                                             <constraint firstItem="YYb-B0-OAO" firstAttribute="top" secondItem="PIO-KJ-MpZ" secondAttribute="top" id="eDQ-OK-t6z"/>
                                             <constraint firstItem="PIO-KJ-MpZ" firstAttribute="centerY" secondItem="h9L-eo-x9l" secondAttribute="centerY" id="g2n-r7-fLv"/>
+                                            <constraint firstItem="sdX-Qw-omw" firstAttribute="centerX" secondItem="h9L-eo-x9l" secondAttribute="centerX" id="i1A-XY-P3Q"/>
                                             <constraint firstItem="GYj-xg-dq5" firstAttribute="centerY" secondItem="ucK-t2-jAh" secondAttribute="centerY" id="mTw-No-Rv0"/>
                                             <constraint firstItem="h2c-Wv-nTQ" firstAttribute="centerY" secondItem="h9L-eo-x9l" secondAttribute="centerY" id="qul-rJ-nXd"/>
                                             <constraint firstItem="YYb-B0-OAO" firstAttribute="leading" secondItem="PIO-KJ-MpZ" secondAttribute="leading" id="sdw-ew-PUi"/>
@@ -175,7 +192,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2UT-GW-1lE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="122" y="-252"/>
+            <point key="canvasLocation" x="120.8" y="-252.32383808095955"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VBh-g5-icS">
@@ -2645,7 +2662,7 @@
         <image name="twitterBlue" width="11" height="9"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7jv-Tc-xoZ"/>
+        <segue reference="AgP-Pb-k4v"/>
         <segue reference="MiH-Lx-MwG"/>
     </inferredMetricsTieBreakers>
 </document>

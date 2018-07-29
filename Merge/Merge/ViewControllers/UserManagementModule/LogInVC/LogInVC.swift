@@ -15,7 +15,6 @@ class LogInVC: BaseViewController,UITextFieldDelegate {
     @IBOutlet weak var passwordView: UIView!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var registerButton: UIButton!
-    var isFromTabBar:Bool?
     
     var alwisalLogIn = AlwisalLogIN()
     
@@ -28,7 +27,6 @@ class LogInVC: BaseViewController,UITextFieldDelegate {
         settingBorderToView(view: userNameView)
         settingBorderToView(view: passwordView)
         settingBordrToRegisterButton()
-        self.navigationController?.navigationBar.isHidden = true;
     }
     
     func settingBorderToView(view:UIView){
