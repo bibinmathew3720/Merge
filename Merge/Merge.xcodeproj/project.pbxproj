@@ -89,6 +89,7 @@
 		D0F1C36320F59F9F00E3A9BA /* AlwisalForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F1C36020F59F9D00E3A9BA /* AlwisalForgotPassword.swift */; };
 		D0F1C36420F59F9F00E3A9BA /* AlwisalLogIN.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F1C36120F59F9D00E3A9BA /* AlwisalLogIN.swift */; };
 		D0F1C36520F59F9F00E3A9BA /* AlwisalRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F1C36220F59F9D00E3A9BA /* AlwisalRegister.swift */; };
+		D0F50CAA210EA1E3006A7621 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0F50CA9210EA1E2006A7621 /* GoogleService-Info.plist */; };
 		D0F5D2D920FB2F5900AE669D /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5D2D620FB2F5400AE669D /* UIImageViewExtensions.swift */; };
 		D0F5D2DA20FB2F5900AE669D /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5D2D720FB2F5400AE669D /* UIViewExtensions.swift */; };
 		D0F5D2DB20FB2F5900AE669D /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5D2D820FB2F5600AE669D /* UIColorExtension.swift */; };
@@ -187,6 +188,7 @@
 		D0F1C36020F59F9D00E3A9BA /* AlwisalForgotPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlwisalForgotPassword.swift; sourceTree = "<group>"; };
 		D0F1C36120F59F9D00E3A9BA /* AlwisalLogIN.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlwisalLogIN.swift; sourceTree = "<group>"; };
 		D0F1C36220F59F9D00E3A9BA /* AlwisalRegister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlwisalRegister.swift; sourceTree = "<group>"; };
+		D0F50CA9210EA1E2006A7621 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D0F5D2D620FB2F5400AE669D /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
 		D0F5D2D720FB2F5400AE669D /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		D0F5D2D820FB2F5600AE669D /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 		D09E60E0206A9DA1008E5E0B /* Merge */ = {
 			isa = PBXGroup;
 			children = (
+				D0F50CA9210EA1E2006A7621 /* GoogleService-Info.plist */,
 				D06EC31B20F6941700DFFE5D /* Views */,
 				D06EC31820F6931400DFFE5D /* PlayerModule */,
 				D0DA6C8420F63E19000600CB /* Resources */,
@@ -685,6 +688,7 @@
 				D0DA6CA720F63E19000600CB /* Poppins-Thin.ttf in Resources */,
 				D0DA6CA520F63E19000600CB /* Poppins-SemiBold.ttf in Resources */,
 				D0DA6C9720F63E19000600CB /* Poppins-Black.ttf in Resources */,
+				D0F50CAA210EA1E3006A7621 /* GoogleService-Info.plist in Resources */,
 				D06EC32D20F6941700DFFE5D /* SongInfoLastCell.xib in Resources */,
 				D0F1C35420F59D5F00E3A9BA /* Mada-SemiBold.ttf in Resources */,
 				D0DA6CA320F63E19000600CB /* Poppins-MediumItalic.ttf in Resources */,

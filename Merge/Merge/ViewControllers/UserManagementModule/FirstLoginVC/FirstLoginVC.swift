@@ -8,12 +8,22 @@
 
 import UIKit
 import FBSDKLoginKit
+import GoogleSignIn
 
 class FirstLoginVC: BaseViewController
 {
+    
+    
     override func initView() {
         super.initView()
         initialisation()
+        initialisingGoogleLogIn()
+    }
+    
+    func initialisingGoogleLogIn(){
+        GIDSignIn.sharedInstance().clientID = Constant.AppKeys.googleClientID
+        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().uiDelegate = self
     }
     
     func initialisation(){
@@ -24,6 +34,8 @@ class FirstLoginVC: BaseViewController
         login(type: .Facebook)
     }
     @IBAction func googlePlusButtonAction(_ sender: UIButton) {
+        GIDSignIn.sharedInstance().signOut() //sign out first for other user login as a precaution
+        GIDSignIn.sharedInstance().signIn() //call signin to google
     }
     @IBAction func skipAction(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
@@ -119,7 +131,20 @@ class FirstLoginVC: BaseViewController
             }
         }
     }
-    
-    
+}
+
+extension FirstLoginVC : GIDSignInDelegate {
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        callSocialLogin(body: ["user_email" : user.profile.email,
+                               "displayName" : user.profile.name])
+    }
+}
+extension FirstLoginVC : GIDSignInUIDelegate {
+    func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
+        present(viewController, animated: true, completion: nil)
+    }
+    func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
