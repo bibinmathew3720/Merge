@@ -62,7 +62,7 @@ struct Constant{
         static let okString = "Ok"
         static let cancelString = "Cancel"
         static let logInMessage = "Please sign in to use this feature"
-        static let InfoNotAvaliable = "المعلومات غير متوفرة"
+        static let InfoNotAvaliable = "Information not available"
         static let logoutMessage = "Do you want to logout?"
         
     }
