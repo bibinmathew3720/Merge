@@ -194,7 +194,7 @@ class ChatVC: BaseViewController,UITableViewDataSource,UITableViewDelegate,UIIma
             if _model.chatItems.count > 0
             {
                 let indexPath = IndexPath.init(row: (_model.chatItems.count-1), section: 0)
-                self.chatTableView.scrollToRow(at: indexPath, at: .none, animated: false)
+                //self.chatTableView.scrollToRow(at: indexPath, at: .none, animated: false)
             }
         }
     }
