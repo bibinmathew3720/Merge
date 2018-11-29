@@ -257,7 +257,7 @@ class ChatVC: BaseViewController,UITableViewDataSource,UITableViewDelegate,UIIma
         CLNetworkManager.upload(file: imageData!,
                                 type: .JPEG, ext: ext,
                                 url: "http://test.radiomerge.fm/wp-json/wp/v2/send_user_message",
-                                parameters: "File_doc",
+                                parameters: "file_doc",
                                 headers: (headers as! [String : String]))
         {
             (response, status, error) in

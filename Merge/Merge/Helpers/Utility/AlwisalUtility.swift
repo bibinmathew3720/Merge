@@ -87,8 +87,10 @@ class AlwisalUtility: NSObject {
         //2018-06-24 16:03:47
         let inputFormatter = DateFormatter()
         inputFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+         inputFormatter.timeZone = TimeZone(abbreviation: "GMT")
         let showDate = inputFormatter.date(from: dateString)
         inputFormatter.dateFormat = "hh:mm aa"
+        inputFormatter.timeZone = NSTimeZone.local
         let resultString = inputFormatter.string(from: showDate!)
         return resultString
     }
