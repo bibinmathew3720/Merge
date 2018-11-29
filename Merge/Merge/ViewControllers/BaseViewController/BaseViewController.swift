@@ -53,7 +53,7 @@ class BaseViewController: UIViewController,UITabBarControllerDelegate,PlayListVi
     func addRightNavBarIcon(){
         self.rightButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         self.rightButton?.addTarget(self, action: #selector(rightNavButtonAction), for: .touchUpInside)
-        self.rightButton?.setImage(UIImage.init(named: "infoIcon"), for: UIControlState.normal)
+        self.rightButton?.setImage(UIImage.init(named: "homeIcon"), for: UIControlState.normal)
         var rightBarButton = UIBarButtonItem()
         rightBarButton = UIBarButtonItem.init(customView: self.rightButton!)
         self.navigationItem.rightBarButtonItem = rightBarButton
