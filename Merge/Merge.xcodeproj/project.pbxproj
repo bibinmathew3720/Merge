@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9E7137270E3E8051B4DC39B5 /* Pods_Merge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ECA8FD5C0F854002441B979 /* Pods_Merge.framework */; };
 		D01A849020F9C10C004ED6FB /* RecentlyPlayedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01A848F20F9C10C004ED6FB /* RecentlyPlayedCell.swift */; };
+		D0453FB121B22BA600451C79 /* ApplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0453FB021B22BA600451C79 /* ApplicationController.swift */; };
 		D04C1FCF2104EA4B00E9E01D /* ChatRightImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04C1FCB2104EA4600E9E01D /* ChatRightImageViewCell.swift */; };
 		D04C1FD02104EA4B00E9E01D /* ChatleftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04C1FCC2104EA4700E9E01D /* ChatleftCell.swift */; };
 		D04C1FD12104EA4B00E9E01D /* ChatLeftImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04C1FCD2104EA4900E9E01D /* ChatLeftImageViewCell.swift */; };
@@ -104,6 +105,7 @@
 		2ECA8FD5C0F854002441B979 /* Pods_Merge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Merge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		713FF6B29375A62245A2B1BC /* Pods-Merge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Merge.release.xcconfig"; path = "Pods/Target Support Files/Pods-Merge/Pods-Merge.release.xcconfig"; sourceTree = "<group>"; };
 		D01A848F20F9C10C004ED6FB /* RecentlyPlayedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyPlayedCell.swift; sourceTree = "<group>"; };
+		D0453FB021B22BA600451C79 /* ApplicationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationController.swift; sourceTree = "<group>"; };
 		D04C1FCB2104EA4600E9E01D /* ChatRightImageViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRightImageViewCell.swift; sourceTree = "<group>"; };
 		D04C1FCC2104EA4700E9E01D /* ChatleftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatleftCell.swift; sourceTree = "<group>"; };
 		D04C1FCD2104EA4900E9E01D /* ChatLeftImageViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLeftImageViewCell.swift; sourceTree = "<group>"; };
@@ -224,6 +226,14 @@
 				D01A848F20F9C10C004ED6FB /* RecentlyPlayedCell.swift */,
 			);
 			path = RecentlyPlayedCell;
+			sourceTree = "<group>";
+		};
+		D0453FAF21B22BA600451C79 /* ApplicationController */ = {
+			isa = PBXGroup;
+			children = (
+				D0453FB021B22BA600451C79 /* ApplicationController.swift */,
+			);
+			path = ApplicationController;
 			sourceTree = "<group>";
 		};
 		D050C2CC20F6E66200BEC2B7 /* ChatVC */ = {
@@ -451,6 +461,7 @@
 		D0F1C31C20F59D5F00E3A9BA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				D0453FAF21B22BA600451C79 /* ApplicationController */,
 				D0F1C31D20F59D5F00E3A9BA /* ApiManagers */,
 				D0F1C32620F59D5F00E3A9BA /* BaseNetworkManager */,
 				D0F1C32F20F59D5F00E3A9BA /* Constants.swift */,
@@ -820,6 +831,7 @@
 				D0F6E9BC20FFC52700C02D5B /* LikesTVC.swift in Sources */,
 				D0F1C33D20F59D5F00E3A9BA /* AlwisalStatusModel.swift in Sources */,
 				D06EC32A20F6941700DFFE5D /* SongInfoCell.swift in Sources */,
+				D0453FB121B22BA600451C79 /* ApplicationController.swift in Sources */,
 				D0F1C34320F59D5F00E3A9BA /* PresenterModuleManager.swift in Sources */,
 				D06EC31020F6826100DFFE5D /* LogInVC.swift in Sources */,
 				D06EC31520F690E500DFFE5D /* RegisterVC.swift in Sources */,

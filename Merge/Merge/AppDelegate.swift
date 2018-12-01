@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import GoogleSignIn
+import FBSDKLoginKit
 import IQKeyboardManagerSwift
 
 @UIApplicationMain
@@ -39,6 +41,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func initWindow(){
         window?.rootViewController = initialisingTabBar()
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        var appUrl: Bool = false
+        switch ApplicationController.applicationController.loginType {
+            
+        case .Facebook:
+            appUrl = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+        case .Google:
+            appUrl = GIDSignIn.sharedInstance().handle(url as URL?, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+            
+        case .Twitter:
+            appUrl = TWTRTwitter.sharedInstance().application(app, open: url, options: options)
+        default: print("default")
+        }
+        return appUrl
     }
     
     func setNavigationBarProperties(){

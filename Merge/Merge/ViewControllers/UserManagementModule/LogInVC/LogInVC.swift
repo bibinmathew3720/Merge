@@ -43,6 +43,7 @@ class LogInVC: BaseViewController,UITextFieldDelegate {
 
     @IBAction func logInButtonAction(_ sender: UIButton) {
         if (validate()){
+            ApplicationController.applicationController.loginType = .Manual
             callingLogInApi()
         }
     }

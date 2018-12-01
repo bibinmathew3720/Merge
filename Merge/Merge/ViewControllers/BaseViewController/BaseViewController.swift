@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import GoogleSignIn
+import FBSDKLoginKit
 import MBProgressHUD
 class BaseViewController: UIViewController,UITabBarControllerDelegate,PlayListViewDelegate,SongInfoViewDelegate {
     var playListView:PlaylistView!
@@ -341,6 +343,8 @@ class BaseViewController: UIViewController,UITabBarControllerDelegate,PlayListVi
     
     func processAfterLogout(){
         UserDefaults.standard.set(false, forKey: Constant.VariableNames.isLoogedIn)
+        GIDSignIn.sharedInstance().signOut()
+        FBSDKLoginManager().logOut()
     }
     
     //MARK: Adding Shadow View

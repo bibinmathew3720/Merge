@@ -31,9 +31,11 @@ class FirstLoginVC: BaseViewController
     }
 
     @IBAction func fbButtonAction(_ sender: UIButton) {
+        ApplicationController.applicationController.loginType = .Facebook
         login(type: .Facebook)
     }
     @IBAction func googlePlusButtonAction(_ sender: UIButton) {
+        ApplicationController.applicationController.loginType = .Google
         GIDSignIn.sharedInstance().signOut() //sign out first for other user login as a precaution
         GIDSignIn.sharedInstance().signIn() //call signin to google
     }
@@ -47,7 +49,6 @@ class FirstLoginVC: BaseViewController
         weak var weakSelf = self
         switch type {
         case .Facebook:
-            
             let fbLoginManager = FBSDKLoginManager()
             fbLoginManager.logOut()
             fbLoginManager.logIn(withReadPermissions: ["public_profile","email",], from: weakSelf) { (response, error) in
@@ -61,17 +62,22 @@ class FirstLoginVC: BaseViewController
                             {
                                 if let data = userData as? NSDictionary
                                 {
-                                    let firstName  = data.object(forKey: "first_name") as? String
-                                    
+                                    var firstName = ""
+                                    if let name =  data.object(forKey: "first_name") as? String{
+                                        firstName = name
+                                    }
+                                    if let name =  data.object(forKey: "name") as? String{
+                                        firstName = name
+                                    }
                                     if let email = data.object(forKey: "email") as? String
                                     {
                                         weakSelf?.callSocialLogin(body: ["user_email" : email,
-                                                                         "displayName" :firstName!])
+                                                                         "displayName" :firstName])
                                     }
                                     else
                                     {
                                         weakSelf?.callSocialLogin(body: ["user_email" : "noemail@testmail.com",
-                                                                         "displayName" :firstName!])
+                                                                         "displayName" :firstName])
                                     }
                                 }
                             }
@@ -135,8 +141,13 @@ class FirstLoginVC: BaseViewController
 
 extension FirstLoginVC : GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        callSocialLogin(body: ["user_email" : user.profile.email,
-                               "displayName" : user.profile.name])
+        if (error != nil) {
+           self.navigationController?.popViewController(animated: true)
+        }
+        else{
+            callSocialLogin(body: ["user_email" : user.profile.email,
+                                   "displayName" : user.profile.name])
+        }
     }
 }
 extension FirstLoginVC : GIDSignInUIDelegate {
