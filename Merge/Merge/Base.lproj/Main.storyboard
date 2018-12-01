@@ -1772,12 +1772,6 @@
                                                     <action selector="editButtonAction:" destination="Lz1-Tm-hAS" eventType="touchUpInside" id="vcq-Pe-lU8"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Creativ ehead" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p72-3a-JPf">
-                                                <rect key="frame" x="144.5" y="83.5" width="85.5" height="17"/>
-                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nop-eW-y3E">
                                                 <rect key="frame" x="10" y="120.5" width="100" height="110"/>
                                                 <subviews>
@@ -2124,17 +2118,15 @@
                                             <constraint firstItem="FRa-Zz-2mu" firstAttribute="top" secondItem="4nc-R8-tcI" secondAttribute="top" id="1ZQ-j4-BOn"/>
                                             <constraint firstItem="Rae-an-0jN" firstAttribute="top" secondItem="cfx-De-d8n" secondAttribute="bottom" constant="10" id="8UA-9v-pV3"/>
                                             <constraint firstItem="4nc-R8-tcI" firstAttribute="top" secondItem="BWl-oH-Svp" secondAttribute="top" id="8vy-h3-XWJ"/>
-                                            <constraint firstItem="nop-eW-y3E" firstAttribute="top" secondItem="p72-3a-JPf" secondAttribute="bottom" constant="20" id="Apq-HB-blC"/>
                                             <constraint firstItem="cfx-De-d8n" firstAttribute="centerX" secondItem="oku-iF-jTb" secondAttribute="centerX" id="CVI-vT-eif"/>
-                                            <constraint firstItem="p72-3a-JPf" firstAttribute="centerX" secondItem="oku-iF-jTb" secondAttribute="centerX" id="DIM-5n-Fl7"/>
                                             <constraint firstItem="4nc-R8-tcI" firstAttribute="leading" secondItem="nop-eW-y3E" secondAttribute="trailing" constant="10" id="KWo-5D-y17"/>
                                             <constraint firstItem="Rae-an-0jN" firstAttribute="centerX" secondItem="oku-iF-jTb" secondAttribute="centerX" id="L6a-EP-Yix"/>
                                             <constraint firstItem="nop-eW-y3E" firstAttribute="leading" secondItem="oku-iF-jTb" secondAttribute="leading" constant="10" id="Mc4-XJ-NdK"/>
-                                            <constraint firstItem="p72-3a-JPf" firstAttribute="top" secondItem="Rae-an-0jN" secondAttribute="bottom" constant="5" id="Nyu-2n-5wF"/>
                                             <constraint firstItem="V03-Xx-GXY" firstAttribute="centerY" secondItem="Rae-an-0jN" secondAttribute="centerY" id="QY2-Jg-RTN"/>
                                             <constraint firstAttribute="trailing" secondItem="4nc-R8-tcI" secondAttribute="trailing" id="Y4v-fk-zFs"/>
                                             <constraint firstItem="cfx-De-d8n" firstAttribute="top" secondItem="oku-iF-jTb" secondAttribute="top" constant="-54" id="fvm-Wh-06R"/>
                                             <constraint firstItem="FRa-Zz-2mu" firstAttribute="bottom" secondItem="4nc-R8-tcI" secondAttribute="bottom" id="kgb-hg-PGF"/>
+                                            <constraint firstItem="FRa-Zz-2mu" firstAttribute="top" secondItem="Rae-an-0jN" secondAttribute="bottom" constant="41.5" id="kpD-lH-yHC"/>
                                             <constraint firstItem="V03-Xx-GXY" firstAttribute="leading" secondItem="Rae-an-0jN" secondAttribute="trailing" constant="5" id="kzP-iv-oYB"/>
                                             <constraint firstItem="FRa-Zz-2mu" firstAttribute="trailing" secondItem="4nc-R8-tcI" secondAttribute="trailing" id="mdK-1b-NnR"/>
                                             <constraint firstItem="FRa-Zz-2mu" firstAttribute="leading" secondItem="4nc-R8-tcI" secondAttribute="leading" id="qYB-fb-ZJE"/>
@@ -2166,7 +2158,6 @@
                     </view>
                     <connections>
                         <outlet property="addressTV" destination="HlD-FS-fxj" id="euE-9b-b9v"/>
-                        <outlet property="designationLabel" destination="p72-3a-JPf" id="5yd-7q-akA"/>
                         <outlet property="editButton" destination="V03-Xx-GXY" id="0Pr-Qr-iP8"/>
                         <outlet property="emailTF" destination="Hv2-35-exC" id="ObB-Rf-p4f"/>
                         <outlet property="favoriteButtonView" destination="u4g-BE-F1d" id="Jy6-JX-GOz"/>

@@ -22,7 +22,6 @@ class ProfileVC: BaseViewController,UITextFieldDelegate,UITableViewDataSource,UI
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var designationLabel: UILabel!
     
     @IBOutlet weak var profileButtonBG: UIImageView!
     @IBOutlet weak var profileButton: UIButton!
