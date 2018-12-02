@@ -280,13 +280,16 @@ class ProfileVC: BaseViewController,UITextFieldDelegate,UITableViewDataSource,UI
         
         //Populating Fields
         
-        self.nameLabel.text = (self.userResponseModel?.firstName)!+" "+(self.userResponseModel?.lastName)!
-        self.phoneNoTF.text = (self.userResponseModel?.phoneNo)!
-        self.emailTF.text = (self.userResponseModel?.userEmail)!
-        self.addressTV.text = (self.userResponseModel?.location)!
-        if self.userResponseModel?.location.count == 0{
-            self.textViewHeightConstraint.constant = 20
+        if let user = User.getUser(){
+            self.phoneNoTF.text = user.phoneNumber
+            self.emailTF.text = self.userResponseModel?.userEmail
+            self.addressTV.text = user.address
+            if user.address?.count == 0{
+                self.textViewHeightConstraint.constant = 20
+            }
         }
+        self.nameLabel.text = (self.userResponseModel?.firstName)!+" "+(self.userResponseModel?.lastName)!
+       
     }
     
     //MARK: Update User Profiles
@@ -305,6 +308,7 @@ class ProfileVC: BaseViewController,UITextFieldDelegate,UITableViewDataSource,UI
                 }
                 else{
                     self.disablingProfileFields()
+                    User.saveUserData(userProfile: self.alwisalUpdateProfile)
                     AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: model.statusMessage, parentController: self)
                 }
                 

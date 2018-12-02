@@ -10,6 +10,8 @@
 		9E7137270E3E8051B4DC39B5 /* Pods_Merge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ECA8FD5C0F854002441B979 /* Pods_Merge.framework */; };
 		D01A849020F9C10C004ED6FB /* RecentlyPlayedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01A848F20F9C10C004ED6FB /* RecentlyPlayedCell.swift */; };
 		D0453FB121B22BA600451C79 /* ApplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0453FB021B22BA600451C79 /* ApplicationController.swift */; };
+		D0453FB421B35D8900451C79 /* CoreDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0453FB321B35D8900451C79 /* CoreDataHandler.swift */; };
+		D0453FB721B35E6A00451C79 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0453FB621B35E6A00451C79 /* User.swift */; };
 		D04C1FCF2104EA4B00E9E01D /* ChatRightImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04C1FCB2104EA4600E9E01D /* ChatRightImageViewCell.swift */; };
 		D04C1FD02104EA4B00E9E01D /* ChatleftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04C1FCC2104EA4700E9E01D /* ChatleftCell.swift */; };
 		D04C1FD12104EA4B00E9E01D /* ChatLeftImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04C1FCD2104EA4900E9E01D /* ChatLeftImageViewCell.swift */; };
@@ -106,6 +108,8 @@
 		713FF6B29375A62245A2B1BC /* Pods-Merge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Merge.release.xcconfig"; path = "Pods/Target Support Files/Pods-Merge/Pods-Merge.release.xcconfig"; sourceTree = "<group>"; };
 		D01A848F20F9C10C004ED6FB /* RecentlyPlayedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyPlayedCell.swift; sourceTree = "<group>"; };
 		D0453FB021B22BA600451C79 /* ApplicationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationController.swift; sourceTree = "<group>"; };
+		D0453FB321B35D8900451C79 /* CoreDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHandler.swift; sourceTree = "<group>"; };
+		D0453FB621B35E6A00451C79 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D04C1FCB2104EA4600E9E01D /* ChatRightImageViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRightImageViewCell.swift; sourceTree = "<group>"; };
 		D04C1FCC2104EA4700E9E01D /* ChatleftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatleftCell.swift; sourceTree = "<group>"; };
 		D04C1FCD2104EA4900E9E01D /* ChatLeftImageViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLeftImageViewCell.swift; sourceTree = "<group>"; };
@@ -234,6 +238,22 @@
 				D0453FB021B22BA600451C79 /* ApplicationController.swift */,
 			);
 			path = ApplicationController;
+			sourceTree = "<group>";
+		};
+		D0453FB221B35D8900451C79 /* CoreDataHandler */ = {
+			isa = PBXGroup;
+			children = (
+				D0453FB321B35D8900451C79 /* CoreDataHandler.swift */,
+			);
+			path = CoreDataHandler;
+			sourceTree = "<group>";
+		};
+		D0453FB521B35E6A00451C79 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				D0453FB621B35E6A00451C79 /* User.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		D050C2CC20F6E66200BEC2B7 /* ChatVC */ = {
@@ -461,6 +481,8 @@
 		D0F1C31C20F59D5F00E3A9BA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				D0453FB521B35E6A00451C79 /* User */,
+				D0453FB221B35D8900451C79 /* CoreDataHandler */,
 				D0453FAF21B22BA600451C79 /* ApplicationController */,
 				D0F1C31D20F59D5F00E3A9BA /* ApiManagers */,
 				D0F1C32620F59D5F00E3A9BA /* BaseNetworkManager */,
@@ -809,6 +831,7 @@
 				D0F1C33F20F59D5F00E3A9BA /* ArtistInfoManager.swift in Sources */,
 				D06EC32820F6941700DFFE5D /* PlaylistView.swift in Sources */,
 				D06EC31A20F6931400DFFE5D /* PlayerObject.swift in Sources */,
+				D0453FB721B35E6A00451C79 /* User.swift in Sources */,
 				D0FB2B142102E0DB00259D45 /* WebViewVC.swift in Sources */,
 				D0F1C34020F59D5F00E3A9BA /* EventsManager.swift in Sources */,
 				D0FF210920FED02200A06C44 /* ProfileVC.swift in Sources */,
@@ -853,6 +876,7 @@
 				D050C2CE20F6E67D00BEC2B7 /* ChatVC.swift in Sources */,
 				D06EC32E20F6941800DFFE5D /* SongInfoView.swift in Sources */,
 				D050C2D420F6EFE700BEC2B7 /* MenuVC.swift in Sources */,
+				D0453FB421B35D8900451C79 /* CoreDataHandler.swift in Sources */,
 				D0F1C34A20F59D5F00E3A9BA /* Reachability.m in Sources */,
 				D0F1C34B20F59D5F00E3A9BA /* Constants.swift in Sources */,
 				D0F1C34C20F59D5F00E3A9BA /* ExSlideMenuController.swift in Sources */,
