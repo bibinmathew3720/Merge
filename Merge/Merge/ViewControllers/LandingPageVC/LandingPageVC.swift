@@ -30,7 +30,7 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
     }
     
     func initialisation(){
-        self.title = "Radio Merge"
+        self.title = "Merge 104.8"
         self.tabBarItem.title = ""
         addRightNavBarIcon()
         addingLeftBarButton()
