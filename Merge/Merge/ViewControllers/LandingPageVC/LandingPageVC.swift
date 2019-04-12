@@ -34,14 +34,14 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
         self.tabBarItem.title = ""
         addRightNavBarIcon()
         addingLeftBarButton()
-        addShadowToAView(shadowView:singerImageView)
+        //addShadowToAView(shadowView:singerImageView)
         callingInitialApis()
         NotificationCenter.default.addObserver(self, selector: #selector(receiveNotifications(aNot:)), name: Notification.Name(Constant.Notifications.PlayerArtistInfo), object: nil)
     }
     
     func customisation(){
-        self.singerImageView.layer.borderWidth = 3
-        self.singerImageView.layer.borderColor = UIColor.white.cgColor
+        //self.singerImageView.layer.borderWidth = 3
+        //self.singerImageView.layer.borderColor = UIColor.white.cgColor
     }
     
     override func viewWillAppear(_ animated: Bool) {
