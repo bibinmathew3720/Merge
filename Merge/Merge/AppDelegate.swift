@@ -100,9 +100,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         customisingTabBarController(tabBarCnlr: tabBarController)
         tabBarController.selectedIndex = 2;
         let menuVC = storyBoard.instantiateViewController(withIdentifier: "MenuVC")
-        
-        let contactVC = storyBoard.instantiateViewController(withIdentifier: "ContactVC")
-        let slideMenuController = ExSlideMenuController(mainViewController: tabBarController, leftMenuViewController:menuVC , rightMenuViewController: contactVC)
+        let slideMenuController = ExSlideMenuController(mainViewController: tabBarController, leftMenuViewController: menuVC)
         return slideMenuController
     }
     
