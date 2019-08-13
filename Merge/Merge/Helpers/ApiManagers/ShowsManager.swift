@@ -1,23 +1,23 @@
 //
-//  NewsModuleManager.swift
-//  Alwisal
+//  ShowsManager.swift
+//  Merge
 //
-//  Created by Bibin Mathew on 5/31/18.
-//  Copyright © 2018 SC. All rights reserved.
+//  Created by Bibin Mathew on 8/13/19.
+//  Copyright © 2019 SC. All rights reserved.
 //
 
 import UIKit
 
-class NewsModuleManager: CLBaseService {
-    func callingGetNewsListApi(with pegeNumber:Int,noOfItem:Int, success : @escaping (Any)->(),failure : @escaping (_ errorType:ErrorType)->()){
-        CLNetworkManager().initateWebRequest(networkModelForNews(pageNumber: pegeNumber, noOfItems: noOfItem), success: {
+class ShowsManager: CLBaseService {
+    func callingShowsListApi(with pegeNumber:Int,noOfItem:Int, success : @escaping (Any)->(),failure : @escaping (_ errorType:ErrorType)->()){
+        CLNetworkManager().initateWebRequest(networkModelForShows(pageNumber: pegeNumber, noOfItems: noOfItem), success: {
             (resultData) in
             let (jsonDict, error) = self.didReceiveArrayResponseSuccessFully(resultData)
             if error == nil {
                 if let jdict = jsonDict as NSArray?{
                     print(jdict)
                     // print(jsonDict)
-                    success(self.getNewsModel(dict: jdict) as Any)
+                    success(self.getShowsModel(dict: jdict) as Any)
                 }else{
                     failure(ErrorType.dataError)
                 }
@@ -31,30 +31,30 @@ class NewsModuleManager: CLBaseService {
         
     }
     
-    func networkModelForNews(pageNumber:Int,noOfItems:Int)->CLNetworkModel{
+    func networkModelForShows(pageNumber:Int,noOfItems:Int)->CLNetworkModel{
         let ParaMeter = "per_page=\(noOfItems)&page=\(pageNumber)"
-        let newsRequestModel = CLNetworkModel.init(url: BASE_URL+GETNEWS+ParaMeter, requestMethod_: "GET")
-        return newsRequestModel
+        let eventsRequestModel = CLNetworkModel.init(url: BASE_URL+GETSHOWS+ParaMeter, requestMethod_: "GET")
+        return eventsRequestModel
     }
     
-    func getNewsModel(dict:NSArray) -> Any? {
-        let presenterResponseModel = NewsResponseModel.init(news: dict)
-        return presenterResponseModel
+    func getShowsModel(dict:NSArray) -> Any? {
+        let showsResponseModel = ShowsResponseModel.init(shows: dict)
+        return showsResponseModel
     }
 }
 
-class NewsResponseModel:NSObject{
-    var newsItems = [NewsModel]()
-    init(news:NSArray) {
-        if let _dict = news as? [[String:Any?]]{
+class ShowsResponseModel:NSObject{
+    var showsItems = [ShowsModel]()
+    init(shows:NSArray) {
+        if let _dict = shows as? [[String:Any?]]{
             for item in _dict{
-                newsItems.append(NewsModel.init(dict: item))
+                showsItems.append(ShowsModel.init(dict: item))
             }
         }
     }
 }
 
-class NewsModel:NSObject{
+class ShowsModel:NSObject{
     var id:Int64 = 0
     var title:String = ""
     var content:String = ""
@@ -91,7 +91,7 @@ class NewsModel:NSObject{
         }
         
         if let value = dict["custom_fields"] as? AnyObject{
-            if let fbUrlArray = value["facebook_link"] as? NSArray{
+            if let fbUrlArray = value["RJ_FACEBOOK_LINK"] as? NSArray{
                 fbLink = fbUrlArray[0] as! String
             }
         }

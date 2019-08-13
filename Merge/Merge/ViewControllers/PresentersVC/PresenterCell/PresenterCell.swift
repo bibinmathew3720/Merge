@@ -47,6 +47,15 @@ class PresenterCell: UICollectionViewCell {
         presenterImageView.sd_setImage(with: URL(string: encodedUrlstring), placeholderImage: UIImage(named: Constant.ImageNames.profilePlaceholderImage))
     }
     
+    func setshowsCell(model:ShowsModel)->(){
+        presenterNameLabel.text = model.title
+        presenterDesigLabel.text = model.content
+        guard let encodedUrlstring =  model.imagePath.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed) else { return }
+        presenterImageView.sd_setImage(with: URL(string: encodedUrlstring), placeholderImage: UIImage(named: Constant.ImageNames.profilePlaceholderImage))
+    }
+    
+    
+    
     @IBAction func twitterButtonAction(_ sender: UIButton) {
         delegate?.twitterButtonActionDelegateWithTag(tag: self.tag)
     }

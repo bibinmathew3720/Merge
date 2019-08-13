@@ -20,10 +20,12 @@ class PresenterDetailVC: BaseViewController {
     var presenterResponseModel:PresenterResponseModel?
     var newsResponseModel:NewsResponseModel?
     var eventsResponseModel:EventsResponseModel?
+    var showsResponseModel:ShowsResponseModel?
     
     var presentersModel:PresenterModel?
     var newsModel:NewsModel?
     var eventsModel:EventsModel?
+    var showsModel:ShowsModel?
     var pageType:PageType?
     var selectedIndex:Int?
     override func initView() {
@@ -64,6 +66,16 @@ class PresenterDetailVC: BaseViewController {
                 self.nextPresenterImageView.isHidden = true
             }
         }
+        if let model = showsModel{
+            self.title = "Shows"
+            self.nextPresenterButton.setTitle("NEXT SHOW", for: UIControlState.normal)
+            self.populateShowsData(show: model)
+            self.selectedIndex = self.showsResponseModel?.showsItems.index(of: model)
+            if (self.selectedIndex! + 1) == self.showsResponseModel?.showsItems.count{
+                self.nextPresenterButton.isHidden = true
+                self.nextPresenterImageView.isHidden = true
+            }
+        }
     }
     
     func initialisation(){
@@ -93,6 +105,9 @@ class PresenterDetailVC: BaseViewController {
         if let model = eventsModel{
             loadWebUrl(webUrlString: (model.fbLink))
         }
+        if let model = showsModel{
+            loadWebUrl(webUrlString: (model.fbLink))
+        }
     }
     
     @IBAction func twitterButtonAction(_ sender: UIButton) {
@@ -103,6 +118,9 @@ class PresenterDetailVC: BaseViewController {
             loadWebUrl(webUrlString: (model.twitterLink))
         }
         if let model = eventsModel{
+            loadWebUrl(webUrlString: (model.twitterLink))
+        }
+        if let model = showsModel{
             loadWebUrl(webUrlString: (model.twitterLink))
         }
     }
@@ -144,6 +162,17 @@ class PresenterDetailVC: BaseViewController {
                     self.nextPresenterImageView.isHidden = true
                 }
             }
+            else if (pageType == PageType.ShowsPage){
+                if let showsModel = self.showsResponseModel?.showsItems[self.selectedIndex!]{
+                    self.showsModel = showsModel
+                    populateDetails()
+                }
+                if (self.selectedIndex! + 1) == self.showsResponseModel?.showsItems.count{
+                    self.nextPresenterButton.isHidden = true
+                    self.nextPresenterImageView.isHidden = true
+                }
+            }
+            
         }
         
     }
@@ -171,6 +200,15 @@ class PresenterDetailVC: BaseViewController {
         guard let encodedUrlstring =  event.imagePath.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed) else { return }
         presenterImageView.sd_setImage(with: URL(string: (encodedUrlstring)), placeholderImage: UIImage(named: Constant.ImageNames.profilePlaceholderImage))
     }
+    
+    func populateShowsData(show:ShowsModel){
+        self.presenterNameLabel.text = show.title
+        self.presenterDesigLabel.text = show.content
+        self.descriptionLabel.text = show.content
+        guard let encodedUrlstring =  show.imagePath.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed) else { return }
+        presenterImageView.sd_setImage(with: URL(string: (encodedUrlstring)), placeholderImage: UIImage(named: Constant.ImageNames.profilePlaceholderImage))
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
