@@ -152,21 +152,24 @@ class PresenterDetailVC: BaseViewController {
         self.presenterNameLabel.text = presenter.title
         self.presenterDesigLabel.text = presenter.content
         self.descriptionLabel.text = presenter.content
-        presenterImageView.sd_setImage(with: URL(string: (presenter.imagePath)), placeholderImage: UIImage(named: Constant.ImageNames.profilePlaceholderImage))
+         guard let encodedUrlstring =  presenter.imagePath.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed) else { return }
+        presenterImageView.sd_setImage(with: URL(string: (encodedUrlstring)), placeholderImage: UIImage(named: Constant.ImageNames.profilePlaceholderImage))
     }
     
     func populateNewsData(news:NewsModel){
         self.presenterNameLabel.text = news.title
         self.presenterDesigLabel.text = news.content
         self.descriptionLabel.text = news.content
-        presenterImageView.sd_setImage(with: URL(string: (news.imagePath)), placeholderImage: UIImage(named: Constant.ImageNames.profilePlaceholderImage))
+         guard let encodedUrlstring =  news.imagePath.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed) else { return }
+        presenterImageView.sd_setImage(with: URL(string: (encodedUrlstring)), placeholderImage: UIImage(named: Constant.ImageNames.profilePlaceholderImage))
     }
     
     func populateEventsData(event:EventsModel){
         self.presenterNameLabel.text = event.title
         self.presenterDesigLabel.text = event.content
         self.descriptionLabel.text = event.content
-        presenterImageView.sd_setImage(with: URL(string: (event.imagePath)), placeholderImage: UIImage(named: Constant.ImageNames.profilePlaceholderImage))
+        guard let encodedUrlstring =  event.imagePath.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed) else { return }
+        presenterImageView.sd_setImage(with: URL(string: (encodedUrlstring)), placeholderImage: UIImage(named: Constant.ImageNames.profilePlaceholderImage))
     }
     
     override func didReceiveMemoryWarning() {

@@ -201,7 +201,8 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
     func populateLastPlayedSongDetailsAtTop(lastSong:SongHistoryModel){
         guard let modal = self.artistInfoModel else{
             self.currentSong = lastSong.artist+" - "+lastSong.title
-            self.songImageView.sd_setImage(with: URL(string: lastSong.imagePath), placeholderImage: UIImage(named: Constant.ImageNames.placeholderArtistInfoImage))
+            guard let encodedUrlstring =  lastSong.imagePath.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed) else { return }
+            self.songImageView.sd_setImage(with: URL(string: encodedUrlstring), placeholderImage: UIImage(named: Constant.ImageNames.placeholderArtistInfoImage))
             self.songerNameLabel.text = lastSong.title
             self.locationLabel.text = lastSong.artist
             return
@@ -301,7 +302,8 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
             self.topFavoriteButton.isSelected = false
             self.locationLabel.text = self.artistInfoModel?.artistName
             DispatchQueue.main.async {
-                self.songImageView.sd_setImage(with: URL(string: artistInfo.artistImage!), placeholderImage: UIImage(named: Constant.ImageNames.placeholderArtistInfoImage))
+                 guard let encodedUrlstring =  artistInfo.artistImage!.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed) else { return }
+                self.songImageView.sd_setImage(with: URL(string: encodedUrlstring), placeholderImage: UIImage(named: Constant.ImageNames.placeholderArtistInfoImage))
             }
             
         }) { (error) in
