@@ -12,7 +12,7 @@ struct MenuItems {
     static var secondItem = "REGISTER"
     static var thirdItem = "PRESENTERS"
     static var fourthItem = "NEWS"
-    static var fifthItem = "EVENTS"
+    static var fifthItem = "SHOWS"
     static var sixthItem = "CONTACT US"
     
 }
@@ -132,7 +132,7 @@ class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
         }
         else if(selIndex == 4){
             let presenterVC = storyBoard.instantiateViewController(withIdentifier: "PresentersVC") as! PresentersVC
-            presenterVC.pageType = PageType.EventsPage
+            presenterVC.pageType = PageType.ShowsPage
             return presenterVC
         }
         else if(selIndex == 5){

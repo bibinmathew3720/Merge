@@ -12,6 +12,7 @@ enum PageType{
     case PresenterPage
     case NewsPage
     case EventsPage
+    case ShowsPage
 }
 
 class PresentersVC: BaseViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,PresentercCollectionCellDelegate {
