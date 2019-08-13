@@ -53,10 +53,6 @@ class PlaylistView: UIView,UITableViewDataSource,UITableViewDelegate,PlayListCel
         }
         if(indexPath.row == 0){
             playListCell.verticalLabel.text = "now"
-            
-        }
-        else if(indexPath.row == 1){
-            playListCell.verticalLabel.text = "next"
         }
         else{
             playListCell.verticalLabel.text = String(format: "%02d", indexPath.row)
