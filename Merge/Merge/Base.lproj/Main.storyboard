@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XrJ-cB-7Zd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XrJ-cB-7Zd">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -219,7 +219,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0VL-6Y-9Zt">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q80-nj-eWu">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="660.5"/>
@@ -265,7 +265,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="mb0-WM-zxT" firstAttribute="top" secondItem="IK7-7S-KhW" secondAttribute="top" id="ACN-EX-cWr"/>
                                                     <constraint firstItem="WZn-0g-xTS" firstAttribute="centerX" secondItem="IK7-7S-KhW" secondAttribute="centerX" id="NJ8-z3-xA6"/>
@@ -307,16 +307,16 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backArrowBlue" translatesAutoresizingMaskIntoConstraints="NO" id="wxn-w7-PxY">
-                                                        <rect key="frame" x="324" y="-3.5" width="36" height="26"/>
+                                                        <rect key="frame" x="342" y="3" width="18" height="13"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VIEW ALL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ItG-pP-XNG">
-                                                        <rect key="frame" x="268.5" y="1" width="52.5" height="17"/>
+                                                        <rect key="frame" x="286.5" y="1" width="52.5" height="17"/>
                                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="12"/>
                                                         <color key="textColor" red="0.12549019607843137" green="0.71764705882352942" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ncC-lH-Mku">
-                                                        <rect key="frame" x="268.5" y="0.0" width="96.5" height="24"/>
+                                                        <rect key="frame" x="286.5" y="0.0" width="78.5" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="Zco-Ds-ZgW"/>
                                                         </constraints>
@@ -446,16 +446,16 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backArrowBlue" translatesAutoresizingMaskIntoConstraints="NO" id="sAd-y4-aiI">
-                                                        <rect key="frame" x="324" y="6.5" width="36" height="26"/>
+                                                        <rect key="frame" x="342" y="13" width="18" height="13"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VIEW ALL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EG7-gi-LEk">
-                                                        <rect key="frame" x="268.5" y="11" width="52.5" height="17"/>
+                                                        <rect key="frame" x="286.5" y="11" width="52.5" height="17"/>
                                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="12"/>
                                                         <color key="textColor" red="0.12549019610000001" green="0.71764705880000002" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b12-3o-1fc">
-                                                        <rect key="frame" x="268.5" y="0.0" width="96.5" height="24"/>
+                                                        <rect key="frame" x="286.5" y="0.0" width="78.5" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="tJu-Xu-OhC"/>
                                                         </constraints>
@@ -586,7 +586,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="0VL-6Y-9Zt" firstAttribute="top" secondItem="e3z-JR-UfF" secondAttribute="top" id="0vE-4S-dL2"/>
+                            <constraint firstItem="0VL-6Y-9Zt" firstAttribute="top" secondItem="UUW-Yu-IJh" secondAttribute="top" id="0vE-4S-dL2"/>
                             <constraint firstItem="e3z-JR-UfF" firstAttribute="trailing" secondItem="0VL-6Y-9Zt" secondAttribute="trailing" id="QBt-PO-Ijx"/>
                             <constraint firstItem="0VL-6Y-9Zt" firstAttribute="leading" secondItem="e3z-JR-UfF" secondAttribute="leading" id="diU-9V-ysv"/>
                             <constraint firstItem="e3z-JR-UfF" firstAttribute="bottom" secondItem="0VL-6Y-9Zt" secondAttribute="bottom" id="dz7-vf-bs7"/>
@@ -2289,7 +2289,7 @@
                                         <rect key="frame" x="10" y="0.0" width="255" height="37"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chatTVShadow" translatesAutoresizingMaskIntoConstraints="NO" id="l7K-7y-hkb">
-                                                <rect key="frame" x="0.0" y="0.0" width="255" height="37"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="255.00000000000011" height="37"/>
                                             </imageView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tGV-nK-qBn">
                                                 <rect key="frame" x="3" y="0.0" width="249" height="34"/>
@@ -2607,8 +2607,8 @@
         <image name="LOG IN" width="22" height="26"/>
         <image name="attachIcon" width="10" height="11"/>
         <image name="attachShadow" width="58" height="60"/>
-        <image name="backArrowBlue" width="36" height="26"/>
-        <image name="barImagePresenter" width="75" height="177"/>
+        <image name="backArrowBlue" width="18" height="13"/>
+        <image name="barImagePresenter" width="37.5" height="88.5"/>
         <image name="chatTVShadow" width="498" height="60"/>
         <image name="closeIconPink" width="20" height="20"/>
         <image name="editIconBlue" width="17" height="17"/>
@@ -2628,9 +2628,9 @@
         <image name="menuLogo" width="88" height="30.5"/>
         <image name="placeholder" width="375" height="250"/>
         <image name="preDetailButtonBG" width="88.5" height="22"/>
-        <image name="presenterFB" width="10" height="16"/>
-        <image name="presenterRight" width="18" height="14"/>
-        <image name="presenterTwitter" width="17" height="14"/>
+        <image name="presenterFB" width="5" height="8"/>
+        <image name="presenterRight" width="9" height="7"/>
+        <image name="presenterTwitter" width="8.5" height="7"/>
         <image name="registerButtonBg" width="150.5" height="28"/>
         <image name="thumbNormalColored" width="19" height="18"/>
         <image name="thumbNormalWhite" width="19" height="18"/>
