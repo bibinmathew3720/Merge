@@ -19,6 +19,9 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
     @IBOutlet weak var recentCollectionView: UICollectionView!
     @IBOutlet weak var trendingCollectionView: UICollectionView!
     
+    var newsPageIndex:Int = 1
+    var noOfItems:Int = 10
+    var isNewsApiCompleted:Bool = false
     var newsResponseModel:NewsResponseModel?
     var artistInfoModel:ArtistInfoModel?
     var currentSong:String?
@@ -116,6 +119,25 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
         if(collectionView == self.trendingCollectionView){
             if let _model = newsResponseModel{
                 performSegue(withIdentifier: Constant.SegueIdentifiers.landingToPresenterDetail, sender: _model.newsItems[indexPath.row])
+            }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        willDisplay cell: UICollectionViewCell,
+                        forItemAt indexPath: IndexPath) {
+        print("--------Index----------")
+        print(indexPath.row)
+        if collectionView == trendingCollectionView{
+            if newsPageIndex>0 {
+                if let newsResponse = self.newsResponseModel {
+                    if self.isNewsApiCompleted{
+                        if indexPath.row == newsResponse.newsItems.count - 1{
+                            newsPageIndex = newsPageIndex + 1
+                            getLatestNewsApi()
+                        }
+                    }
+                }
             }
         }
     }
@@ -336,15 +358,34 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
     }
     
     func getLatestNewsApi(){
-        NewsModuleManager().callingGetNewsListApi(with: 1, noOfItem: 10, success: { (model) in
+        isNewsApiCompleted = false
+        if self.newsPageIndex != 1{
+            MBProgressHUD.showAdded(to: self.view, animated: true)
+        }
+        NewsModuleManager().callingGetNewsListApi(with: self.newsPageIndex, noOfItem: noOfItems, success: { (model) in
             MBProgressHUD.hide(for: self.view, animated: true)
             if let model = model as? NewsResponseModel{
-                self.newsResponseModel = model
+                if (self.newsPageIndex == 1){
+                    self.newsResponseModel = nil
+                }
+                if let newsRespone = self.newsResponseModel {
+                    newsRespone.newsItems.append(contentsOf: model.newsItems)
+                    self.trendingCollectionView.reloadData()
+                }
+                else{
+                    self.newsResponseModel = model
+                }
                 self.trendingCollectionView.reloadData()
+                if model.newsItems.count<self.noOfItems {
+                    self.newsPageIndex = -1
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {  self.isNewsApiCompleted = true
+                }
             }
             
         }) { (ErrorType) in
             MBProgressHUD.hide(for: self.view, animated: true)
+            self.isNewsApiCompleted = true
             if(ErrorType == .noNetwork){
                 AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: Constant.ErrorMessages.noNetworkMessage, parentController: self)
             }
