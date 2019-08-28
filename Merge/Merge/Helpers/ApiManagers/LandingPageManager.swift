@@ -74,5 +74,23 @@ class SongHistoryModel:NSObject{
         if let value = dict["playedat"] as? CLongLong{
             songDate = value
         }
+        if let favorite = dict["favourite_status"] as? Int{
+            if favorite == 1{
+                isFavorited = true
+            }
+            else{
+                isFavorited = false
+            }
+            
+        }
+        if let like = dict["liked_status"] as? Int{
+            if like == 1{
+                isLiked = true
+            }
+            else{
+                isLiked = false
+            }
+            
+        }
     }
 }

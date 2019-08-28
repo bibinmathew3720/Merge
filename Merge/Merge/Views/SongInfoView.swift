@@ -43,7 +43,8 @@ class SongInfoView: UIView,UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return 4
+            //return 4 //Commented for hiding tags cell
+        return 3
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
@@ -68,7 +69,7 @@ class SongInfoView: UIView,UITableViewDataSource,UITableViewDelegate {
                     
                 }
                 else if(indexPath.row == 1){
-                    if let listCount = _model.listenersCount{
+                    if let listCount = _model.peakListeners{
                         songInfoCell.itemNameLabel.text = String(format: "Peak Listeners - %@", listCount)
                     }
                     songInfoCell.songImageView?.image = UIImage.init(named: "peakListeners")
@@ -99,6 +100,13 @@ class SongInfoView: UIView,UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 2{
+            if let _model = artistInfo, let _streamUrl = _model.serverUrlString, let _streamPath = _model.streamPath{
+                let streamUrlString = _streamUrl + _streamPath
+                guard let url = URL(string: streamUrlString) else { return }
+                UIApplication.shared.open(url)
+            }
+        }
         
     }
     

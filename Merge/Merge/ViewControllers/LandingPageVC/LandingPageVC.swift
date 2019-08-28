@@ -227,6 +227,8 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
             self.songImageView.sd_setImage(with: URL(string: encodedUrlstring), placeholderImage: UIImage(named: Constant.ImageNames.placeholderArtistInfoImage))
             self.songerNameLabel.text = lastSong.title
             self.locationLabel.text = lastSong.artist
+            self.topFavoriteButton.isSelected = lastSong.isFavorited
+            self.topLikeButton.isSelected = lastSong.isLiked
             return
         }
     }
@@ -320,13 +322,22 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
             self.artistInfoModel = artistInfo
             self.songerNameLabel.text = name
             self.nowPlayingLabel.isHidden = false
-            self.topLikeButton.isSelected = false
-            self.topFavoriteButton.isSelected = false
-            self.locationLabel.text = self.artistInfoModel?.artistName
-            DispatchQueue.main.async {
-                 guard let encodedUrlstring =  artistInfo.artistImage!.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed) else { return }
-                self.songImageView.sd_setImage(with: URL(string: encodedUrlstring), placeholderImage: UIImage(named: Constant.ImageNames.placeholderArtistInfoImage))
+            if let _artistInfo = self.artistInfoModel{
+                if let _title = _artistInfo.title{
+                    self.songerNameLabel.text = _title
+                }
+                self.locationLabel.text = _artistInfo.artistName
+                self.topLikeButton.isSelected = _artistInfo.isLiked
+                self.topFavoriteButton.isSelected = _artistInfo.isFavorited
+                DispatchQueue.main.async {
+                    guard let encodedUrlstring =  _artistInfo.artistImage.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed) else { return }
+                    self.songImageView.sd_setImage(with: URL(string: encodedUrlstring), placeholderImage: UIImage(named: Constant.ImageNames.placeholderArtistInfoImage))
+                }
+                if let _songInfoView = self.songInfoView{
+                    _songInfoView.populateArtistInfo(artiInfo: _artistInfo)
+                }
             }
+            
             
         }) { (error) in
             
