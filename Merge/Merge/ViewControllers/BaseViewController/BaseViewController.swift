@@ -124,10 +124,11 @@ class BaseViewController: UIViewController,UITabBarControllerDelegate,PlayListVi
          let naControllerAtIndex4 = tabBarController.viewControllers![4] as! UINavigationController
         
         if(selTabBarCntlr.viewControllers.first == naControllerAtIndex0.viewControllers.first){
-            if(isUserLoggedIn()){
-                selTabBarCntlr.popToRootViewController(animated: true)
-                return true
-            }
+//            if(isUserLoggedIn()){
+//                selTabBarCntlr.popToRootViewController(animated: true)
+//                return true
+//            }
+            redirectToWhatsApp()
             return false
         }
         if(selTabBarCntlr.viewControllers.first == naControllerAtIndex1.viewControllers.first){
@@ -191,6 +192,24 @@ class BaseViewController: UIViewController,UITabBarControllerDelegate,PlayListVi
             return false
         }
         return true
+    }
+    
+    func redirectToWhatsApp(){
+        let urlWhats = "https://wa.me/\(Constant.WhatsAppNumber)"
+        if let urlString = urlWhats.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed){
+            if let whatsappURL = URL(string: urlString) {
+                if UIApplication.shared.canOpenURL(whatsappURL){
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(whatsappURL, options: [:], completionHandler: nil)
+                    } else {
+                        UIApplication.shared.openURL(whatsappURL)
+                    }
+                }
+                else {
+                    print("Install Whatsapp")
+                }
+            }
+        }
     }
     
     

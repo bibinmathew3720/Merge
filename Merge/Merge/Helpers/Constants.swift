@@ -9,6 +9,7 @@
 import UIKit
 struct Constant{
     static let AppName = "Merge"
+    static let WhatsAppNumber = "+96871701048"
     struct Notifications{
         static let RootSettingNotification = "com.alwisal.initNotification"
         static let UserProfileNotification = "com.alwisal.userProfileNotification"
