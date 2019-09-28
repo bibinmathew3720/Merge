@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import WebKit
 
-class WebViewVC: BaseViewController,UIWebViewDelegate {
-    @IBOutlet weak var webView: UIWebView!
+class WebViewVC: BaseViewController {
+    @IBOutlet weak var webKitView: WKWebView!
     
     override func initView() {
         super.initView()
@@ -20,38 +21,19 @@ class WebViewVC: BaseViewController,UIWebViewDelegate {
     
     func initialisation(){
        self.title = "Contact Us"
-       loadWebViewurl()
+       loadWebViewWithUrl(urlString:Constant.contactUsUrlString)
     }
     
-    func loadWebViewurl(){
-        let url = URL(string:Constant.contactUsUrlString)
-        MBProgressHUD.showAdded(to: self.view, animated: true)
-        if let unwrappedUrl = url {
-            let request = URLRequest(url: unwrappedUrl)
-            let session = URLSession.shared
-            let task = session.dataTask(with: request) { (data, response, error) in
-                if error == nil {
-                    self.webView.loadRequest(request)
-                }
-                else{
-                    MBProgressHUD.hide(for: self.view, animated: true)
-                    print("ERROR:\(error)")
-                }
+    
+    func loadWebViewWithUrl(urlString:String){
+        let encodedUrlstring = urlString.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed)
+        if let _enocededString = encodedUrlstring{
+            let myURL = URL(string:_enocededString)
+            if let _url = myURL{
+                let myRequest = URLRequest(url: _url)
+                webKitView.load(myRequest)
             }
-            task.resume()
         }
-    }
-    func webViewDidStartLoad(_ webView: UIWebView) {
-    }
-    
-    func webView(_ webView: UIWebView, didFailLoadWithError error: Error)
-    {
-        MBProgressHUD.hide(for: self.view, animated: true)
-    }
-    
-    func webViewDidFinishLoad(_ webView: UIWebView)
-    {
-        MBProgressHUD.hide(for: self.view, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
