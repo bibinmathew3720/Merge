@@ -35,7 +35,7 @@ struct Constant{
     
     struct ImageNames {
         static let placeholderImage = "placeholder"
-        static let placeholderArtistInfoImage = "songDefaultImage"
+        static let placeholderArtistInfoImage = "placeholder"
         static let profilePlaceholderImage = "placeholder"
         struct tabImages{
             static let soundIcon = "soundIcon"
