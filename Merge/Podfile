@@ -12,6 +12,7 @@ pod 'FacebookLogin'
 pod 'GoogleSignIn'
 pod 'TwitterKit'
 pod 'SlideMenuControllerSwift'
+pod 'Google-Mobile-Ads-SDK'
   # Pods for Merge
 
 end
