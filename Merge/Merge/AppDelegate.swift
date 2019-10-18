@@ -80,12 +80,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let firstNavVC = UINavigationController.init(rootViewController: chatVC)
         
         let secondVC = storyBoard.instantiateViewController(withIdentifier: "ForgotPasswordVC")
-        secondVC.tabBarItem = settingTabBarItemFontsAndImages( selectedImageName: "secondTabSelected", unselectedImage: "secondTabSelected", title: "INFO")//Play List
+        secondVC.tabBarItem = settingTabBarItemFontsAndImages( selectedImageName: "secondTabSelected", unselectedImage: "secondTabSelected", title: "PLAYLIST")//Play List
         let secondNavVC = UINavigationController.init(rootViewController: secondVC)
         
         let landingPageVC = storyBoard.instantiateViewController(withIdentifier: "LandingPageVC")
         landingPageVC.tabBarItem = settingTabBarItemFontsAndImages( selectedImageName: Constant.ImageNames.tabImages.playIcon, unselectedImage: Constant.ImageNames.tabImages.playIcon, title: "")
-        landingPageVC.tabBarItem.imageInsets = UIEdgeInsets(top: -5, left: 0, bottom: 5, right: 0)
+        landingPageVC.tabBarItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         let landingNavVC = UINavigationController.init(rootViewController: landingPageVC)
         
         let fourthVC = storyBoard.instantiateViewController(withIdentifier: "logInVC")
@@ -108,7 +108,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabBarItem = UITabBarItem.init(title: title, image: UIImage.init(named: unselectedImage)?.withRenderingMode(UIImageRenderingMode.alwaysOriginal), selectedImage: UIImage.init(named: selectedImageName)?.withRenderingMode(UIImageRenderingMode.alwaysOriginal))
         tabBarItem.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.white], for: .normal)
         tabBarItem.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.white], for: .selected)
-        tabBarItem.imageInsets = UIEdgeInsets(top: -10, left: 0, bottom: 10, right: 0)
+        tabBarItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        tabBarItem.titlePositionAdjustment = .zero
         return tabBarItem
     }
     
@@ -119,7 +120,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appearance.setTitleTextAttributes([kCTForegroundColorAttributeName as NSAttributedStringKey: UIColor.white], for:.normal)
         appearance.setTitleTextAttributes([kCTForegroundColorAttributeName as NSAttributedStringKey: UIColor.white], for:.selected)
         appearance.setTitleTextAttributes(attributes as [NSAttributedStringKey : Any], for: .normal)
-        UITabBarItem.appearance().titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -8)
+        UITabBarItem.appearance().titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 0)
         UITabBar.appearance().contentMode = .scaleAspectFit
     }
 
