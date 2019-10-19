@@ -45,11 +45,10 @@ extension String{
                 guard let data = data(using: String.Encoding.utf8) else {
                     return nil
                 }
-                let attributes:[NSAttributedStringKey : Any] = [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 17), NSAttributedStringKey.foregroundColor: UIColor.blue]
                 return try NSAttributedString(data: data,
                                               options: [.documentType: NSAttributedString.DocumentType.html,
                                                         .characterEncoding: String.Encoding.utf8.rawValue],
-                                              documentAttributes: attributes)
+                                              documentAttributes: nil)
             } catch {
                 print("error: ", error)
                 return nil
