@@ -105,5 +105,7 @@
 	<false/>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
+	<key>GADIsAdManagerApp</key>
+	<true/>
 </dict>
 </plist>

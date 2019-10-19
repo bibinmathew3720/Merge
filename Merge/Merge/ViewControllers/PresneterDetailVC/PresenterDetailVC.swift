@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class PresenterDetailVC: BaseViewController {
     @IBOutlet weak var presenterImageView: UIImageView!
@@ -16,6 +17,7 @@ class PresenterDetailVC: BaseViewController {
     @IBOutlet weak var backListButton: UIButton!
     @IBOutlet weak var nextPresenterButton: UIButton!
     @IBOutlet weak var nextPresenterImageView: UIImageView!
+    @IBOutlet weak var adImageView: UIImageView!
     
     var presenterResponseModel:PresenterResponseModel?
     var newsResponseModel:NewsResponseModel?
@@ -28,10 +30,21 @@ class PresenterDetailVC: BaseViewController {
     var showsModel:ShowsModel?
     var pageType:PageType?
     var selectedIndex:Int?
+    var bannerView: DFPBannerView!
     override func initView() {
         super.initView()
         initialisation()
+        initialisingAd()
         populateDetails()
+    }
+    
+    func initialisingAd(){
+        bannerView = DFPBannerView(adSize: kGADAdSizeBanner)
+        bannerView.adUnitID = Constant.adUnitIdString
+        bannerView.rootViewController = self
+        bannerView.load(DFPRequest())
+       // bannerView.delegate = self
+        adImageView.addSubview(bannerView)
     }
     
     func populateDetails(){

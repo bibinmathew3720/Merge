@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,RecentlyPlayedCellDelegate {
     @IBOutlet weak var topLikeButton: UIButton!
@@ -18,6 +19,7 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
     @IBOutlet weak var songerNameLabel: UILabel!
     @IBOutlet weak var recentCollectionView: UICollectionView!
     @IBOutlet weak var trendingCollectionView: UICollectionView!
+    @IBOutlet weak var adImageView: UIImageView!
     
     var newsPageIndex:Int = 1
     var noOfItems:Int = 10
@@ -25,11 +27,22 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
     var newsResponseModel:NewsResponseModel?
     var artistInfoModel:ArtistInfoModel?
     var currentSong:String?
+    var bannerView: DFPBannerView!
     
     override func initView() {
         super.initView()
         initialisation()
+        initialisingAd()
         customisation()
+    }
+    
+    func initialisingAd(){
+        bannerView = DFPBannerView(adSize: kGADAdSizeBanner)
+        bannerView.adUnitID = Constant.adUnitIdString
+        bannerView.rootViewController = self
+        bannerView.load(DFPRequest())
+       // bannerView.delegate = self
+        adImageView.addSubview(bannerView)
     }
     
     func initialisation(){
