@@ -40,15 +40,38 @@ extension String{
         let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
         return phoneTest.evaluate(with: self)
     }
+    
+    func convertToHtmlString(){
+        var attrString:NSAttributedString?
+        
+        do {
+                       guard let data = data(using: String.Encoding.utf8) else {
+                           return
+                       }
+                       let attributes:[NSAttributedStringKey : Any] = [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 17), NSAttributedStringKey.foregroundColor: UIColor.blue]
+            attrString =  try NSAttributedString(data: data,
+                                                     options: [.documentType: NSAttributedString.DocumentType.html,
+                                                               .characterEncoding: String.Encoding.utf8.rawValue],
+                           documentAttributes: nil)
+                   } catch {
+                       print("error: ", error)
+                       return
+                   }
+        if let _atrString = attrString{
+        
+        }
+
+    }
     var html2Attributed: NSAttributedString? {
             do {
                 guard let data = data(using: String.Encoding.utf8) else {
                     return nil
                 }
+                let attributes:[NSAttributedStringKey : Any] = [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 17), NSAttributedStringKey.foregroundColor: UIColor.blue]
                 return try NSAttributedString(data: data,
                                               options: [.documentType: NSAttributedString.DocumentType.html,
                                                         .characterEncoding: String.Encoding.utf8.rawValue],
-                                              documentAttributes: nil)
+                    documentAttributes: nil)
             } catch {
                 print("error: ", error)
                 return nil
