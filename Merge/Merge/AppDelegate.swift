@@ -106,21 +106,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func settingTabBarItemFontsAndImages(selectedImageName:String,unselectedImage:String,title:String)->UITabBarItem{
         let tabBarItem = UITabBarItem.init(title: title, image: UIImage.init(named: unselectedImage)?.withRenderingMode(UIImageRenderingMode.alwaysOriginal), selectedImage: UIImage.init(named: selectedImageName)?.withRenderingMode(UIImageRenderingMode.alwaysOriginal))
-        tabBarItem.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.white], for: .normal)
-        tabBarItem.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.white], for: .selected)
+            tabBarItem.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.white], for: .normal)
+            tabBarItem.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.white], for: .selected)
         tabBarItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         tabBarItem.titlePositionAdjustment = .zero
         return tabBarItem
     }
     
     func customisingTabBarController(tabBarCnlr:UITabBarController){
-        UITabBar.appearance().backgroundImage = UIImage(named: "tabBarBG")
-        let appearance = UITabBarItem.appearance()
-        let attributes = [kCTFontAttributeName:UIFont(name: "Poppins-Regular", size: 20)]
-        appearance.setTitleTextAttributes([kCTForegroundColorAttributeName as NSAttributedStringKey: UIColor.white], for:.normal)
-        appearance.setTitleTextAttributes([kCTForegroundColorAttributeName as NSAttributedStringKey: UIColor.white], for:.selected)
-        appearance.setTitleTextAttributes(attributes as [NSAttributedStringKey : Any], for: .normal)
         UITabBarItem.appearance().titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 0)
+        if #available(iOS 13, *) {
+            let appearance = UITabBarAppearance()
+         appearance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            appearance.stackedLayoutAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            appearance.backgroundImage = UIImage(named: "tabBarBG")
+            tabBarCnlr.tabBar.standardAppearance = appearance
+        }
+        else{
+           UITabBar.appearance().backgroundImage = UIImage(named: "tabBarBG")
+        }
+        let appearance = UITabBarItem.appearance()
+               let attributes = [kCTFontAttributeName:UIFont(name: "Poppins-Regular", size: 20)]
+               appearance.setTitleTextAttributes(attributes as [NSAttributedStringKey : Any], for: .normal)
         UITabBar.appearance().contentMode = .scaleAspectFit
     }
 

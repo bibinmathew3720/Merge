@@ -7,17 +7,17 @@
 //
 
 import UIKit
+import WebKit
 import GoogleMobileAds
 
 class PresenterDetailVC: BaseViewController {
     @IBOutlet weak var presenterImageView: UIImageView!
     @IBOutlet weak var presenterNameLabel: UILabel!
-    @IBOutlet weak var presenterDesigLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var backListButton: UIButton!
     @IBOutlet weak var nextPresenterButton: UIButton!
     @IBOutlet weak var nextPresenterImageView: UIImageView!
     @IBOutlet weak var adImageView: UIImageView!
+    @IBOutlet weak var newsDetailWebView: WKWebView!
     
     var presenterResponseModel:PresenterResponseModel?
     var newsResponseModel:NewsResponseModel?
@@ -45,6 +45,12 @@ class PresenterDetailVC: BaseViewController {
         bannerView.load(DFPRequest())
        // bannerView.delegate = self
         adImageView.addSubview(bannerView)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if let _detailWebView = newsDetailWebView{
+            _detailWebView.removeFromSuperview()
+        }
     }
     
     func populateDetails(){
@@ -192,32 +198,28 @@ class PresenterDetailVC: BaseViewController {
     
     func populatePresenterData(presenter:PresenterModel){
         self.presenterNameLabel.text = presenter.title
-        self.presenterDesigLabel.text = presenter.content
-        self.descriptionLabel.text = presenter.content
+        self.newsDetailWebView.loadHTMLString( presenter.content, baseURL: nil)
          guard let encodedUrlstring =  presenter.imagePath.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed) else { return }
         presenterImageView.sd_setImage(with: URL(string: (encodedUrlstring)), placeholderImage: UIImage(named: Constant.ImageNames.profilePlaceholderImage))
     }
     
     func populateNewsData(news:NewsModel){
         self.presenterNameLabel.text = news.title
-        self.presenterDesigLabel.text = news.content
-        self.descriptionLabel.text = news.content
+        self.newsDetailWebView.loadHTMLString( news.content, baseURL: nil)
          guard let encodedUrlstring =  news.imagePath.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed) else { return }
         presenterImageView.sd_setImage(with: URL(string: (encodedUrlstring)), placeholderImage: UIImage(named: Constant.ImageNames.profilePlaceholderImage))
     }
     
     func populateEventsData(event:EventsModel){
         self.presenterNameLabel.text = event.title
-        self.presenterDesigLabel.text = event.content
-        self.descriptionLabel.text = event.content
+        self.newsDetailWebView.loadHTMLString( event.content, baseURL: nil)
         guard let encodedUrlstring =  event.imagePath.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed) else { return }
         presenterImageView.sd_setImage(with: URL(string: (encodedUrlstring)), placeholderImage: UIImage(named: Constant.ImageNames.profilePlaceholderImage))
     }
     
     func populateShowsData(show:ShowsModel){
         self.presenterNameLabel.text = show.title
-        self.presenterDesigLabel.text = show.content
-        self.descriptionLabel.text = show.content
+         self.newsDetailWebView.loadHTMLString( show.content, baseURL: nil)
         guard let encodedUrlstring =  show.imagePath.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed) else { return }
         presenterImageView.sd_setImage(with: URL(string: (encodedUrlstring)), placeholderImage: UIImage(named: Constant.ImageNames.profilePlaceholderImage))
     }

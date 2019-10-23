@@ -77,8 +77,7 @@ class NewsModel:NSObject{
         if let value = dict["content"] as? AnyObject{
             if let contentString = value["rendered"] as? String{
                 // let str = contentString.stringByReplacingOccurrencesOfString("<[^>]+>", withString: "", options: .RegularExpressionSearch, range: nil)
-                let string = contentString.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
-                content = string
+                content = contentString
             }
         }
         if let value = dict["featured_image"] as? AnyObject{

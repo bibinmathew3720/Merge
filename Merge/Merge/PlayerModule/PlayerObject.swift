@@ -21,12 +21,15 @@ class AlwisalPlayer : NSObject  {
         player = AVPlayer(playerItem: playerItem)
     }
     func play() {
+        initiateAVPlayer()
         playerItem.addObserver(self, forKeyPath: "timedMetadata", options: .new, context: nil)
         player?.play()
     }
     func pause(){
         playerItem.removeObserver(self, forKeyPath: "timedMetadata")
         player?.pause()
+        playerItem = nil
+        player = nil
     }
     func mute()->Bool {
         if let playerObject = player {
