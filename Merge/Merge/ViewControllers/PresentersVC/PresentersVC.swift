@@ -177,7 +177,7 @@ class PresentersVC: BaseViewController,UICollectionViewDataSource,UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
-            return CGSize(width: (collectionView.frame.size.width - 5)/2, height: 130)
+            return CGSize(width: (collectionView.frame.size.width - 5)/2, height: 140)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

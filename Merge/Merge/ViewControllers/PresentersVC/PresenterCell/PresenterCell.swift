@@ -21,35 +21,35 @@ class PresenterCell: UICollectionViewCell {
     weak var delegate : PresentercCollectionCellDelegate?
     func setPresenterCell(to model:PresenterModel) -> () {
         presenterNameLabel.text = model.title
-        presenterDesigLabel.text = model.content
+        //presenterDesigLabel.text = model.content
         guard let encodedUrlstring =  model.imagePath.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed) else { return }
         presenterImageView.sd_setImage(with: URL(string: encodedUrlstring), placeholderImage: UIImage(named: Constant.ImageNames.profilePlaceholderImage))
     }
     
     func setNewsCell(model:NewsModel)->(){
         presenterNameLabel.text = model.title
-        presenterDesigLabel.text = model.content
+        //presenterDesigLabel.text = model.content
         guard let encodedUrlstring =  model.imagePath.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed) else { return }
         presenterImageView.sd_setImage(with: URL(string: encodedUrlstring), placeholderImage: UIImage(named: Constant.ImageNames.profilePlaceholderImage))
     }
     
     func setArticleCell(model:ArticlesModel)->(){
         presenterNameLabel.text = model.title
-        presenterDesigLabel.text = model.content
+        //presenterDesigLabel.text = model.content
         guard let encodedUrlstring =  model.imagePath.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed) else { return }
         presenterImageView.sd_setImage(with: URL(string: encodedUrlstring), placeholderImage: UIImage(named: Constant.ImageNames.profilePlaceholderImage))
     }
     
     func setEventsCell(model:EventsModel)->(){
         presenterNameLabel.text = model.title
-        presenterDesigLabel.text = model.content
+        //presenterDesigLabel.text = model.content
         guard let encodedUrlstring =  model.imagePath.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed) else { return }
         presenterImageView.sd_setImage(with: URL(string: encodedUrlstring), placeholderImage: UIImage(named: Constant.ImageNames.profilePlaceholderImage))
     }
     
     func setshowsCell(model:ShowsModel)->(){
         presenterNameLabel.text = model.title
-        presenterDesigLabel.text = model.content
+        //presenterDesigLabel.text = model.content
         guard let encodedUrlstring =  model.imagePath.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed) else { return }
         presenterImageView.sd_setImage(with: URL(string: encodedUrlstring), placeholderImage: UIImage(named: Constant.ImageNames.profilePlaceholderImage))
     }

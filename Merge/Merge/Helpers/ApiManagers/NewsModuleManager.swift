@@ -58,6 +58,7 @@ class NewsModel:NSObject{
     var id:Int64 = 0
     var title:String = ""
     var content:String = ""
+    var webViewContent:String = ""
     var imagePath:String = ""
     var songDate:String = ""
     var fbLink:String = ""
@@ -76,8 +77,11 @@ class NewsModel:NSObject{
         }
         if let value = dict["content"] as? AnyObject{
             if let contentString = value["rendered"] as? String{
-                // let str = contentString.stringByReplacingOccurrencesOfString("<[^>]+>", withString: "", options: .RegularExpressionSearch, range: nil)
-                content = contentString
+                webViewContent = contentString
+                var str = contentString.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+                str = str.replacingOccurrences(of: "&nbsp;", with: "")
+                str = str.replacingOccurrences(of: "&#8220;", with: "")
+                content = str
             }
         }
         if let value = dict["featured_image"] as? AnyObject{
