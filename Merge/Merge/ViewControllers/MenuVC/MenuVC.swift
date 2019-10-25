@@ -123,16 +123,19 @@ class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
         if(selIndex == 2){
             let presenterVC = storyBoard.instantiateViewController(withIdentifier: "PresentersVC") as! PresentersVC
              presenterVC.pageType = PageType.PresenterPage
+            presenterVC.hidesBottomBarWhenPushed = false
             return presenterVC
         }
         else if(selIndex == 3){
             let presenterVC = storyBoard.instantiateViewController(withIdentifier: "PresentersVC") as! PresentersVC
             presenterVC.pageType = PageType.NewsPage
+            presenterVC.hidesBottomBarWhenPushed = false
             return presenterVC
         }
         else if(selIndex == 4){
             let presenterVC = storyBoard.instantiateViewController(withIdentifier: "PresentersVC") as! PresentersVC
             presenterVC.pageType = PageType.ShowsPage
+            presenterVC.hidesBottomBarWhenPushed = false
             return presenterVC
         }
         else if(selIndex == 5){

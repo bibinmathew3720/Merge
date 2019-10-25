@@ -31,6 +31,7 @@ class PresenterDetailVC: BaseViewController {
     var pageType:PageType?
     var selectedIndex:Int?
     var bannerView: DFPBannerView!
+    let appendingString = "<style type=\"text/css\">.embed-youtube {overflow: hidden;padding-bottom: 56.25%;position: relative;height: 0;}.embed-youtube iframe {left: 0;top: 0;height: 100%;width: 100%;position: absolute;}</style>"
     override func initView() {
         super.initView()
         initialisation()
@@ -45,6 +46,11 @@ class PresenterDetailVC: BaseViewController {
         bannerView.load(DFPRequest())
        // bannerView.delegate = self
         adImageView.addSubview(bannerView)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        self.hidesBottomBarWhenPushed = false
+        super.viewDidDisappear(true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -198,30 +204,30 @@ class PresenterDetailVC: BaseViewController {
     
     func populatePresenterData(presenter:PresenterModel){
         self.presenterNameLabel.text = presenter.title
-        self.newsDetailWebView.loadHTMLString( presenter.webViewContent, baseURL: nil)
+        self.newsDetailWebView.loadHTMLString( appendingString + presenter.webViewContent, baseURL: nil)
          guard let encodedUrlstring =  presenter.imagePath.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed) else { return }
         presenterImageView.sd_setImage(with: URL(string: (encodedUrlstring)), placeholderImage: UIImage(named: Constant.ImageNames.profilePlaceholderImage))
     }
     
     func populateNewsData(news:NewsModel){
         self.presenterNameLabel.text = news.title
-        let appendingString = "<style type=\"text/css\">.embed-youtube {overflow: hidden;padding-bottom: 56.25%;position: relative;height: 0;}.embed-youtube iframe {left: 0;top: 0;height: 100%;width: 100%;position: absolute;}</style>"
         
-        self.newsDetailWebView.loadHTMLString( appendingString + news.webViewContent, baseURL: nil)
+        
+        self.newsDetailWebView.loadHTMLString( appendingString + appendingString+news.webViewContent, baseURL: nil)
          guard let encodedUrlstring =  news.imagePath.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed) else { return }
         presenterImageView.sd_setImage(with: URL(string: (encodedUrlstring)), placeholderImage: UIImage(named: Constant.ImageNames.profilePlaceholderImage))
     }
     
     func populateEventsData(event:EventsModel){
         self.presenterNameLabel.text = event.title
-        self.newsDetailWebView.loadHTMLString( event.webViewContent, baseURL: nil)
+        self.newsDetailWebView.loadHTMLString( appendingString+event.webViewContent, baseURL: nil)
         guard let encodedUrlstring =  event.imagePath.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed) else { return }
         presenterImageView.sd_setImage(with: URL(string: (encodedUrlstring)), placeholderImage: UIImage(named: Constant.ImageNames.profilePlaceholderImage))
     }
     
     func populateShowsData(show:ShowsModel){
         self.presenterNameLabel.text = show.title
-         self.newsDetailWebView.loadHTMLString( show.webViewContent, baseURL: nil)
+         self.newsDetailWebView.loadHTMLString( appendingString+show.webViewContent, baseURL: nil)
         guard let encodedUrlstring =  show.imagePath.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed) else { return }
         presenterImageView.sd_setImage(with: URL(string: (encodedUrlstring)), placeholderImage: UIImage(named: Constant.ImageNames.profilePlaceholderImage))
     }

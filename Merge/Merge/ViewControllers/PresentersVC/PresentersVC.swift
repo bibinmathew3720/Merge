@@ -353,6 +353,7 @@ class PresentersVC: BaseViewController,UICollectionViewDataSource,UICollectionVi
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == Constant.SegueIdentifiers.presenterToPresenterDetailSegue){
             let presentDetail = segue.destination as! PresenterDetailVC
+            presentDetail.hidesBottomBarWhenPushed = true
             if let _model = presentersResponseModel{
                 presentDetail.presentersModel = sender as? PresenterModel
                 presentDetail.presenterResponseModel = _model

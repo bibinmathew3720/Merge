@@ -1084,6 +1084,7 @@
                                     <constraint firstAttribute="bottom" secondItem="OAz-k3-42E" secondAttribute="bottom" constant="10" id="o0F-tg-TBt"/>
                                     <constraint firstAttribute="trailing" secondItem="OAz-k3-42E" secondAttribute="trailing" constant="10" id="odp-re-gE5"/>
                                 </constraints>
+                                <viewLayoutGuide key="safeArea" id="pCG-Sg-RDr"/>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyA-Fa-v6k">
                                 <rect key="frame" x="10" y="587" width="100" height="30"/>
