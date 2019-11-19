@@ -77,5 +77,11 @@ struct Constant{
     static let sharingUrlString = "http://alwisal.radio.net/"
     
     static let adUnitIdString = "/96098159/Merge_Mobile_LB"
+    
+    static let fbSharingLink = "https://www.facebook.com/merge1048"
+    static let twitterSharingLink = "https://twitter.com/merge1048"
+    
+    static let TwitterConsumerKey = "Szngj0uwq7DSQPlHBiAWnnGsJ"
+    static let TwitterConsumerSecretKey = "O8Y95ljQaTriMsWLicPwdSc8j6OkFKVNhciW6H09AU7nqltOsA"
 }
 

@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import Social
 import GoogleSignIn
 import FBSDKLoginKit
 import MBProgressHUD
+
+
 class BaseViewController: UIViewController,UITabBarControllerDelegate,PlayListViewDelegate,SongInfoViewDelegate {
     var playListView:PlaylistView!
     var songInfoView:SongInfoView!
@@ -373,6 +376,32 @@ class BaseViewController: UIViewController,UITabBarControllerDelegate,PlayListVi
         shadowView.layer.shadowOpacity = 5
         shadowView.layer.shadowOffset = CGSize.zero
         shadowView.layer.shadowRadius = 5
+    }
+    
+    func shareTextOnFacebook(content:String) {
+       let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+        if let _vc = vc{
+           _vc.setInitialText(content)
+            DispatchQueue.main.async { () -> Void in
+                self.present(_vc, animated: true, completion: nil)
+            }
+        }
+       //vc.addImage(detailImageView.image!)
+       //vc.addURL(NSURL(string: "http://anyurl.com"))
+        
+    }
+    
+    func shareTextOnTwitter(content:String) {
+       let vc = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+        if let _vc = vc{
+           _vc.setInitialText(content)
+            DispatchQueue.main.async { () -> Void in
+                self.present(_vc, animated: true, completion: nil)
+            }
+        }
+       //vc.addImage(detailImageView.image!)
+       //vc.addURL(NSURL(string: "http://anyurl.com"))
+        
     }
     
 

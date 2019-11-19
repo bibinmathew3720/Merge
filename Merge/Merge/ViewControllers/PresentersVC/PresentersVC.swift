@@ -75,11 +75,12 @@ class PresentersVC: BaseViewController,UICollectionViewDataSource,UICollectionVi
     func twitterButtonActionDelegateWithTag(tag: NSInteger) {
         if let _model = presentersResponseModel{
             let selModel = _model.presenterItems[tag]
-            loadWebUrl(webUrlString: (selModel.twitterLink))
+            loadWebUrl(webUrlString: (Constant.twitterSharingLink))
         }
         if let _model = newsResponseModel{
             let selModel = _model.newsItems[tag]
-            loadWebUrl(webUrlString: (selModel.twitterLink))
+             self.shareTextOnTwitter(content: selModel.title)
+            //loadWebUrl(webUrlString: (selModel.twitterLink))
         }
         if let _model = eventsResponseModel{
             let selModel = _model.eventsItems[tag]
@@ -87,18 +88,19 @@ class PresentersVC: BaseViewController,UICollectionViewDataSource,UICollectionVi
         }
         if let _model = showsResponseModel{
             let selModel = _model.showsItems[tag]
-            loadWebUrl(webUrlString: (selModel.twitterLink))
+            loadWebUrl(webUrlString: (Constant.twitterSharingLink))
         }
     }
     
     func fbButtonActionDelegateWithTag(tag: NSInteger) {
         if let _model = presentersResponseModel{
             let selModel = _model.presenterItems[tag]
-            loadWebUrl(webUrlString: (selModel.fbLink))
+            loadWebUrl(webUrlString: (Constant.fbSharingLink))
         }
         if let _model = newsResponseModel{
             let selModel = _model.newsItems[tag]
-            loadWebUrl(webUrlString: (selModel.fbLink))
+             self.shareTextOnFacebook(content: selModel.title)
+            //loadWebUrl(webUrlString: (selModel.fbLink))
         }
         if let _model = eventsResponseModel{
             let selModel = _model.eventsItems[tag]
@@ -106,7 +108,7 @@ class PresentersVC: BaseViewController,UICollectionViewDataSource,UICollectionVi
         }
         if let _model = showsResponseModel{
             let selModel = _model.showsItems[tag]
-            loadWebUrl(webUrlString: (selModel.fbLink))
+            loadWebUrl(webUrlString: (Constant.fbSharingLink))
         }
     }
     

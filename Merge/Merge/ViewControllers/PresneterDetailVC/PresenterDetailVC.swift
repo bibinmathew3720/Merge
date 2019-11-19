@@ -60,6 +60,8 @@ class PresenterDetailVC: BaseViewController {
     }
     
     func populateDetails(){
+        self.nextPresenterButton.isHidden = false
+        self.nextPresenterImageView.isHidden = false
         if let _model = presentersModel{
             self.title = "Presenters"
             self.nextPresenterButton.setTitle("NEXT PRESENTER", for: UIControlState.normal)
@@ -122,31 +124,33 @@ class PresenterDetailVC: BaseViewController {
     }
     @IBAction func fbButtonAction(_ sender: UIButton) {
         if let _model = presentersModel{
-            loadWebUrl(webUrlString: (_model.fbLink))
+            loadWebUrl(webUrlString: (Constant.fbSharingLink))
         }
         if let model = newsModel{
-            loadWebUrl(webUrlString: (model.fbLink))
+            //loadWebUrl(webUrlString: (model.fbLink))
+            self.shareTextOnFacebook(content: model.title)
         }
         if let model = eventsModel{
             loadWebUrl(webUrlString: (model.fbLink))
         }
         if let model = showsModel{
-            loadWebUrl(webUrlString: (model.fbLink))
+            loadWebUrl(webUrlString: (Constant.fbSharingLink))
         }
     }
     
     @IBAction func twitterButtonAction(_ sender: UIButton) {
         if let _model = presentersModel{
-            loadWebUrl(webUrlString: (_model.twitterLink))
+            loadWebUrl(webUrlString: (Constant.twitterSharingLink))
         }
         if let model = newsModel{
-            loadWebUrl(webUrlString: (model.twitterLink))
+            self.shareTextOnTwitter(content: model.title)
+            //loadWebUrl(webUrlString: (model.twitterLink))
         }
         if let model = eventsModel{
             loadWebUrl(webUrlString: (model.twitterLink))
         }
         if let model = showsModel{
-            loadWebUrl(webUrlString: (model.twitterLink))
+            loadWebUrl(webUrlString: (Constant.twitterSharingLink))
         }
     }
     
@@ -163,8 +167,13 @@ class PresenterDetailVC: BaseViewController {
                         populateDetails()
                     }
                 if (self.selectedIndex! + 1) == self.eventsResponseModel?.eventsItems.count{
-                    self.nextPresenterButton.isHidden = true
-                    self.nextPresenterImageView.isHidden = true
+                    self.selectedIndex = 0
+                    if let eventModel = self.eventsResponseModel?.eventsItems[self.selectedIndex!]{
+                        self.eventsModel = eventModel
+                        populateDetails()
+                    }
+                    //self.nextPresenterButton.isHidden = true
+                   // self.nextPresenterImageView.isHidden = true
                 }
             }
             else if (pageType == PageType.NewsPage){
@@ -173,8 +182,14 @@ class PresenterDetailVC: BaseViewController {
                     populateDetails()
                 }
                 if (self.selectedIndex! + 1) == self.newsResponseModel?.newsItems.count{
-                    self.nextPresenterButton.isHidden = true
-                    self.nextPresenterImageView.isHidden = true
+                    self.selectedIndex = 0
+                    if let newsModel = self.newsResponseModel?.newsItems[self.selectedIndex!]{
+                        self.newsModel = newsModel
+                        populateDetails()
+                    }
+                    
+//                    self.nextPresenterButton.isHidden = true
+//                    self.nextPresenterImageView.isHidden = true
                 }
             }
             else if (pageType == PageType.PresenterPage){
@@ -183,8 +198,14 @@ class PresenterDetailVC: BaseViewController {
                     populateDetails()
                 }
                 if (self.selectedIndex! + 1) == self.presenterResponseModel?.presenterItems.count{
-                    self.nextPresenterButton.isHidden = true
-                    self.nextPresenterImageView.isHidden = true
+                    self.selectedIndex = 0
+                    if let presenterModel = self.presenterResponseModel?.presenterItems[self.selectedIndex!]{
+                        self.presentersModel = presenterModel
+                        populateDetails()
+                    }
+                    
+//                    self.nextPresenterButton.isHidden = true
+//                    self.nextPresenterImageView.isHidden = true
                 }
             }
             else if (pageType == PageType.ShowsPage){
@@ -193,8 +214,13 @@ class PresenterDetailVC: BaseViewController {
                     populateDetails()
                 }
                 if (self.selectedIndex! + 1) == self.showsResponseModel?.showsItems.count{
-                    self.nextPresenterButton.isHidden = true
-                    self.nextPresenterImageView.isHidden = true
+                    self.selectedIndex = 0
+                    if let showsModel = self.showsResponseModel?.showsItems[self.selectedIndex!]{
+                        self.showsModel = showsModel
+                        populateDetails()
+                    }
+                    //self.nextPresenterButton.isHidden = true
+                    //self.nextPresenterImageView.isHidden = true
                 }
             }
             
