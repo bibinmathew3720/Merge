@@ -43,6 +43,7 @@ struct Constant{
             static let playIcon = "playIcon"
             static let pauseIcon = "pauseIcon"
         }
+        static let landingPageTitleImage = "landingTitleImage"
     }
     
     struct SegueIdentifiers {

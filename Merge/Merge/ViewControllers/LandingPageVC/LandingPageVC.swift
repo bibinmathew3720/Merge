@@ -32,8 +32,16 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
     override func initView() {
         super.initView()
         initialisation()
+        addNavigationBarImage()
         initialisingAd()
         customisation()
+    }
+    
+    func addNavigationBarImage(){
+        let image = UIImage(named: Constant.ImageNames.landingPageTitleImage)
+        let imageView = UIImageView(image:image)
+        imageView.image = image
+        navigationItem.titleView = imageView
     }
     
     func initialisingAd(){
@@ -46,7 +54,7 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
     }
     
     func initialisation(){
-        self.title = "Merge 104.8"
+        //self.title = "Merge 104.8"
         self.tabBarItem.title = ""
         addRightNavBarIcon()
         addingLeftBarButton()
