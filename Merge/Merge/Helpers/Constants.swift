@@ -73,7 +73,7 @@ struct Constant{
     static let audioStreamingUrlString = "http://uk7.internet-radio.com:8040"
     static let facebookLink = "https://www.facebook.com/radiomerge"
     static let twitterLink = "https://twitter.com/radiomerge"
-    static let contactUsUrlString = "http://test.radiomerge.fm/contact-us?app=1"
+    static let contactUsUrlString = "http://radiomerge.fm/merge/contact-us?app=1"
     
     static let sharingUrlString = "http://alwisal.radio.net/"
     

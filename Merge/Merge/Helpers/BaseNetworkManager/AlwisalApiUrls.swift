@@ -8,9 +8,9 @@
 import Foundation
 let LOCAL = "http://test.radiomerge.fm/wp-json/wp/v2/"
 let BASE_URL_ARTIST_INFO = "http://ws.audioscrobbler.com/2.0/?"
-//let PRODUCTION = "http://test.wisal.fm/wp-json/wp/v2/"
+let PRODUCTION = "http://radiomerge.fm/merge/wp-json/wp/v2/"
 
-let BASE_URL = LOCAL
+let BASE_URL = PRODUCTION
 
 let LOGIN_URL = "loginUser"
 let FORGOTPASSWORD_URL = "reset_password"

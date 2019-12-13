@@ -1056,7 +1056,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sabco.merge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "9dcf5a4c-c196-4e22-a2f1-8212dc5a5c14";
-				PROVISIONING_PROFILE_SPECIFIER = Merge_adhoc;
+				PROVISIONING_PROFILE_SPECIFIER = Merge_dis;
 				SWIFT_OBJC_BRIDGING_HEADER = "Merge/Helpers/BaseNetworkManager/Alwisal-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
