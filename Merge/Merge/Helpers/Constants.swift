@@ -75,7 +75,7 @@ struct Constant{
     static let twitterLink = "https://twitter.com/radiomerge"
     static let contactUsUrlString = "http://radiomerge.fm/merge/contact-us?app=1"
     
-    static let sharingUrlString = "http://alwisal.radio.net/"
+    static let sharingUrlString = "http://radiomerge.fm/"
     
     static let adUnitIdString = "/96098159/Merge_Mobile_LB"
     
