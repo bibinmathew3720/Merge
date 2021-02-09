@@ -9,6 +9,14 @@
 import UIKit
 import GoogleMobileAds
 
+enum SmileyType{
+  case SmileyTypeAngry
+  case SmileyTypeSad
+  case SmileyTypeNuetral
+  case SmileyTypeHappy
+  case SmileyTypeLove
+}
+
 class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,RecentlyPlayedCellDelegate {
     @IBOutlet weak var topLikeButton: UIButton!
     @IBOutlet weak var topFavoriteButton: UIButton!
@@ -20,6 +28,8 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
     @IBOutlet weak var recentCollectionView: UICollectionView!
     @IBOutlet weak var trendingCollectionView: UICollectionView!
     @IBOutlet weak var adImageView: UIImageView!
+    @IBOutlet weak var smileyView: UIView!
+    @IBOutlet weak var smileyViewSongNameLabel: UILabel!
     
     var newsPageIndex:Int = 1
     var noOfItems:Int = 10
@@ -28,6 +38,8 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
     var artistInfoModel:ArtistInfoModel?
     var currentSong:String?
     var bannerView: DFPBannerView!
+    
+    var voting = VotingRequestModel()
     
     override func initView() {
         super.initView()
@@ -49,7 +61,6 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
         bannerView.adUnitID = Constant.adUnitIdString
         bannerView.rootViewController = self
         bannerView.load(DFPRequest())
-       // bannerView.delegate = self
         adImageView.addSubview(bannerView)
     }
     
@@ -164,6 +175,13 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
     }
     
     //MARK: Button Actions
+    
+    @IBAction func smileyAction(_ sender: UIButton) {
+    }
+    
+    @IBAction func closeButtonActionForSmileyView(_ sender: UIButton) {
+        self.smileyView.isHidden = true;
+    }
     
     @IBAction func favoriteBUttonAction(_ sender: UIButton) {
         if let currentSong = self.currentSong{
@@ -334,6 +352,32 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
         dict.updateValue(songName, forKey: "title")
         return AlwisalUtility.getJSONfrom(dictionary: dict)
     }
+    
+    func callingReactionApi(smileyType:SmileyType){
+           MBProgressHUD.showAdded(to: self.view, animated: true)
+           LandingPageManager().callingReactionApi(with: voting.getRequestBody(),smileyType:smileyType, success: { (model) in
+               MBProgressHUD.hide(for: self.view, animated: true)
+               if let model = model as? ReactionResponseModel{
+                   if model.error == 1{
+                       AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: model.errorMsg, parentController: self)
+                   }
+                   else{
+                       if model.isReactionAdded == true{
+                           self.smileyView.isHidden = true
+                       }
+                   }
+               }
+               
+           }) { (errorType) in
+               MBProgressHUD.hide(for: self.view, animated: true)
+               if(errorType == .noNetwork){
+                   AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: Constant.ErrorMessages.noNetworkMessage, parentController: self)
+               }
+               else{
+                   AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: Constant.ErrorMessages.serverErrorMessamge, parentController: self)
+               }
+           }
+       }
     
     //MARK:- Webservice Calls
     

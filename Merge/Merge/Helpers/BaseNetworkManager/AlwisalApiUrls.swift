@@ -30,10 +30,11 @@ let GETSONGHISTORY = "song_history"
 let GETCHATMESSAGES = "getOldChat"
 let SEND_CHAT_MESSAGE = "send_user_message"
 let SOCIAL_LOGIN_URL = "registerSocialMedia"
-
 let GETPRESENTERDETAILS = "posts/"
-
-
-
-
 let GETARTICLES = "articles?"
+
+let SMILEY_TYPE_ANGRY_URL = "add_angry"
+let SMILEY_TYPE_SAD_URL = "add_sad"
+let SMILEY_TYPE_NUETRAL_URL = "add_neutral"
+let SMILEY_TYPE_HAPPY_URL = "add_happy"
+let SMILEY_TYPE_LOVE_URL = "add_love"
