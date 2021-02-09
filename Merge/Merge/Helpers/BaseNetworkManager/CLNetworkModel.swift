@@ -33,6 +33,8 @@ class CLNetworkModel: NSObject {
         if let userToken = UserDefaults.standard.value(forKey: Constant.VariableNames.userToken){
             _ = requestHeader?.updateValue(userToken as! String, forKey: "Usertoken")
         }
+        let uuidString = UIDevice.current.identifierForVendor?.uuidString
+        _ = requestHeader?.updateValue(uuidString ?? "", forKey: "Deviceid") //For voting
 //        if let _sessionToken = CCApplicationController.sharedInstance.cCAppTokens?.sessionToken{
 //            _ = requestHeader?.updateValue(_sessionToken, forKey: "Session-Token")
 //        }

@@ -176,7 +176,25 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
     
     //MARK: Button Actions
     
+    @IBAction func voteButtonAction(_ sender: UIButton) {
+        self.smileyView.isHidden = false
+        voting.artistName = locationLabel.text ?? ""
+        voting.songName = songerNameLabel.text ?? ""
+        self.smileyViewSongNameLabel.text = voting.songName
+    }
+    
     @IBAction func smileyAction(_ sender: UIButton) {
+        if(sender.tag == 1001){ //Angry
+            callingReactionApi(smileyType: .SmileyTypeAngry)
+        }else if(sender.tag == 1002){ //Sad
+            callingReactionApi(smileyType: .SmileyTypeSad)
+        }else if(sender.tag == 1003){ //Neutral
+            callingReactionApi(smileyType: .SmileyTypeNuetral)
+        }else if(sender.tag == 1004){ //Happy
+            callingReactionApi(smileyType: .SmileyTypeHappy)
+        }else if(sender.tag == 1005){ //Love
+            callingReactionApi(smileyType: .SmileyTypeLove)
+        }
     }
     
     @IBAction func closeButtonActionForSmileyView(_ sender: UIButton) {

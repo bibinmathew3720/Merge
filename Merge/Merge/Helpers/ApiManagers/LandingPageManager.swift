@@ -164,11 +164,12 @@ class ReactionResponseModel:NSObject{
 }
 
 class VotingRequestModel:NSObject{
-    var title:String = ""
+    var songName:String = ""
+    var artistName:String = ""
     
     func getRequestBody()->String{
         var requestBody = [String:AnyObject]()
-        requestBody["title"] = title as AnyObject
+        requestBody["title"] = artistName + " - " + songName as AnyObject
         return AlwisalUtility.getJSONfrom(dictionary: requestBody)
     }
 }
