@@ -309,10 +309,11 @@
                                                     <constraint firstAttribute="width" constant="40" id="vtK-sS-5gW"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="12"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Vote">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
-                                                <state key="selected" image="favSelected"/>
+                                                <state key="selected" title="Voted"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="20"/>
@@ -764,6 +765,7 @@
                         <outlet property="topFavoriteButton" destination="6ss-XR-Kev" id="BtZ-6d-VQn"/>
                         <outlet property="topLikeButton" destination="FFi-Kp-AB8" id="l9J-QU-T78"/>
                         <outlet property="trendingCollectionView" destination="Jp6-rz-bEX" id="du1-D7-IH3"/>
+                        <outlet property="voteButton" destination="hHF-8b-j3u" id="00V-sr-U69"/>
                         <segue destination="Nhy-4a-LeG" kind="show" identifier="landingToPrsenterDetails" id="MiH-Lx-MwG"/>
                     </connections>
                 </viewController>
@@ -2784,7 +2786,6 @@
         <image name="chatTVShadow" width="498" height="60"/>
         <image name="closeIconPink" width="20" height="20"/>
         <image name="editIconBlue" width="17" height="17"/>
-        <image name="favSelected" width="128" height="128"/>
         <image name="fbBlue" width="6" height="10"/>
         <image name="fbIcon" width="8" height="13"/>
         <image name="filter" width="45.5" height="45.5"/>

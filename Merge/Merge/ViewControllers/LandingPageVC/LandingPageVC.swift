@@ -30,6 +30,7 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
     @IBOutlet weak var adImageView: UIImageView!
     @IBOutlet weak var smileyView: UIView!
     @IBOutlet weak var smileyViewSongNameLabel: UILabel!
+    @IBOutlet weak var voteButton: UIButton!
     
     var newsPageIndex:Int = 1
     var noOfItems:Int = 10
@@ -177,10 +178,12 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
     //MARK: Button Actions
     
     @IBAction func voteButtonAction(_ sender: UIButton) {
-        self.smileyView.isHidden = false
-        voting.artistName = locationLabel.text ?? ""
-        voting.songName = songerNameLabel.text ?? ""
-        self.smileyViewSongNameLabel.text = voting.songName
+        if(!sender.isSelected){
+            self.smileyView.isHidden = false
+            voting.artistName = locationLabel.text ?? ""
+            voting.songName = songerNameLabel.text ?? ""
+            self.smileyViewSongNameLabel.text = voting.songName
+        }
     }
     
     @IBAction func smileyAction(_ sender: UIButton) {
@@ -283,6 +286,7 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
             guard let encodedUrlstring =  lastSong.imagePath.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed) else { return }
             self.songImageView.sd_setImage(with: URL(string: encodedUrlstring), placeholderImage: UIImage(named: Constant.ImageNames.placeholderArtistInfoImage))
             self.songerNameLabel.text = lastSong.title
+            self.checkWhetherCurrentSongVoted()
             self.locationLabel.text = lastSong.artist
             self.topFavoriteButton.isSelected = lastSong.isFavorited
             self.topLikeButton.isSelected = lastSong.isLiked
@@ -375,16 +379,18 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
            MBProgressHUD.showAdded(to: self.view, animated: true)
            LandingPageManager().callingReactionApi(with: voting.getRequestBody(),smileyType:smileyType, success: { (model) in
                MBProgressHUD.hide(for: self.view, animated: true)
-               if let model = model as? ReactionResponseModel{
-                   if model.error == 1{
-                       AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: model.errorMsg, parentController: self)
-                   }
-                   else{
-                       if model.isReactionAdded == true{
-                           self.smileyView.isHidden = true
-                       }
-                   }
-               }
+            if let model = model as? ReactionResponseModel{
+                if model.error == 1{
+                    AlwisalUtility.showDefaultAlertwith(_title: Constant.AppName, _message: model.errorMsg, parentController: self)
+                }
+                else{
+                    //if model.isReactionAdded == true{
+                    self.smileyView.isHidden = true
+                    Voting.saveVotedData(votingModel: self.voting)
+                    self.checkWhetherCurrentSongVoted()
+                    //}
+                }
+            }
                
            }) { (errorType) in
                MBProgressHUD.hide(for: self.view, animated: true)
@@ -397,6 +403,14 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
            }
        }
     
+    func checkWhetherCurrentSongVoted(){
+        if (Voting.getVotedSongWithSongName(songName:songerNameLabel.text ?? "") != nil){
+            voteButton.isSelected = true
+        }else{
+            voteButton.isSelected = false
+        }
+    }
+    
     //MARK:- Webservice Calls
     
     func getArtistInfo(name: String) {
@@ -404,10 +418,12 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
             let artistInfo = model as! ArtistInfoModel
             self.artistInfoModel = artistInfo
             self.songerNameLabel.text = name
+            self.checkWhetherCurrentSongVoted()
             self.nowPlayingLabel.isHidden = false
             if let _artistInfo = self.artistInfoModel{
                 if let _title = _artistInfo.title{
                     self.songerNameLabel.text = _title
+                    self.checkWhetherCurrentSongVoted()
                 }
                 self.locationLabel.text = _artistInfo.artistName
                 self.topLikeButton.isSelected = _artistInfo.isLiked
