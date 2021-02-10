@@ -77,7 +77,8 @@ struct Constant{
     
     static let sharingUrlString = "http://radiomerge.fm/"
     
-    static let adUnitIdString = "/96098159/Merge_Mobile_LB"
+    //static let adUnitIdString = "/96098159/Merge_Mobile_LB"
+    static let adUnitIdString = "/96098159/AW_MobileAppBanner_320x50_1"
     
     static let fbSharingLink = "https://www.facebook.com/merge1048"
     static let twitterSharingLink = "https://twitter.com/merge1048"
