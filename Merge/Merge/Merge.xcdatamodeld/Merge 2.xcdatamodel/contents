@@ -6,7 +6,11 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="Voting" representedClassName=".Voting" syncable="YES" codeGenerationType="category">
+        <attribute name="songName" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="User" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Voting" positionX="-45" positionY="27" width="128" height="58"/>
     </elements>
 </model>

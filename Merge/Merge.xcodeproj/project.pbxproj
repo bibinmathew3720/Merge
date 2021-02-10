@@ -109,6 +109,7 @@
 		2ECA8FD5C0F854002441B979 /* Pods_Merge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Merge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		713FF6B29375A62245A2B1BC /* Pods-Merge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Merge.release.xcconfig"; path = "Pods/Target Support Files/Pods-Merge/Pods-Merge.release.xcconfig"; sourceTree = "<group>"; };
 		C266222125D38046000CE4BD /* Voting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voting.swift; sourceTree = "<group>"; };
+		C266222325D38E29000CE4BD /* Merge 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Merge 2.xcdatamodel"; sourceTree = "<group>"; };
 		D01A848F20F9C10C004ED6FB /* RecentlyPlayedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyPlayedCell.swift; sourceTree = "<group>"; };
 		D0453FB021B22BA600451C79 /* ApplicationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationController.swift; sourceTree = "<group>"; };
 		D0453FB321B35D8900451C79 /* CoreDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHandler.swift; sourceTree = "<group>"; };
@@ -1096,9 +1097,10 @@
 		D09E60E8206A9DA1008E5E0B /* Merge.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				C266222325D38E29000CE4BD /* Merge 2.xcdatamodel */,
 				D09E60E9206A9DA1008E5E0B /* Merge.xcdatamodel */,
 			);
-			currentVersion = D09E60E9206A9DA1008E5E0B /* Merge.xcdatamodel */;
+			currentVersion = C266222325D38E29000CE4BD /* Merge 2.xcdatamodel */;
 			path = Merge.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
