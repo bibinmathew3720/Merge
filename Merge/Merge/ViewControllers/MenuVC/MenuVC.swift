@@ -35,7 +35,8 @@ class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     func initialisation(){
-        menuList = [MenuItems.firstItem,MenuItems.secondItem,MenuItems.thirdItem,MenuItems.fourthItem,MenuItems.fifthItem,MenuItems.sixthItem]
+        //menuList = [MenuItems.firstItem,MenuItems.secondItem,MenuItems.thirdItem,MenuItems.fourthItem,MenuItems.fifthItem,MenuItems.sixthItem]
+        menuList = [MenuItems.thirdItem,MenuItems.fourthItem,MenuItems.fifthItem,MenuItems.sixthItem]
         populateMenuItems()
     }
     
@@ -57,14 +58,14 @@ class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if isLoggedIn{
-            if indexPath.row == 0{
-                let profileCell : MenuProfileCell! = tableView.dequeueReusableCell(withIdentifier: "menuProfileCell") as! MenuProfileCell
-                profileCell.setUserDetails()
-                return profileCell
-            }
-        }
-        let menuCell : MenuTVC! = tableView.dequeueReusableCell(withIdentifier: "menuTVC") as! MenuTVC
+//        if isLoggedIn{
+//            if indexPath.row == 0{
+//                let profileCell : MenuProfileCell! = tableView.dequeueReusableCell(withIdentifier: "menuProfileCell") as! MenuProfileCell
+//                profileCell.setUserDetails()
+//                return profileCell
+//            }
+//        }
+        let menuCell : MenuTVC! = tableView.dequeueReusableCell(withIdentifier: "menuTVC") as? MenuTVC
         menuCell.menuLabel.text = menuList[indexPath.row]
         menuCell.menuImageView.image = UIImage.init(named: menuList[indexPath.row])
         return menuCell
@@ -75,20 +76,20 @@ class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if(indexPath.row == 0){
-            if isLoggedIn{
-                loadPageAtIndex(index: indexPath.row)
-            }
-            else{
-                navigateToLogInPage()
-            }
-        }
-        else if (indexPath.row == 1){
-            navigateToRegisterPage()
-        }
-        else{
+//        if(indexPath.row == 0){
+//            if isLoggedIn{
+//                loadPageAtIndex(index: indexPath.row)
+//            }
+//            else{
+//                navigateToLogInPage()
+//            }
+//        }
+//        else if (indexPath.row == 1){
+//            navigateToRegisterPage()
+//        }
+//        else{
             loadPageAtIndex(index: indexPath.row)
-        }
+        //}
     }
 
     override func didReceiveMemoryWarning() {
@@ -116,29 +117,32 @@ class MenuVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     
     func getViewControllerAtMenuIndex(selIndex:NSInteger)->UIViewController{
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-        if (selIndex == 0){
-            let profileVC = storyBoard.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
-            return profileVC
-        }
-        if(selIndex == 2){
+//        if (selIndex == 0){
+//            let profileVC = storyBoard.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
+//            return profileVC
+//        }
+        //if(selIndex == 2){
+        if(selIndex == 0){
             let presenterVC = storyBoard.instantiateViewController(withIdentifier: "PresentersVC") as! PresentersVC
              presenterVC.pageType = PageType.PresenterPage
             presenterVC.hidesBottomBarWhenPushed = false
             return presenterVC
-        }
-        else if(selIndex == 3){
+        }else if(selIndex == 1){
+            //else if(selIndex == 3){
             let presenterVC = storyBoard.instantiateViewController(withIdentifier: "PresentersVC") as! PresentersVC
             presenterVC.pageType = PageType.NewsPage
             presenterVC.hidesBottomBarWhenPushed = false
             return presenterVC
         }
-        else if(selIndex == 4){
+        else if(selIndex == 2){
+            //else if(selIndex == 4){
             let presenterVC = storyBoard.instantiateViewController(withIdentifier: "PresentersVC") as! PresentersVC
             presenterVC.pageType = PageType.ShowsPage
             presenterVC.hidesBottomBarWhenPushed = false
             return presenterVC
         }
-        else if(selIndex == 5){
+        else if(selIndex == 3){
+            //else if(selIndex == 5){
             let contactUsVC = storyBoard.instantiateViewController(withIdentifier: "WebViewVC") as! WebViewVC
             return contactUsVC
         }
