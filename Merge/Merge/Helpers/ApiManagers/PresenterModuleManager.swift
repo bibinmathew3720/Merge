@@ -103,12 +103,12 @@ class PresenterModel:NSObject{
         if let value = dict["id"] as? Int{
             id = value
         }
-        if let value = dict["title"] as? AnyObject{
+        if let value = dict["title"] as? [String: AnyObject]{
             if let titleString = value["rendered"] as? String{
                title = titleString
             }
         }
-        if let value = dict["content"] as? AnyObject{
+        if let value = dict["content"] as? [String: AnyObject]{
             if let contentString = value["rendered"] as? String{
                 webViewContent = contentString
                 var str = contentString.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
@@ -117,7 +117,7 @@ class PresenterModel:NSObject{
                 content = str
             }
         }
-        if let value = dict["featured_image"] as? AnyObject{
+        if let value = dict["featured_image"] as? [String: AnyObject]{
             if let imageurl = value["home_ft"] as? String{
                 imagePath = imageurl
             }
@@ -126,12 +126,12 @@ class PresenterModel:NSObject{
             songDate = value
         }
         
-        if let value = dict["custom_fields"] as? AnyObject{
+        if let value = dict["custom_fields"] as? [String: AnyObject]{
             if let fbUrlArray = value["facebook_link"] as? NSArray{
                 fbLink = fbUrlArray[0] as! String
             }
         }
-        if let value = dict["custom_fields"] as? AnyObject{
+        if let value = dict["custom_fields"] as? [String: AnyObject]{
             if let twitterUrlArray = value["twitter_link"] as? NSArray{
                 twitterLink = twitterUrlArray[0] as! String
             }
