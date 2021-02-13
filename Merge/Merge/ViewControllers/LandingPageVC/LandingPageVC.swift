@@ -41,6 +41,7 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
     var bannerView: DFPBannerView!
     
     var voting = VotingRequestModel()
+    var songHistoryTimer:Timer?
     
     override func initView() {
         super.initView()
@@ -48,6 +49,33 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
         addNavigationBarImage()
         initialisingAd()
         customisation()
+    }
+    
+    //MARK: For getting Song History Updates
+    
+    func addingTimerForGettingSongHistory() {
+        songHistoryTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+    }
+
+    @objc func update() {
+        self.getSongHistory(success: { (model) in
+            if let model = model as? SongHistoryResponseModel{
+                self.songHistoryResponseModel = model
+                self.recentCollectionView.reloadData()
+                if((model.historyItems.count)>0){
+                    self.populateLastPlayedSongDetailsAtTop(lastSong: model.historyItems.first!)
+                }
+            }
+        }) { (ErrorType) in
+            
+        }
+    }
+    
+    func invalidateSongHistoryTimer(){
+        if let _timer = self.songHistoryTimer{
+            _timer.invalidate()
+            self.songHistoryTimer = nil
+        }
     }
     
     func addNavigationBarImage(){
@@ -86,9 +114,15 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
         super.viewWillAppear(true)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        invalidateSongHistoryTimer()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         self.setBlackgradientOnBottomOfView(gradientView: self.songImageView)
+        addingTimerForGettingSongHistory()
     }
 
     override func didReceiveMemoryWarning() {
@@ -165,8 +199,6 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
     func collectionView(_ collectionView: UICollectionView,
                         willDisplay cell: UICollectionViewCell,
                         forItemAt indexPath: IndexPath) {
-        print("--------Index----------")
-        print(indexPath.row)
         if collectionView == trendingCollectionView{
             if newsPageIndex>0 {
                 if let newsResponse = self.newsResponseModel {
