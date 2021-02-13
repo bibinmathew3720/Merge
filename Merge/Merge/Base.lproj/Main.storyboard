@@ -811,7 +811,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zoz-5J-SQ8">
-                                                            <rect key="frame" x="55" y="10" width="45.5" height="24"/>
+                                                            <rect key="frame" x="55" y="12" width="42" height="20"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -852,7 +852,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vuL-hB-T4d">
-                                                            <rect key="frame" x="70" y="29.5" width="302" height="21"/>
+                                                            <rect key="frame" x="70" y="31.5" width="302" height="17.5"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -883,7 +883,7 @@
                                         <rect key="frame" x="20" y="622.5" width="22.5" height="24.5"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOGOUT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tjx-YJ-Pry">
-                                        <rect key="frame" x="52.5" y="623" width="68.5" height="24"/>
+                                        <rect key="frame" x="52.5" y="625" width="70.5" height="20"/>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -2497,17 +2497,17 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="chatLeftCell" id="8NR-gd-AAw" customClass="ChatleftCell" customModule="Merge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="365" height="51"/>
+                                        <rect key="frame" x="0.0" y="28" width="365" height="47.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8NR-gd-AAw" id="7QK-AS-wJW">
-                                            <rect key="frame" x="0.0" y="0.0" width="365" height="51"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="365" height="47.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P91-Cw-hnt">
-                                                    <rect key="frame" x="0.0" y="0.0" width="53.5" height="31"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="51" height="27.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6BS-sA-ald">
-                                                            <rect key="frame" x="5" y="5" width="43.5" height="21"/>
+                                                            <rect key="frame" x="5" y="5" width="41" height="17.5"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -2527,7 +2527,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6u-eB-Ccd">
-                                                    <rect key="frame" x="5" y="31" width="26.5" height="20"/>
+                                                    <rect key="frame" x="5" y="27.5" width="24.5" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="XNF-0x-qLd"/>
                                                     </constraints>
@@ -2551,17 +2551,17 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="chatRightCell" rowHeight="74" id="EQG-0t-70i" customClass="ChatRightCell" customModule="Merge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="79" width="365" height="74"/>
+                                        <rect key="frame" x="0.0" y="75.5" width="365" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EQG-0t-70i" id="mSQ-3p-WBS">
                                             <rect key="frame" x="0.0" y="0.0" width="365" height="74"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1WH-Vy-JGj">
-                                                    <rect key="frame" x="128" y="11" width="237" height="43"/>
+                                                    <rect key="frame" x="147" y="11" width="218" height="43"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label ddfdf  fnv fvfv dv dv dvd " textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTK-1e-Tg0">
-                                                            <rect key="frame" x="5" y="3" width="227" height="35"/>
+                                                            <rect key="frame" x="5" y="3" width="208" height="35"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -2581,7 +2581,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSd-Zy-Aac">
-                                                    <rect key="frame" x="333.5" y="54" width="26.5" height="20"/>
+                                                    <rect key="frame" x="335.5" y="54" width="24.5" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="1WQ-xn-Bpf"/>
                                                     </constraints>
@@ -2605,7 +2605,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatRightImageCell" rowHeight="141" id="pMP-AB-Tya" customClass="ChatRightImageViewCell" customModule="Merge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="153" width="365" height="141"/>
+                                        <rect key="frame" x="0.0" y="149.5" width="365" height="141"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pMP-AB-Tya" id="2bN-Xj-Cq1">
                                             <rect key="frame" x="0.0" y="0.0" width="365" height="141"/>
@@ -2643,7 +2643,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQz-pA-rAx">
-                                                    <rect key="frame" x="333.5" y="121" width="26.5" height="20"/>
+                                                    <rect key="frame" x="335.5" y="121" width="24.5" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="3bQ-EY-3HH"/>
                                                     </constraints>
@@ -2668,7 +2668,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatLeftImageCell" rowHeight="117" id="Vgc-3Y-RLq" customClass="ChatLeftImageViewCell" customModule="Merge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="294" width="365" height="117"/>
+                                        <rect key="frame" x="0.0" y="290.5" width="365" height="117"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vgc-3Y-RLq" id="iNX-pk-KGw">
                                             <rect key="frame" x="0.0" y="0.0" width="365" height="117"/>
@@ -2706,7 +2706,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyi-3c-W7Y">
-                                                    <rect key="frame" x="5" y="97" width="26.5" height="20"/>
+                                                    <rect key="frame" x="5" y="97" width="24.5" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="l99-at-JjT"/>
                                                     </constraints>
