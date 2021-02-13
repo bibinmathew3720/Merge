@@ -67,6 +67,8 @@ class LandingPageVC: BaseViewController,UICollectionViewDelegate,UICollectionVie
     
     func initialisation(){
         //self.title = "Merge 104.8"
+        self.voteButton.layer.borderColor = UIColor.white.cgColor
+        self.voteButton.layer.borderWidth = 2
         self.tabBarItem.title = ""
         addRightNavBarIcon()
         addingLeftBarButton()
