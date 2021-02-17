@@ -110,6 +110,7 @@ class PresenterDetailVC: BaseViewController {
         addRightNavBarIcon()
         self.rightButton?.setImage(UIImage.init(named: "backArrow"), for: UIControlState.normal)
         settingBorderToBackListButton()
+        self.newsDetailWebView.navigationDelegate = self
     }
     
     func settingBorderToBackListButton(){
@@ -276,4 +277,19 @@ class PresenterDetailVC: BaseViewController {
     }
     */
 
+}
+
+extension PresenterDetailVC: WKNavigationDelegate{
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        if navigationAction.navigationType == .linkActivated {
+            guard let url = navigationAction.request.url else {
+                decisionHandler(.allow)
+                return
+            }
+            UIApplication.shared.open(url)
+            decisionHandler(.cancel)
+        } else {
+            decisionHandler(.allow)
+        }
+    }
 }
